@@ -1,175 +1,78 @@
-# Alterna - Servicios Eléctricos
+# Alterna Servicios Eléctricos
 
-Sitio web moderno y responsivo para Alterna Servicios Eléctricos, desarrollado con una arquitectura MVC (Model-View-Controller) para mejor mantenibilidad y organización del código.
+Sitio web profesional de Alterna Servicios Eléctricos - Empresa especializada en servicios eléctricos industriales.
 
-## 🏗️ Estructura del Proyecto (MVC)
+## 🌐 Sitio Web
 
-```
-Alterna/
-├── index.html                 # Página de redirección automática
-├── assets/                    # Recursos estáticos
-│   ├── css/                  # Archivos CSS organizados por componente
-│   │   ├── base.css          # Variables, reset y estilos base
-│   │   ├── navigation.css    # Estilos de navegación
-│   │   ├── hero.css          # Estilos del hero section
-│   │   ├── services.css      # Estilos de servicios
-│   │   ├── page-hero.css     # Estilos para páginas con hero
-│   │   ├── about.css         # Estilos de "Sobre Nosotros"
-│   │   ├── partners.css      # Estilos de "Trabajamos Juntos"
-│   │   ├── gallery.css       # Estilos de galería y carrusel
-│   │   ├── contact.css       # Estilos de contacto
-│   │   ├── footer.css        # Estilos del footer
-│   │   └── main.css          # Archivo principal que importa todos los CSS
-│   ├── js/                   # Archivos JavaScript
-│   │   ├── components.js     # Componentes JavaScript
-│   │   ├── main.js           # Archivo principal de JavaScript
-│   │   └── script.js         # Scripts adicionales
-│   └── images/               # Imágenes del proyecto
-│       ├── image.jpg
-│       ├── Image2.jpg
-│       ├── LogoAlterna.jpg
-│       └── LogoAlterna-removebg-preview.png
-├── views/                    # Vistas (V del MVC)
-│   ├── components/           # Componentes reutilizables
-│   │   ├── header.html       # Componente de navegación
-│   │   └── footer.html       # Componente de footer
-│   └── pages/                # Páginas principales
-│       ├── index.html        # Página principal
-│       ├── sobre-nosotros.html
-│       ├── servicios.html
-│       ├── trabajamos-juntos.html
-│       ├── galeria.html
-│       └── contacto.html
-├── controllers/              # Controladores (C del MVC)
-│   ├── AppController.js      # Controlador principal de la aplicación
-│   ├── GalleryController.js  # Controlador para la galería
-│   └── ContactController.js  # Controlador para el formulario de contacto
-├── models/                   # Modelos (M del MVC) - Futuro
-├── package.json              # Configuración del proyecto
-├── .gitignore               # Archivos a ignorar en Git
-└── README.md                 # Documentación
-```
+**URL Principal**: [https://facualbano.github.io/alterna-servicios-electricos](https://facualbano.github.io/alterna-servicios-electricos)
 
-## 🎨 Características del Diseño
+## 🏢 Sobre Alterna
 
-### Paleta de Colores
-- **Turquesa Principal**: `#20b2aa`
-- **Turquesa Acento**: `#48cae4`
-- **Gris Oscuro**: `#1a1a1a`
-- **Gris Medio**: `#4a4a4a`
-- **Gris Claro**: `#f5f5f5`
-- **Blanco**: `#ffffff`
+Alterna es una empresa joven con un staff de Ingenieros eléctricos y una metodología de trabajo profesionalizada que busca brindar soluciones a medida a las industrias de distinta índole y en la actividad de la construcción.
 
-### Componentes Principales
-- **Navegación Transparente**: Se adapta al fondo de la página
-- **Hero Section**: Con imagen de fondo y contenido posicionado
-- **Servicios Destacados**: Cards con efectos hover
-- **Galería con Carrusel**: Auto-play con controles manuales
-- **Formulario de Contacto**: Con validación en tiempo real
-- **Diseño Responsivo**: Adaptado para todos los dispositivos
+### Servicios Principales
 
-## 🚀 Funcionalidades
-
-### Navegación
-- Menú responsive con hamburger en móviles
-- Navegación activa automática
-- Scroll suave entre secciones
-
-### Galería
-- Carrusel automático con pausa en hover
-- Controles manuales (botones y dots)
-- Grid de galería con efectos hover
-- Overlays informativos en las imágenes
-
-### Formulario de Contacto
-- Validación en tiempo real
-- Campos requeridos: nombre, email, servicio, mensaje
-- Campo opcional: teléfono
-- Estados de carga y feedback
-
-### Animaciones
-- Efectos hover en cards y botones
-- Animaciones de entrada al hacer scroll
-- Transiciones suaves en todos los elementos
-
-## 📱 Responsive Design
-
-El sitio está completamente optimizado para:
-- **Desktop**: 1200px+
-- **Tablet**: 768px - 1199px
-- **Mobile**: 320px - 767px
+- **Diseño de Proyectos Electromecánicos Industriales**
+- **Puesta a Tierra y Pararrayos SRT 900/15**
+- **Instalaciones Eléctricas**
+- **Estudios de Ingeniería**
+- **Energías Renovables**
+- **Mantenimiento Predictivo y Preventivo**
+- **Capacitación Eléctrica**
 
 ## 🛠️ Tecnologías Utilizadas
 
-- **HTML5**: Estructura semántica
-- **CSS3**: Variables CSS, Flexbox, Grid, Animaciones
-- **JavaScript ES6+**: Clases, módulos, async/await
-- **Font Awesome**: Iconografía
-- **Google Fonts**: Tipografía Inter
+- **HTML5** - Estructura semántica
+- **CSS3** - Estilos modernos y responsivos
+- **JavaScript** - Interactividad y funcionalidades
+- **Arquitectura MVC** - Organización modular del código
+- **GitHub Pages** - Hosting gratuito
 
-## 🔧 Instalación y Uso
+## 📁 Estructura del Proyecto
 
-1. **Clonar el repositorio**:
+```
+Alterna/
+├── assets/
+│   ├── css/          # Estilos modulares
+│   ├── js/           # JavaScript
+│   └── images/       # Imágenes del sitio
+├── views/
+│   ├── components/   # Componentes reutilizables
+│   └── pages/        # Páginas principales
+├── controllers/      # Lógica de control
+└── index.html        # Página de redirección
+```
+
+## 🚀 Instalación y Uso
+
+1. **Clonar el repositorio:**
    ```bash
-   git clone [url-del-repositorio]
-   cd Alterna
+   git clone https://github.com/FacuAlbano/alterna-servicios-electricos.git
    ```
 
-2. **Servidor local**:
-   ```bash
-   # Con Python
-   python -m http.server 8000
-   
-   # Con Node.js (si tienes http-server instalado)
-   npx http-server
-   
-   # Con npm (usando el script del package.json)
-   npm start
-   ```
+2. **Abrir en el navegador:**
+   - Abrir `index.html` en el navegador
+   - O visitar directamente: `https://facualbano.github.io/alterna-servicios-electricos`
 
-3. **Abrir en el navegador**:
-   ```
-   http://localhost:8000
-   ```
+## 📱 Características
 
-## 📁 Organización MVC
-
-### Views (Vistas)
-- **Componentes**: Header y footer reutilizables en `views/components/`
-- **Páginas**: Todas las páginas HTML en `views/pages/`
-- **Separación**: CSS organizado por componente en `assets/css/`
-
-### Controllers (Controladores)
-- **AppController**: Lógica general de la aplicación
-- **GalleryController**: Funcionalidad del carrusel
-- **ContactController**: Validación y envío de formularios
-
-### Models (Modelos)
-- Preparado para futuras implementaciones de datos
-- Estructura lista para integración con backend
-
-## 🎯 Ventajas de la Estructura MVC
-
-1. **Mantenibilidad**: Código organizado y fácil de mantener
-2. **Reutilización**: Componentes reutilizables
-3. **Escalabilidad**: Fácil agregar nuevas funcionalidades
-4. **Separación de Responsabilidades**: Cada archivo tiene una función específica
-5. **Testing**: Estructura preparada para testing unitario
-
-## 🔄 Futuras Mejoras
-
-- [ ] Implementar modelos para datos dinámicos
-- [ ] Agregar sistema de notificaciones
-- [ ] Implementar lazy loading para imágenes
-- [ ] Agregar animaciones más avanzadas
-- [ ] Implementar PWA (Progressive Web App)
-- [ ] Agregar sistema de temas (dark/light mode)
+- ✅ **Diseño Responsivo** - Adaptable a todos los dispositivos
+- ✅ **Navegación Moderna** - Barra de navegación transparente
+- ✅ **Carousels Interactivos** - Galería con transiciones suaves
+- ✅ **Formulario de Contacto** - Validación completa
+- ✅ **Enlaces Directos** - WhatsApp, Email, LinkedIn
+- ✅ **SEO Optimizado** - Meta tags y sitemap
 
 ## 📞 Contacto
 
-Para consultas sobre el proyecto:
-- **Email**: info@alterna.com.ar
-- **Teléfono**: (54-341) 153 856810
+- **WhatsApp**: +54 9 341 856810
+- **Email**: tomasppendino@gmail.com
+- **LinkedIn**: [Alterna Servicios Eléctricos](https://www.linkedin.com/company/alterna-servicios/)
+- **Ubicación**: Rosario, Santa Fe, Argentina
+
+## 📄 Licencia
+
+© 2025 Alterna - Servicios Eléctricos. Todos los derechos reservados.
 
 ---
 
