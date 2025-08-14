@@ -65,15 +65,10 @@ Alterna/
 
 ## 📞 Contacto
 
-- **Teléfono**:(54-341) 153 319513
+Para consultas sobre el proyecto:
 - **Email**: albano.facundo@hotmail.com
-
+- **Teléfono**: (54-341) 153 319513
 - **LinkedIn**: https://www.linkedin.com/in/facundo-albano-5b0495337
-- **Ubicación**: Rosario, Santa Fe, Argentina
-
-## 📄 Licencia
-
-© 2025 Alterna - Servicios Eléctricos. Todos los derechos reservados.
 
 ---
 
