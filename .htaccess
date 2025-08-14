@@ -1,0 +1,55 @@
+# Configuración para www.alterna.com
+RewriteEngine On
+
+# Redirigir de HTTP a HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Redirigir de www.alterna.com a alterna.com (opcional)
+# RewriteCond %{HTTP_HOST} ^www\.alterna\.com [NC]
+# RewriteRule ^(.*)$ https://alterna.com/$1 [L,R=301]
+
+# Configuración de páginas
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redirigir la página principal
+RewriteRule ^$ views/pages/index.html [L]
+
+# Redirigir otras páginas
+RewriteRule ^inicio/?$ views/pages/index.html [L]
+RewriteRule ^sobre-nosotros/?$ views/pages/sobre-nosotros.html [L]
+RewriteRule ^servicios/?$ views/pages/servicios.html [L]
+RewriteRule ^trabajamos-juntos/?$ views/pages/trabajamos-juntos.html [L]
+RewriteRule ^galeria/?$ views/pages/galeria.html [L]
+RewriteRule ^contacto/?$ views/pages/contacto.html [L]
+
+# Configuración de seguridad
+<Files ".htaccess">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Configuración de caché para imágenes
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+# Compresión GZIP
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+</IfModule>

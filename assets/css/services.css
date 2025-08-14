@@ -1,0 +1,458 @@
+/* Servicios Destacados */
+.featured-services {
+    padding: 6rem 0;
+    background: linear-gradient(45deg, #4a4a4a 0%, #48cae4 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.featured-services::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* Introducción a Servicios */
+.services-intro-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 2rem;
+    padding: 3rem;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 2;
+}
+
+.services-intro-text h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.3);
+}
+
+.services-intro-text p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.8;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    -webkit-text-stroke: 0.2px rgba(0, 0, 0, 0.15);
+}
+
+.services-intro-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.services-intro-badge {
+    background: linear-gradient(135deg, #48cae4, #20b2aa);
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: pulse 2s infinite;
+}
+
+.services-intro-badge .icon {
+    font-size: 3rem;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.services-intro-badge .label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    margin-top: 0.5rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-xl);
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.service-card:hover::before {
+    left: 100%;
+}
+
+.service-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+    color: white;
+    transition: var(--transition);
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.service-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Servicios Detallados */
+.services-detailed {
+    padding: 6rem 0;
+    background: linear-gradient(-45deg, #48cae4 0%, #4a4a4a 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.services-detailed::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+/* Introducción a Servicios Detallados */
+.services-intro-section {
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 2;
+}
+
+.services-intro-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 2rem;
+    padding: 3rem;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.services-intro-text h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.3);
+}
+
+.services-intro-text p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.8;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    -webkit-text-stroke: 0.2px rgba(0, 0, 0, 0.15);
+}
+
+.services-intro-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.services-intro-badge {
+    background: linear-gradient(135deg, #48cae4, #20b2aa);
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: pulse 2s infinite;
+}
+
+.services-intro-badge .icon {
+    font-size: 3rem;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.services-intro-badge .label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    margin-top: 0.5rem;
+}
+
+.services-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    position: relative;
+    z-index: 2;
+}
+
+.service-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.service-item.reverse {
+    direction: rtl;
+}
+
+.service-item.reverse > * {
+    direction: ltr;
+}
+
+.service-image {
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+}
+
+.service-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.05) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.service-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    transition: var(--transition);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.service-item:hover .service-image img {
+    transform: scale(1.05);
+}
+
+.service-info h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.3);
+}
+
+.service-info p {
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    -webkit-text-stroke: 0.3px rgba(0, 0, 0, 0.2);
+}
+
+.service-info ul {
+    list-style: none;
+}
+
+.service-info ul li {
+    margin-bottom: 0.75rem;
+    color: rgba(255, 255, 255, 0.9);
+    position: relative;
+    padding-left: 1.5rem;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    -webkit-text-stroke: 0.2px rgba(0, 0, 0, 0.15);
+    line-height: 1.6;
+}
+
+.service-info ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #48cae4;
+    font-weight: bold;
+    font-size: 1.1em;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.3);
+}
+
+/* Scroll suave para navegación por anclas */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Ajuste para navegación por anclas */
+.service-item {
+    scroll-margin-top: 100px; /* Espacio para el header fijo */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .services-intro-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem;
+    }
+
+    .services-intro-text h2,
+    .services-intro-text h3 {
+        font-size: 2rem;
+    }
+
+    .services-intro-text p {
+        font-size: 1rem;
+    }
+
+    .services-intro-badge {
+        width: 120px;
+        height: 120px;
+    }
+
+    .services-intro-badge .icon {
+        font-size: 2.5rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-item {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        scroll-margin-top: 80px;
+    }
+
+    .service-item.reverse {
+        direction: ltr;
+    }
+
+    .service-info h2 {
+        font-size: 1.75rem;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    .service-info p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .service-info ul li {
+        font-size: 0.9rem;
+        margin-bottom: 0.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-intro-content {
+        padding: 1.5rem;
+    }
+
+    .services-intro-text h2,
+    .services-intro-text h3 {
+        font-size: 1.75rem;
+    }
+
+    .services-intro-text p {
+        font-size: 0.9rem;
+    }
+
+    .services-intro-badge {
+        width: 100px;
+        height: 100px;
+    }
+
+    .services-intro-badge .icon {
+        font-size: 2rem;
+    }
+
+    .service-info h2 {
+        font-size: 1.5rem;
+    }
+
+    .service-info p {
+        font-size: 0.9rem;
+    }
+
+    .service-info ul li {
+        font-size: 0.85rem;
+    }
+}

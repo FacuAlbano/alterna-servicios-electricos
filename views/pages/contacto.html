@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterna - Contacto</title>
+    <link rel="icon" type="image/png" href="../../assets/images/LogoAlterna-removebg-preview.png">
+    <link rel="shortcut icon" type="image/png" href="../../assets/images/LogoAlterna-removebg-preview.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../assets/css/main.css">
+</head>
+<body>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="hero-background">
+            <div class="hero-image" style="background-image: url('../../assets/images/image.jpg');"></div>
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Contáctanos</h1>
+            <p>Estamos aquí para ayudarte con tus proyectos eléctricos</p>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <!-- Contenido Principal -->
+    <section class="contact-content">
+        <div class="container">
+            <!-- Información de Contacto -->
+            <div class="contact-info-section">
+                <div class="contact-info-content">
+                    <div class="contact-info-text">
+                        <h3>Información de Contacto</h3>
+                        <p>Estamos aquí para ayudarte con todas tus necesidades en instalaciones eléctricas. Contáctanos y te responderemos a la brevedad.</p>
+                    </div>
+                    <div class="contact-info-visual">
+                        <div class="contact-info-badge">
+                            <i class="fas fa-phone icon"></i>
+                            <span class="label">Contacto</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detalles de Contacto -->
+            <div class="contact-details-section">
+                <div class="contact-details-grid">
+                    <div class="contact-detail-card">
+                        <div class="contact-detail-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4>Email</h4>
+                        <a href="mailto:tomasppendino@gmail.com?subject=Consulta desde Alterna" class="contact-link">
+                            <p>tomasppendino@gmail.com</p>
+                        </a>
+                    </div>
+                    <div class="contact-detail-card">
+                        <div class="contact-detail-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h4>Teléfono</h4>
+                        <a href="https://wa.me/0341856810" target="_blank" class="contact-link">
+                            <p>+54 9 341 856810</p>
+                        </a>
+                    </div>
+                    <div class="contact-detail-card">
+                        <div class="contact-detail-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h4>Ubicación</h4>
+                        <p>Rosario, Santa Fe, Argentina</p>
+                    </div>
+                    <div class="contact-detail-card">
+                        <div class="contact-detail-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h4>Horarios</h4>
+                        <p>Lunes a Viernes: 8:00 - 18:00</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulario de Contacto -->
+            <div class="contact-form-section">
+                <div class="contact-form-content">
+                    <div class="contact-form-text">
+                        <h3>Envíanos un Mensaje</h3>
+                        <p>Completa el formulario y nos pondremos en contacto contigo para brindarte la mejor solución para tu proyecto.</p>
+                    </div>
+                    <div class="contact-form-visual">
+                        <div class="contact-form-badge">
+                            <i class="fas fa-paper-plane icon"></i>
+                            <span class="label">Mensaje</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contact-form" action="mailto:39500455@terciariourquiza.edu.ar" method="post" enctype="text/plain">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" name="nombre" id="nombre" placeholder="Nombre *" required>
+                                <span class="error-message" id="nombre-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="apellido" id="apellido" placeholder="Apellido *" required>
+                                <span class="error-message" id="apellido-error"></span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" name="empresa" id="empresa" placeholder="Empresa *" required>
+                                <span class="error-message" id="empresa-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" id="email" placeholder="Email *" required>
+                                <span class="error-message" id="email-error"></span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="tel" name="telefono" id="telefono" placeholder="Teléfono *" required>
+                                <span class="error-message" id="telefono-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <select name="origen" id="origen" required>
+                                    <option value="">¿Cómo nos conociste? *</option>
+                                    <option value="recomendacion">Recomendación</option>
+                                    <option value="redes-sociales">Redes Sociales</option>
+                                    <option value="linkedin">LinkedIn</option>
+                                    <option value="otros">Otros</option>
+                                </select>
+                                <span class="error-message" id="origen-error"></span>
+                            </div>
+                        </div>
+                        <div class="form-group" id="otros-origen-group" style="display: none;">
+                            <input type="text" name="otros-origen" id="otros-origen" placeholder="Especifica cómo nos conociste *">
+                            <span class="error-message" id="otros-origen-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="mensaje" id="mensaje" placeholder="Mensaje *" rows="5" required></textarea>
+                            <span class="error-message" id="mensaje-error"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="submit-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>Enviar Mensaje</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mapa Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.0!2d-60.6396!3d-32.9468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDU2JzQ4LjQiUyA2MMKwMzgnMjIuNiJX!5e0!3m2!1ses!2sar!4v1234567890"
+                    width="100%" 
+                    height="400" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- JavaScript -->
+    <script src="../../assets/js/components.js"></script>
+    <script src="../../assets/js/main.js"></script>
+</body>
+</html>

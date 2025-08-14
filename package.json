@@ -1,0 +1,41 @@
+{
+  "name": "alterna-servicios-electricos",
+  "version": "1.0.0",
+  "description": "Sitio web moderno y responsivo para Alterna Servicios Eléctricos con arquitectura MVC",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server -p 8000 -o",
+    "dev": "http-server -p 8000 -o -c-1",
+    "serve": "python -m http.server 8000",
+    "build": "echo 'Proyecto estático - no requiere build'",
+    "lint": "echo 'Linting no configurado para proyecto estático'"
+  },
+  "keywords": [
+    "html5",
+    "css3",
+    "javascript",
+    "responsive",
+    "modern",
+    "animations",
+    "form-validation",
+    "web-design",
+    "mvc",
+    "electric-services"
+  ],
+  "author": "Alterna Team",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/alterna-servicios-electricos.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/alterna-servicios-electricos/issues"
+  },
+  "homepage": "https://github.com/your-username/alterna-servicios-electricos#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
