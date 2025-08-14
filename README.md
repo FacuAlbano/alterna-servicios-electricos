@@ -168,8 +168,8 @@ El sitio está completamente optimizado para:
 ## 📞 Contacto
 
 Para consultas sobre el proyecto:
-- **Email**: info@alterna.com.ar
-- **Teléfono**: (54-341) 153 856810
+- **Email**: albano.facundo@hotmail.com
+- **Teléfono**: (54-341) 153 319513
 
 ---
 
