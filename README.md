@@ -65,9 +65,10 @@ Alterna/
 
 ## 📞 Contacto
 
-- **WhatsApp**: +54 9 341 856810
-- **Email**: tomasppendino@gmail.com
-- **LinkedIn**: [Alterna Servicios Eléctricos](https://www.linkedin.com/company/alterna-servicios/)
+- **Teléfono**:(54-341) 153 319513
+- **Email**: albano.facundo@hotmail.com
+
+- **LinkedIn**: https://www.linkedin.com/in/facundo-albano-5b0495337
 - **Ubicación**: Rosario, Santa Fe, Argentina
 
 ## 📄 Licencia
