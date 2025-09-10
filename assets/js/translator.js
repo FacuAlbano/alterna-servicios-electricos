@@ -294,6 +294,11 @@ function translateTo(lang) {
     // Continuar con todas las demás secciones...
     // [Resto del código de traducción]
     
+    // Actualizar chatbot si está disponible
+    if (window.alternaAI) {
+        window.alternaAI.updateLanguage(lang);
+    }
+    
     // Cerrar dropdown
     const dropdown = document.querySelector('.translate-options');
     if (dropdown) dropdown.classList.remove('show');

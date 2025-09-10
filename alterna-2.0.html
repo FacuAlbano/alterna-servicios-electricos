@@ -52,6 +52,11 @@
     <!-- EmailJS -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     
+    <!-- AI Chatbot Integration -->
+    <script src="https://cdn.jsdelivr.net/npm/botui@0.3.9/build/botui.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/botui@0.3.9/build/botui.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/botui@0.3.9/build/botui-theme-default.min.css">
+    
     <!-- Three.js ES Modules -->
     <script type="importmap">
     {
@@ -67,6 +72,7 @@
     <link rel="stylesheet" href="assets/css/hero.css">
     <link rel="stylesheet" href="assets/css/buttons.css">
     <link rel="stylesheet" href="assets/css/sections.css">
+    <link rel="stylesheet" href="assets/css/chatbot.css">
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
@@ -303,7 +309,7 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="project-card">
-                            <img src="assets/images/trabajamos1.jpg" alt="Proyecto 1">
+                            <img src="assets/images/trabajamos1.jpg" alt="Proyecto Industrial 1">
                             <div class="project-overlay">
                                 <h3>Instalación Industrial</h3>
                                 <p>Sistema eléctrico completo para planta industrial</p>
@@ -314,7 +320,7 @@
                     
                     <div class="swiper-slide">
                         <div class="project-card">
-                            <img src="assets/images/trabajamos2.jpg" alt="Proyecto 2">
+                            <img src="assets/images/trabajamos2.jpg" alt="Proyecto Automatización">
                             <div class="project-overlay">
                                 <h3>Automatización</h3>
                                 <p>Sistema de control automatizado</p>
@@ -323,7 +329,181 @@
                         </div>
                     </div>
                     
-                    <!-- Más slides aquí -->
+                    <div class="swiper-slide">
+                        <div class="project-card">
+                            <img src="assets/images/trabajamos3.jpg" alt="Proyecto Tableros">
+                            <div class="project-overlay">
+                                <h3>Tableros Eléctricos</h3>
+                                <p>Fabricación y montaje de tableros industriales</p>
+                                <a href="#" class="btn btn-primary">Ver Proyecto</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="project-card">
+                            <img src="assets/images/trabajamos4.jpg" alt="Proyecto Mediciones">
+                            <div class="project-overlay">
+                                <h3>Mediciones Eléctricas</h3>
+                                <p>Análisis y certificación de instalaciones</p>
+                                <a href="#" class="btn btn-primary">Ver Proyecto</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="project-card">
+                            <img src="assets/images/trabajamos5.jpg" alt="Proyecto Mantenimiento">
+                            <div class="project-overlay">
+                                <h3>Mantenimiento Preventivo</h3>
+                                <p>Servicios especializados de mantenimiento</p>
+                                <a href="#" class="btn btn-primary">Ver Proyecto</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="project-card">
+                            <img src="assets/images/trabajamos6.jpg" alt="Proyecto Industrial 2">
+                            <div class="project-overlay">
+                                <h3>Instalación Comercial</h3>
+                                <p>Proyecto eléctrico para centro comercial</p>
+                                <a href="#" class="btn btn-primary">Ver Proyecto</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="project-card">
+                            <img src="assets/images/trabajamos7.jpg" alt="Proyecto Energía Solar">
+                            <div class="project-overlay">
+                                <h3>Energía Solar</h3>
+                                <p>Sistema fotovoltaico industrial</p>
+                                <a href="#" class="btn btn-primary">Ver Proyecto</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="project-card">
+                            <img src="assets/images/trabajamos8.jpg" alt="Proyecto Control">
+                            <div class="project-overlay">
+                                <h3>Sistemas de Control</h3>
+                                <p>Automatización de procesos industriales</p>
+                                <a href="#" class="btn btn-primary">Ver Proyecto</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="project-card">
+                            <img src="assets/images/trabajamos9.jpg" alt="Proyecto Iluminación">
+                            <div class="project-overlay">
+                                <h3>Iluminación LED</h3>
+                                <p>Modernización de sistemas de iluminación</p>
+                                <a href="#" class="btn btn-primary">Ver Proyecto</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="project-card">
+                            <img src="assets/images/trabajamos10.jpg" alt="Proyecto Seguridad">
+                            <div class="project-overlay">
+                                <h3>Sistemas de Seguridad</h3>
+                                <p>Instalación de sistemas de alarma y CCTV</p>
+                                <a href="#" class="btn btn-primary">Ver Proyecto</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="project-card">
+                            <img src="assets/images/trabajamos11.jpg" alt="Proyecto Residencial">
+                            <div class="project-overlay">
+                                <h3>Instalación Residencial</h3>
+                                <p>Proyecto eléctrico para complejo habitacional</p>
+                                <a href="#" class="btn btn-primary">Ver Proyecto</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="project-card">
+                            <img src="assets/images/trabajamos12.jpg" alt="Proyecto Hospitalario">
+                            <div class="project-overlay">
+                                <h3>Instalación Hospitalaria</h3>
+                                <p>Sistema eléctrico especializado para hospital</p>
+                                <a href="#" class="btn btn-primary">Ver Proyecto</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="project-card">
+                            <img src="assets/images/trabajamos13.jpg" alt="Proyecto Educativo">
+                            <div class="project-overlay">
+                                <h3>Centro Educativo</h3>
+                                <p>Instalación eléctrica para institución educativa</p>
+                                <a href="#" class="btn btn-primary">Ver Proyecto</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="project-card">
+                            <img src="assets/images/trabajamos14.jpg" alt="Proyecto Logístico">
+                            <div class="project-overlay">
+                                <h3>Centro Logístico</h3>
+                                <p>Sistema eléctrico para almacén automatizado</p>
+                                <a href="#" class="btn btn-primary">Ver Proyecto</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="project-card">
+                            <img src="assets/images/trabajamos15.jpg" alt="Proyecto Hotelero">
+                            <div class="project-overlay">
+                                <h3>Complejo Hotelero</h3>
+                                <p>Instalación eléctrica integral para hotel</p>
+                                <a href="#" class="btn btn-primary">Ver Proyecto</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="project-card">
+                            <img src="assets/images/trabajamos16.jpg" alt="Proyecto Deportivo">
+                            <div class="project-overlay">
+                                <h3>Centro Deportivo</h3>
+                                <p>Sistema eléctrico para complejo deportivo</p>
+                                <a href="#" class="btn btn-primary">Ver Proyecto</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="project-card">
+                            <img src="assets/images/trabajamos17.jpg" alt="Proyecto Alimentario">
+                            <div class="project-overlay">
+                                <h3>Industria Alimentaria</h3>
+                                <p>Instalación para planta procesadora de alimentos</p>
+                                <a href="#" class="btn btn-primary">Ver Proyecto</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="project-card">
+                            <img src="assets/images/trabajamos18.jpg" alt="Proyecto Farmacéutico">
+                            <div class="project-overlay">
+                                <h3>Laboratorio Farmacéutico</h3>
+                                <p>Sistema eléctrico especializado para laboratorio</p>
+                                <a href="#" class="btn btn-primary">Ver Proyecto</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="swiper-pagination"></div>
@@ -436,6 +616,28 @@
         </div>
     </section>
 
+    <!-- AI Chatbot -->
+    <div id="chatbot-container" class="chatbot-container">
+        <div id="chatbot-toggle" class="chatbot-toggle">
+            <i class="fas fa-robot"></i>
+            <span class="chatbot-badge">AI</span>
+        </div>
+        
+        <div id="chatbot-window" class="chatbot-window">
+            <div class="chatbot-header">
+                <h3 id="chatbot-title">Asistente Alterna AI</h3>
+                <button id="chatbot-close" class="chatbot-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="chatbot-body" class="chatbot-body">
+                <div id="botui-app">
+                    <bot-ui></bot-ui>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -482,6 +684,7 @@
     <!-- JavaScript Modular -->
     <script src="assets/js/translator.js"></script>
     <script src="assets/js/lazy-loading.js"></script>
+    <script src="assets/js/chatbot.js"></script>
     
     <!-- Initialization Script -->
     <script>
