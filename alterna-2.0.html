@@ -56,6 +56,20 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/botui@0.3.9/build/botui.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/botui@0.3.9/build/botui-theme-default.min.css">
     
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Alterna 2.0">
+    <meta name="msapplication-TileColor" content="#20b2aa">
+    <meta name="msapplication-TileImage" content="assets/images/LogoAlterna-removebg-preview.png">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" as="style">
+    <link rel="preload" href="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js" as="script">
+    <link rel="preload" href="assets/images/image.jpg" as="image">
+    
     <style>
         /* Variables CSS avanzadas */
         :root {
@@ -2065,6 +2079,9 @@
             
             // Inicializar AI Chatbot
             initializeAIChatbot();
+            
+            // Registrar Service Worker para PWA
+            registerServiceWorker();
         });
 
         // ===== PARTICLES.JS =====
@@ -2841,6 +2858,263 @@ Entiendo tu consulta, pero necesito más información para ayudarte mejor.
                 trackEvent('cta_click', { button_text: e.target.textContent.trim() });
             }
         });
+
+        // ===== PWA SERVICE WORKER =====
+        function registerServiceWorker() {
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('🚀 Service Worker registrado:', registration.scope);
+                        
+                        // Verificar actualizaciones
+                        registration.addEventListener('updatefound', () => {
+                            const newWorker = registration.installing;
+                            console.log('🔄 Nueva versión de Service Worker disponible');
+                            
+                            newWorker.addEventListener('statechange', () => {
+                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    showUpdateNotification();
+                                }
+                            });
+                        });
+                    })
+                    .catch(error => {
+                        console.error('❌ Error registrando Service Worker:', error);
+                    });
+
+                // Escuchar mensajes del Service Worker
+                navigator.serviceWorker.addEventListener('message', event => {
+                    if (event.data && event.data.type === 'UPDATE_AVAILABLE') {
+                        showUpdateNotification();
+                    }
+                });
+            }
+        }
+
+        function showUpdateNotification() {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: var(--primary-color);
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 0.5rem;
+                box-shadow: var(--shadow-xl);
+                z-index: 10000;
+                max-width: 300px;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            `;
+            
+            notification.innerHTML = `
+                <div>
+                    <strong>Nueva versión disponible</strong>
+                    <br>
+                    <small>Actualiza para obtener las últimas mejoras</small>
+                </div>
+                <button onclick="updateApp()" style="background: white; color: var(--primary-color); border: none; padding: 0.5rem 1rem; border-radius: 0.25rem; cursor: pointer; font-weight: 600;">
+                    Actualizar
+                </button>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 10000);
+        }
+
+        function updateApp() {
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.getRegistration().then(registration => {
+                    if (registration && registration.waiting) {
+                        registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+                        window.location.reload();
+                    }
+                });
+            }
+        }
+
+        // ===== PWA INSTALL PROMPT =====
+        let deferredPrompt;
+        
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            showInstallButton();
+        });
+
+        function showInstallButton() {
+            const installButton = document.createElement('button');
+            installButton.style.cssText = `
+                position: fixed;
+                bottom: 100px;
+                left: 30px;
+                background: var(--gradient-primary);
+                color: white;
+                border: none;
+                padding: 1rem 1.5rem;
+                border-radius: 2rem;
+                cursor: pointer;
+                box-shadow: var(--shadow-xl);
+                z-index: 1000;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                transition: var(--transition-bounce);
+            `;
+            
+            installButton.innerHTML = `
+                <i class="fas fa-download"></i>
+                Instalar App
+            `;
+            
+            installButton.addEventListener('click', installApp);
+            
+            installButton.addEventListener('mouseenter', () => {
+                installButton.style.transform = 'scale(1.05)';
+            });
+            
+            installButton.addEventListener('mouseleave', () => {
+                installButton.style.transform = 'scale(1)';
+            });
+            
+            document.body.appendChild(installButton);
+            
+            // Auto-hide after 30 seconds
+            setTimeout(() => {
+                if (installButton.parentNode) {
+                    installButton.remove();
+                }
+            }, 30000);
+        }
+
+        async function installApp() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                
+                if (outcome === 'accepted') {
+                    console.log('✅ PWA instalada por el usuario');
+                    trackEvent('pwa_install', { outcome: 'accepted' });
+                } else {
+                    console.log('❌ PWA rechazada por el usuario');
+                    trackEvent('pwa_install', { outcome: 'declined' });
+                }
+                
+                deferredPrompt = null;
+                
+                // Remove install button
+                const installButton = document.querySelector('button[onclick="installApp()"]');
+                if (installButton) {
+                    installButton.remove();
+                }
+            }
+        }
+
+        // ===== PERFORMANCE OPTIMIZATION =====
+        function optimizePerformance() {
+            // Lazy load images
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            if (img.dataset.src) {
+                                img.src = img.dataset.src;
+                                img.classList.remove('lazy');
+                                imageObserver.unobserve(img);
+                            }
+                        }
+                    });
+                });
+
+                document.querySelectorAll('img[data-src]').forEach(img => {
+                    imageObserver.observe(img);
+                });
+            }
+
+            // Preload critical resources
+            const criticalResources = [
+                'https://unpkg.com/gsap@3.12.2/dist/ScrollTrigger.min.js',
+                'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js'
+            ];
+
+            criticalResources.forEach(resource => {
+                const link = document.createElement('link');
+                link.rel = 'preload';
+                link.as = 'script';
+                link.href = resource;
+                document.head.appendChild(link);
+            });
+
+            // Critical CSS
+            const criticalCSS = `
+                .hero { height: 100vh; display: flex; align-items: center; }
+                .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
+                .btn { padding: 1rem 2rem; border-radius: 0.5rem; transition: all 0.3s; }
+            `;
+
+            const style = document.createElement('style');
+            style.textContent = criticalCSS;
+            document.head.insertBefore(style, document.head.firstChild);
+        }
+
+        // Initialize performance optimizations
+        optimizePerformance();
+
+        // ===== OFFLINE FUNCTIONALITY =====
+        window.addEventListener('online', () => {
+            showNotification('🌐 Conexión restaurada', 'success');
+            console.log('🌐 Aplicación online');
+        });
+
+        window.addEventListener('offline', () => {
+            showNotification('📱 Modo offline activado', 'info');
+            console.log('📱 Aplicación offline');
+        });
+
+        // ===== ANALYTICS AND MONITORING =====
+        function initializeMonitoring() {
+            // Performance monitoring
+            if ('PerformanceObserver' in window) {
+                const perfObserver = new PerformanceObserver((list) => {
+                    list.getEntries().forEach((entry) => {
+                        if (entry.entryType === 'largest-contentful-paint') {
+                            trackEvent('performance_lcp', { value: entry.startTime });
+                        }
+                        if (entry.entryType === 'first-input') {
+                            trackEvent('performance_fid', { value: entry.processingStart - entry.startTime });
+                        }
+                    });
+                });
+
+                perfObserver.observe({ entryTypes: ['largest-contentful-paint', 'first-input'] });
+            }
+
+            // Error monitoring
+            window.addEventListener('error', (e) => {
+                trackEvent('javascript_error', {
+                    message: e.message,
+                    filename: e.filename,
+                    lineno: e.lineno,
+                    colno: e.colno
+                });
+            });
+
+            window.addEventListener('unhandledrejection', (e) => {
+                trackEvent('promise_rejection', {
+                    reason: e.reason.toString()
+                });
+            });
+        }
+
+        // Initialize monitoring
+        initializeMonitoring();
     </script>
 </body>
 </html>
