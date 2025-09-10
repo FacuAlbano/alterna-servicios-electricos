@@ -367,39 +367,25 @@
         }
 
         .language-toggle {
-            background: linear-gradient(135deg, rgba(32, 178, 170, 0.2), rgba(0, 255, 255, 0.1));
-            border: 1px solid rgba(32, 178, 170, 0.3);
-            border-radius: 25px;
-            padding: 0.5rem 1rem;
-            color: var(--primary-color);
-            font-size: 0.9rem;
-            font-weight: 600;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
             cursor: pointer;
             transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            text-decoration: none;
-            /* Sombra de texto para legibilidad */
+            padding: 0.5rem;
+            border-radius: 8px;
             text-shadow: 
                 0 1px 3px rgba(0, 0, 0, 0.8),
-                0 0 10px rgba(32, 178, 170, 0.5);
+                0 0 10px rgba(0, 0, 0, 0.5);
         }
 
         .language-toggle:hover {
-            background: linear-gradient(135deg, rgba(32, 178, 170, 0.3), rgba(0, 255, 255, 0.2));
-            border-color: var(--primary-color);
-            transform: translateY(-2px);
-            box-shadow: 
-                0 5px 15px rgba(32, 178, 170, 0.3),
-                0 0 20px rgba(32, 178, 170, 0.2);
-        }
-
-        .language-toggle span {
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.1);
         }
 
         .translate-options {
@@ -2351,7 +2337,7 @@
                     <!-- Traductor de idiomas -->
                     <div class="translate-dropdown">
                         <button class="language-toggle" title="Cambiar idioma">
-                            🌍 <span>Idioma</span>
+                            <i class="fas fa-globe"></i>
                         </button>
                         <div class="translate-options">
                             <button class="translate-option" data-lang="es" onclick="translateTo('es')">Español</button>
@@ -3049,28 +3035,184 @@
         let currentLanguage = 'es';
         const translations = {
             es: {
+                // Navegación
                 'nav': ['Inicio', 'Nosotros', 'Servicios', 'Proyectos', 'Clientes', 'Contacto'],
+                // Hero
                 'hero-title': 'ALTERNA',
                 'hero-subtitle': 'Servicios Eléctricos',
                 'hero-description': 'Alterna es una empresa joven con un staff de Ingenieros y una metodología de trabajo profesionalizada que busca brindar soluciones en instalaciones eléctricas, en todo tipo de obras civiles e industriales.',
                 'btn-about': 'Sobre Nosotros',
-                'btn-services': 'Servicios'
+                'btn-services': 'Servicios',
+                // Sobre Nosotros
+                'about-title': 'Sobre Nosotros',
+                'about-subtitle': 'Experiencia y Profesionalismo',
+                'about-description': 'Con más de 10 años de experiencia en el sector eléctrico, nos especializamos en brindar soluciones integrales para proyectos residenciales, comerciales e industriales.',
+                'about-experience': 'Años de Experiencia',
+                'about-projects': 'Proyectos Completados',
+                'about-clients': 'Clientes Satisfechos',
+                'about-specialists': 'Especialistas',
+                // Servicios
+                'services-title': 'Nuestros Servicios',
+                'services-subtitle': 'Soluciones Eléctricas Integrales',
+                'service-1-title': 'Instalaciones Eléctricas',
+                'service-1-desc': 'Diseño e instalación de sistemas eléctricos completos para todo tipo de proyectos.',
+                'service-2-title': 'Mantenimiento Industrial',
+                'service-2-desc': 'Servicios de mantenimiento preventivo y correctivo para equipos industriales.',
+                'service-3-title': 'Automatización',
+                'service-3-desc': 'Sistemas de control y automatización para optimizar procesos industriales.',
+                'service-4-title': 'Tableros Eléctricos',
+                'service-4-desc': 'Fabricación y armado de tableros eléctricos según normativas vigentes.',
+                'service-5-title': 'Mediciones',
+                'service-5-desc': 'Mediciones eléctricas especializadas y certificaciones de calidad.',
+                'service-6-title': 'Consultoría Técnica',
+                'service-6-desc': 'Asesoramiento técnico especializado para proyectos eléctricos complejos.',
+                // Proyectos
+                'projects-title': 'Proyectos Realizados',
+                'projects-subtitle': 'Calidad en Cada Detalle',
+                'project-view': 'Ver Proyecto',
+                // Clientes
+                'clients-title': 'Nuestros Clientes',
+                'clients-subtitle': 'Empresas que Confían en Nosotros',
+                // Timeline
+                'timeline-title': 'Nuestra Historia',
+                'timeline-subtitle': 'Creciendo Juntos',
+                // Contacto
+                'contact-title': 'Contáctanos',
+                'contact-subtitle': 'Estamos Aquí Para Ayudarte',
+                'contact-name': 'Nombre',
+                'contact-email': 'Email',
+                'contact-message': 'Mensaje',
+                'contact-send': 'Enviar Mensaje',
+                'contact-info-title': 'Información de Contacto',
+                'contact-address': 'Dirección',
+                'contact-phone': 'Teléfono',
+                'contact-email-label': 'Email',
+                // Footer
+                'footer-description': 'Alterna Servicios Eléctricos - Profesionalismo y calidad en cada proyecto eléctrico.',
+                'footer-services': 'Servicios',
+                'footer-company': 'Empresa',
+                'footer-contact': 'Contacto',
+                'footer-follow': 'Síguenos'
             },
             en: {
+                // Navigation
                 'nav': ['Home', 'About Us', 'Services', 'Projects', 'Clients', 'Contact'],
+                // Hero
                 'hero-title': 'ALTERNA',
                 'hero-subtitle': 'Electrical Services',
                 'hero-description': 'Alterna is a young company with a staff of Engineers and a professionalized work methodology that seeks to provide solutions in electrical installations, in all types of civil and industrial works.',
                 'btn-about': 'About Us',
-                'btn-services': 'Services'
+                'btn-services': 'Services',
+                // About Us
+                'about-title': 'About Us',
+                'about-subtitle': 'Experience and Professionalism',
+                'about-description': 'With more than 10 years of experience in the electrical sector, we specialize in providing comprehensive solutions for residential, commercial and industrial projects.',
+                'about-experience': 'Years of Experience',
+                'about-projects': 'Completed Projects',
+                'about-clients': 'Satisfied Clients',
+                'about-specialists': 'Specialists',
+                // Services
+                'services-title': 'Our Services',
+                'services-subtitle': 'Comprehensive Electrical Solutions',
+                'service-1-title': 'Electrical Installations',
+                'service-1-desc': 'Design and installation of complete electrical systems for all types of projects.',
+                'service-2-title': 'Industrial Maintenance',
+                'service-2-desc': 'Preventive and corrective maintenance services for industrial equipment.',
+                'service-3-title': 'Automation',
+                'service-3-desc': 'Control and automation systems to optimize industrial processes.',
+                'service-4-title': 'Electrical Panels',
+                'service-4-desc': 'Manufacturing and assembly of electrical panels according to current regulations.',
+                'service-5-title': 'Measurements',
+                'service-5-desc': 'Specialized electrical measurements and quality certifications.',
+                'service-6-title': 'Technical Consulting',
+                'service-6-desc': 'Specialized technical advice for complex electrical projects.',
+                // Projects
+                'projects-title': 'Completed Projects',
+                'projects-subtitle': 'Quality in Every Detail',
+                'project-view': 'View Project',
+                // Clients
+                'clients-title': 'Our Clients',
+                'clients-subtitle': 'Companies That Trust Us',
+                // Timeline
+                'timeline-title': 'Our History',
+                'timeline-subtitle': 'Growing Together',
+                // Contact
+                'contact-title': 'Contact Us',
+                'contact-subtitle': 'We Are Here To Help You',
+                'contact-name': 'Name',
+                'contact-email': 'Email',
+                'contact-message': 'Message',
+                'contact-send': 'Send Message',
+                'contact-info-title': 'Contact Information',
+                'contact-address': 'Address',
+                'contact-phone': 'Phone',
+                'contact-email-label': 'Email',
+                // Footer
+                'footer-description': 'Alterna Electrical Services - Professionalism and quality in every electrical project.',
+                'footer-services': 'Services',
+                'footer-company': 'Company',
+                'footer-contact': 'Contact',
+                'footer-follow': 'Follow Us'
             },
             pt: {
+                // Navegação
                 'nav': ['Início', 'Sobre Nós', 'Serviços', 'Projetos', 'Clientes', 'Contato'],
+                // Hero
                 'hero-title': 'ALTERNA',
                 'hero-subtitle': 'Serviços Elétricos',
                 'hero-description': 'Alterna é uma empresa jovem com uma equipe de Engenheiros e uma metodologia de trabalho profissionalizada que busca fornecer soluções em instalações elétricas, em todos os tipos de obras civis e industriais.',
                 'btn-about': 'Sobre Nós',
-                'btn-services': 'Serviços'
+                'btn-services': 'Serviços',
+                // Sobre Nós
+                'about-title': 'Sobre Nós',
+                'about-subtitle': 'Experiência e Profissionalismo',
+                'about-description': 'Com mais de 10 anos de experiência no setor elétrico, especializamo-nos em fornecer soluções abrangentes para projetos residenciais, comerciais e industriais.',
+                'about-experience': 'Anos de Experiência',
+                'about-projects': 'Projetos Concluídos',
+                'about-clients': 'Clientes Satisfeitos',
+                'about-specialists': 'Especialistas',
+                // Serviços
+                'services-title': 'Nossos Serviços',
+                'services-subtitle': 'Soluções Elétricas Integrais',
+                'service-1-title': 'Instalações Elétricas',
+                'service-1-desc': 'Design e instalação de sistemas elétricos completos para todos os tipos de projetos.',
+                'service-2-title': 'Manutenção Industrial',
+                'service-2-desc': 'Serviços de manutenção preventiva e corretiva para equipamentos industriais.',
+                'service-3-title': 'Automação',
+                'service-3-desc': 'Sistemas de controle e automação para otimizar processos industriais.',
+                'service-4-title': 'Painéis Elétricos',
+                'service-4-desc': 'Fabricação e montagem de painéis elétricos de acordo com as regulamentações vigentes.',
+                'service-5-title': 'Medições',
+                'service-5-desc': 'Medições elétricas especializadas e certificações de qualidade.',
+                'service-6-title': 'Consultoria Técnica',
+                'service-6-desc': 'Assessoramento técnico especializado para projetos elétricos complexos.',
+                // Projetos
+                'projects-title': 'Projetos Realizados',
+                'projects-subtitle': 'Qualidade em Cada Detalhe',
+                'project-view': 'Ver Projeto',
+                // Clientes
+                'clients-title': 'Nossos Clientes',
+                'clients-subtitle': 'Empresas que Confiam em Nós',
+                // Timeline
+                'timeline-title': 'Nossa História',
+                'timeline-subtitle': 'Crescendo Juntos',
+                // Contato
+                'contact-title': 'Entre em Contato',
+                'contact-subtitle': 'Estamos Aqui Para Ajudá-lo',
+                'contact-name': 'Nome',
+                'contact-email': 'Email',
+                'contact-message': 'Mensagem',
+                'contact-send': 'Enviar Mensagem',
+                'contact-info-title': 'Informações de Contato',
+                'contact-address': 'Endereço',
+                'contact-phone': 'Telefone',
+                'contact-email-label': 'Email',
+                // Rodapé
+                'footer-description': 'Alterna Serviços Elétricos - Profissionalismo e qualidade em cada projeto elétrico.',
+                'footer-services': 'Serviços',
+                'footer-company': 'Empresa',
+                'footer-contact': 'Contato',
+                'footer-follow': 'Siga-nos'
             }
         };
         
@@ -3080,7 +3222,7 @@
             currentLanguage = lang;
             const trans = translations[lang];
             
-            // Actualizar navegación
+            // ===== NAVEGACIÓN =====
             const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach((link, index) => {
                 if (trans.nav[index]) {
@@ -3088,7 +3230,7 @@
                 }
             });
             
-            // Actualizar hero
+            // ===== HERO SECTION =====
             const heroTitle = document.querySelector('.hero-logo h1');
             const heroSubtitle = document.querySelector('.hero-logo p');
             const heroDesc = document.querySelector('.hero-description p');
@@ -3101,16 +3243,128 @@
             if (btnAbout) btnAbout.textContent = trans['btn-about'];
             if (btnServices) btnServices.textContent = trans['btn-services'];
             
-            // Actualizar botón del traductor
-            const langToggleText = document.querySelector('.language-toggle span');
-            if (langToggleText) {
-                const langLabels = {
-                    'es': 'Idioma',
-                    'en': 'Language', 
-                    'pt': 'Idioma'
-                };
-                langToggleText.textContent = langLabels[lang] || 'Idioma';
-            }
+            // ===== SOBRE NOSOTROS SECTION =====
+            const aboutTitle = document.querySelector('#about .section-title');
+            const aboutSubtitle = document.querySelector('#about .section-subtitle');
+            const aboutDesc = document.querySelector('#about .about-description');
+            
+            if (aboutTitle) aboutTitle.textContent = trans['about-title'];
+            if (aboutSubtitle) aboutSubtitle.textContent = trans['about-subtitle'];
+            if (aboutDesc) aboutDesc.textContent = trans['about-description'];
+            
+            // Actualizar métricas
+            const metrics = document.querySelectorAll('#about .metric-label');
+            const metricLabels = [
+                trans['about-experience'],
+                trans['about-projects'], 
+                trans['about-clients'],
+                trans['about-specialists']
+            ];
+            metrics.forEach((metric, index) => {
+                if (metricLabels[index]) {
+                    metric.textContent = metricLabels[index];
+                }
+            });
+            
+            // ===== SERVICIOS SECTION =====
+            const servicesTitle = document.querySelector('#services .section-title');
+            const servicesSubtitle = document.querySelector('#services .section-subtitle');
+            
+            if (servicesTitle) servicesTitle.textContent = trans['services-title'];
+            if (servicesSubtitle) servicesSubtitle.textContent = trans['services-subtitle'];
+            
+            // Actualizar cada servicio
+            const serviceCards = document.querySelectorAll('#services .service-card');
+            serviceCards.forEach((card, index) => {
+                const title = card.querySelector('h3');
+                const desc = card.querySelector('p');
+                const serviceNum = index + 1;
+                
+                if (title && trans[`service-${serviceNum}-title`]) {
+                    title.textContent = trans[`service-${serviceNum}-title`];
+                }
+                if (desc && trans[`service-${serviceNum}-desc`]) {
+                    desc.textContent = trans[`service-${serviceNum}-desc`];
+                }
+            });
+            
+            // ===== PROYECTOS SECTION =====
+            const projectsTitle = document.querySelector('#projects .section-title');
+            const projectsSubtitle = document.querySelector('#projects .section-subtitle');
+            
+            if (projectsTitle) projectsTitle.textContent = trans['projects-title'];
+            if (projectsSubtitle) projectsSubtitle.textContent = trans['projects-subtitle'];
+            
+            // Actualizar botones de proyectos
+            const projectButtons = document.querySelectorAll('#projects .project-btn');
+            projectButtons.forEach(btn => {
+                if (btn) btn.textContent = trans['project-view'];
+            });
+            
+            // ===== CLIENTES SECTION =====
+            const clientsTitle = document.querySelector('#clients .section-title');
+            const clientsSubtitle = document.querySelector('#clients .section-subtitle');
+            
+            if (clientsTitle) clientsTitle.textContent = trans['clients-title'];
+            if (clientsSubtitle) clientsSubtitle.textContent = trans['clients-subtitle'];
+            
+            // ===== TIMELINE SECTION =====
+            const timelineTitle = document.querySelector('#timeline .section-title');
+            const timelineSubtitle = document.querySelector('#timeline .section-subtitle');
+            
+            if (timelineTitle) timelineTitle.textContent = trans['timeline-title'];
+            if (timelineSubtitle) timelineSubtitle.textContent = trans['timeline-subtitle'];
+            
+            // ===== CONTACTO SECTION =====
+            const contactTitle = document.querySelector('#contact .section-title');
+            const contactSubtitle = document.querySelector('#contact .section-subtitle');
+            
+            if (contactTitle) contactTitle.textContent = trans['contact-title'];
+            if (contactSubtitle) contactSubtitle.textContent = trans['contact-subtitle'];
+            
+            // Actualizar formulario
+            const formName = document.querySelector('#contact input[name="name"]');
+            const formEmail = document.querySelector('#contact input[name="email"]');
+            const formMessage = document.querySelector('#contact textarea[name="message"]');
+            const formSubmit = document.querySelector('#contact .btn-submit');
+            
+            if (formName) formName.placeholder = trans['contact-name'];
+            if (formEmail) formEmail.placeholder = trans['contact-email'];
+            if (formMessage) formMessage.placeholder = trans['contact-message'];
+            if (formSubmit) formSubmit.textContent = trans['contact-send'];
+            
+            // Actualizar información de contacto
+            const contactInfoTitle = document.querySelector('#contact .contact-info h3');
+            if (contactInfoTitle) contactInfoTitle.textContent = trans['contact-info-title'];
+            
+            const contactLabels = document.querySelectorAll('#contact .contact-info .info-label');
+            const contactLabelTexts = [
+                trans['contact-address'],
+                trans['contact-phone'],
+                trans['contact-email-label']
+            ];
+            contactLabels.forEach((label, index) => {
+                if (contactLabelTexts[index]) {
+                    label.textContent = contactLabelTexts[index];
+                }
+            });
+            
+            // ===== FOOTER =====
+            const footerDesc = document.querySelector('footer .footer-description');
+            if (footerDesc) footerDesc.textContent = trans['footer-description'];
+            
+            const footerTitles = document.querySelectorAll('footer .footer-section h4');
+            const footerTitleTexts = [
+                trans['footer-services'],
+                trans['footer-company'],
+                trans['footer-contact'],
+                trans['footer-follow']
+            ];
+            footerTitles.forEach((title, index) => {
+                if (footerTitleTexts[index]) {
+                    title.textContent = footerTitleTexts[index];
+                }
+            });
             
             // Cerrar dropdown
             const dropdown = document.querySelector('.translate-options');
