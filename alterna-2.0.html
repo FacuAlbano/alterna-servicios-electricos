@@ -51,6 +51,11 @@
     <!-- EmailJS -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     
+    <!-- AI Chatbot Integration -->
+    <script src="https://cdn.jsdelivr.net/npm/botui@0.3.9/build/botui.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/botui@0.3.9/build/botui.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/botui@0.3.9/build/botui-theme-default.min.css">
+    
     <style>
         /* Variables CSS avanzadas */
         :root {
@@ -1256,6 +1261,266 @@
         .translate-option:hover {
             background: var(--bg-secondary);
         }
+
+        /* AI Chatbot Styles */
+        #ai-chatbot {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: var(--z-modal);
+        }
+
+        .chatbot-toggle {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border: none;
+            border-radius: var(--radius-full);
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-xl);
+            transition: var(--transition-bounce);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chatbot-toggle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: conic-gradient(from 0deg, transparent, var(--accent-color), transparent);
+            animation: rotate 2s linear infinite;
+            opacity: 0;
+            transition: var(--transition-normal);
+        }
+
+        .chatbot-toggle:hover::before {
+            opacity: 0.3;
+        }
+
+        .chatbot-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(32, 178, 170, 0.6);
+        }
+
+        .chatbot-pulse {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 20px;
+            height: 20px;
+            background: #ef4444;
+            border-radius: var(--radius-full);
+            animation: pulse-notification 2s infinite;
+        }
+
+        @keyframes pulse-notification {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+            }
+        }
+
+        .chatbot-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 350px;
+            height: 500px;
+            background: var(--bg-primary);
+            border-radius: var(--radius-2xl);
+            box-shadow: var(--shadow-2xl);
+            border: 1px solid var(--border-color);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            transform: scale(0) translateY(20px);
+            transition: var(--transition-bounce);
+        }
+
+        .chatbot-window.active {
+            display: flex;
+            transform: scale(1) translateY(0);
+        }
+
+        .chatbot-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: var(--space-lg);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chatbot-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: var(--space-sm);
+            border-radius: var(--radius-sm);
+            transition: var(--transition-fast);
+        }
+
+        .chatbot-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .chatbot-body {
+            flex: 1;
+            padding: var(--space-lg);
+            overflow-y: auto;
+            background: var(--bg-secondary);
+        }
+
+        .ai-message, .user-message {
+            margin-bottom: var(--space-md);
+            padding: var(--space-md);
+            border-radius: var(--radius-lg);
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+
+        .ai-message {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            margin-right: auto;
+        }
+
+        .user-message {
+            background: var(--primary-color);
+            color: white;
+            margin-left: auto;
+            text-align: right;
+        }
+
+        .chatbot-input-area {
+            padding: var(--space-lg);
+            border-top: 1px solid var(--border-color);
+            background: var(--bg-primary);
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        .chatbot-input {
+            flex: 1;
+            padding: var(--space-md);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            font-size: 0.9rem;
+            transition: var(--transition-fast);
+        }
+
+        .chatbot-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(32, 178, 170, 0.1);
+        }
+
+        .chatbot-send {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: var(--space-md);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: var(--transition-fast);
+            min-width: 45px;
+        }
+
+        .chatbot-send:hover {
+            background: var(--primary-dark);
+        }
+
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .typing-dots {
+            display: flex;
+            gap: 3px;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--primary-color);
+            border-radius: var(--radius-full);
+            animation: typing 1.4s infinite ease-in-out;
+        }
+
+        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes typing {
+            0%, 80%, 100% {
+                transform: scale(0);
+                opacity: 0.5;
+            }
+            40% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-md);
+        }
+
+        .quick-action {
+            background: var(--bg-primary);
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-xl);
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .quick-action:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Responsive chatbot */
+        @media (max-width: 480px) {
+            .chatbot-window {
+                width: 320px;
+                height: 450px;
+                bottom: 70px;
+                right: -10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1713,6 +1978,53 @@
         </div>
     </footer>
 
+    <!-- AI Chatbot -->
+    <div id="ai-chatbot">
+        <button class="chatbot-toggle" id="chatbotToggle">
+            <i class="fas fa-robot"></i>
+            <div class="chatbot-pulse" id="chatbotPulse"></div>
+        </button>
+        
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <div class="chatbot-title">
+                    <i class="fas fa-robot"></i> Asistente Alterna AI
+                </div>
+                <button class="chatbot-close" id="chatbotClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="chatbot-body" id="chatbotBody">
+                <div class="ai-message">
+                    ¡Hola! 👋 Soy el asistente inteligente de Alterna 2.0. ¿En qué puedo ayudarte hoy?
+                </div>
+                
+                <div class="quick-actions">
+                    <button class="quick-action" onclick="sendQuickMessage('¿Qué servicios ofrecen?')">
+                        🔧 Servicios
+                    </button>
+                    <button class="quick-action" onclick="sendQuickMessage('Quiero un presupuesto')">
+                        💰 Presupuesto
+                    </button>
+                    <button class="quick-action" onclick="sendQuickMessage('¿Dónde están ubicados?')">
+                        📍 Ubicación
+                    </button>
+                    <button class="quick-action" onclick="sendQuickMessage('Información de contacto')">
+                        📞 Contacto
+                    </button>
+                </div>
+            </div>
+            
+            <div class="chatbot-input-area">
+                <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Escribe tu mensaje..." maxlength="500">
+                <button class="chatbot-send" id="chatbotSend">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script>
         // ===== CONFIGURACIÓN GLOBAL =====
         gsap.registerPlugin(ScrollTrigger);
@@ -1750,6 +2062,9 @@
 
             // Configurar EmailJS
             emailjs.init("tu_user_id_aqui"); // Reemplazar con tu User ID de EmailJS
+            
+            // Inicializar AI Chatbot
+            initializeAIChatbot();
         });
 
         // ===== PARTICLES.JS =====
@@ -2240,6 +2555,277 @@
             console.error('Error capturado:', e.error);
             // Aquí puedes agregar logging o reporte de errores
         });
+
+        // ===== AI CHATBOT =====
+        function initializeAIChatbot() {
+            const chatbotToggle = document.getElementById('chatbotToggle');
+            const chatbotWindow = document.getElementById('chatbotWindow');
+            const chatbotClose = document.getElementById('chatbotClose');
+            const chatbotInput = document.getElementById('chatbotInput');
+            const chatbotSend = document.getElementById('chatbotSend');
+            const chatbotBody = document.getElementById('chatbotBody');
+            const chatbotPulse = document.getElementById('chatbotPulse');
+
+            let isOpen = false;
+            let conversationStarted = false;
+
+            // Respuestas predefinidas del AI
+            const aiResponses = {
+                'servicios': {
+                    keywords: ['servicios', 'servicio', 'ofrecen', 'que hacen', 'especialidades'],
+                    response: `🔧 **Nuestros Servicios Principales:**
+
+• **Diseño de Proyectos Electromecánicos** - Proyectos industriales MT/BT
+• **Puesta a Tierra y Pararrayos** - Según SRT 900/15
+• **Instalaciones Eléctricas** - Cumplimiento AEA 930364
+• **Energías Renovables** - Sistemas solares y eficiencia
+• **Mantenimiento Predictivo** - Termografía e IoT
+• **Capacitación Eléctrica** - Formación especializada
+
+¿Te interesa algún servicio en particular? 🤔`
+                },
+                'presupuesto': {
+                    keywords: ['presupuesto', 'cotización', 'precio', 'costo', 'tarifa', 'quote'],
+                    response: `💰 **Solicitar Presupuesto:**
+
+¡Perfecto! Para brindarte un presupuesto personalizado necesito algunos datos:
+
+• Tipo de proyecto o servicio
+• Ubicación de la obra
+• Características específicas
+• Plazo estimado
+
+🎯 **¿Prefieres que te contactemos?**
+• WhatsApp: [(54-341) 385-6810](https://wa.me/5493413856810)
+• Email: info@alterna2.com.ar
+• Formulario: Desplázate a la sección de contacto
+
+¿Qué tipo de proyecto tienes en mente? ⚡`
+                },
+                'ubicacion': {
+                    keywords: ['ubicación', 'donde', 'dirección', 'están', 'localización'],
+                    response: `📍 **Nuestra Ubicación:**
+
+🏢 **Sede Principal:**
+Rosario, Santa Fe, Argentina
+
+🌎 **Área de Cobertura:**
+• Rosario y Gran Rosario
+• Toda la Provincia de Santa Fe
+• Proyectos especiales en todo el país
+
+🚗 **¿Necesitas que visitemos tu proyecto?**
+Realizamos relevamientos y visitas técnicas sin costo en el área metropolitana.
+
+¿Tu proyecto está en Rosario o alrededores? 🗺️`
+                },
+                'contacto': {
+                    keywords: ['contacto', 'teléfono', 'email', 'comunicarse', 'llamar'],
+                    response: `📞 **Información de Contacto:**
+
+• **WhatsApp:** [(54-341) 385-6810](https://wa.me/5493413856810)
+• **Email:** info@alterna2.com.ar
+• **Web:** www.alterna2.com.ar
+
+⏰ **Horarios de Atención:**
+Lunes a Viernes: 8:00 - 18:00 hs
+Sábados: 9:00 - 13:00 hs
+
+💬 **Respuesta Rápida:**
+Por WhatsApp respondemos en menos de 30 minutos en horario laboral.
+
+¿Prefieres que te contactemos nosotros? 📲`
+                },
+                'empresa': {
+                    keywords: ['empresa', 'alterna', 'quienes', 'historia', 'experiencia'],
+                    response: `🏢 **Sobre Alterna 2.0:**
+
+⚡ **Desde 2018** transformando la industria eléctrica
+🎯 **150+ proyectos** completados exitosamente
+👥 **12 ingenieros** especialistas en el equipo
+🏭 **85+ clientes** industriales satisfechos
+
+🚀 **Nuestra Especialidad:**
+Combinamos experiencia tradicional con tecnología de vanguardia: IoT, monitoreo predictivo, y soluciones 4.0.
+
+🌟 **¿Por qué elegirnos?**
+• Tecnología de punta
+• Cumplimiento normativo
+• Soporte 24/7
+• Garantía extendida
+
+¿Quieres conocer más sobre algún aspecto específico? 💡`
+                },
+                'default': {
+                    response: `🤖 **Asistente Alterna AI**
+
+Entiendo tu consulta, pero necesito más información para ayudarte mejor.
+
+🔍 **Puedo ayudarte con:**
+• Información sobre servicios
+• Solicitar presupuestos
+• Datos de contacto
+• Ubicación y cobertura
+• Historia de la empresa
+
+💡 **Tip:** Intenta ser más específico. Por ejemplo:
+"¿Qué servicios de instalación eléctrica ofrecen?"
+
+¿En qué área específica te puedo asistir? 😊`
+                }
+            };
+
+            // Toggle chatbot
+            chatbotToggle.addEventListener('click', () => {
+                isOpen = !isOpen;
+                if (isOpen) {
+                    chatbotWindow.classList.add('active');
+                    chatbotInput.focus();
+                    if (!conversationStarted) {
+                        setTimeout(() => {
+                            addAIMessage("¿En qué puedo ayudarte? Puedo brindarte información sobre nuestros servicios, presupuestos, ubicación y más. 🚀");
+                            conversationStarted = true;
+                            chatbotPulse.style.display = 'none';
+                        }, 500);
+                    }
+                } else {
+                    chatbotWindow.classList.remove('active');
+                }
+            });
+
+            // Close chatbot
+            chatbotClose.addEventListener('click', () => {
+                isOpen = false;
+                chatbotWindow.classList.remove('active');
+            });
+
+            // Send message
+            function sendMessage() {
+                const message = chatbotInput.value.trim();
+                if (message) {
+                    addUserMessage(message);
+                    chatbotInput.value = '';
+                    
+                    // Mostrar typing indicator
+                    showTypingIndicator();
+                    
+                    setTimeout(() => {
+                        hideTypingIndicator();
+                        processAIResponse(message);
+                    }, 1500);
+                }
+            }
+
+            chatbotSend.addEventListener('click', sendMessage);
+            
+            chatbotInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+
+            // Add messages to chat
+            function addUserMessage(message) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'user-message';
+                messageDiv.textContent = message;
+                chatbotBody.appendChild(messageDiv);
+                scrollToBottom();
+            }
+
+            function addAIMessage(message) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'ai-message';
+                messageDiv.innerHTML = message.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                                              .replace(/\n/g, '<br>');
+                chatbotBody.appendChild(messageDiv);
+                scrollToBottom();
+            }
+
+            function showTypingIndicator() {
+                const typingDiv = document.createElement('div');
+                typingDiv.className = 'typing-indicator';
+                typingDiv.id = 'typingIndicator';
+                typingDiv.innerHTML = `
+                    <span>Alterna AI está escribiendo</span>
+                    <div class="typing-dots">
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                    </div>
+                `;
+                chatbotBody.appendChild(typingDiv);
+                scrollToBottom();
+            }
+
+            function hideTypingIndicator() {
+                const typingIndicator = document.getElementById('typingIndicator');
+                if (typingIndicator) {
+                    typingIndicator.remove();
+                }
+            }
+
+            function scrollToBottom() {
+                chatbotBody.scrollTop = chatbotBody.scrollHeight;
+            }
+
+            // Process AI response
+            function processAIResponse(userMessage) {
+                const message = userMessage.toLowerCase();
+                let response = aiResponses.default.response;
+
+                // Buscar coincidencias en las palabras clave
+                for (const [key, data] of Object.entries(aiResponses)) {
+                    if (key !== 'default' && data.keywords) {
+                        if (data.keywords.some(keyword => message.includes(keyword))) {
+                            response = data.response;
+                            break;
+                        }
+                    }
+                }
+
+                addAIMessage(response);
+                
+                // Track interaction
+                trackEvent('chatbot_interaction', { 
+                    user_message: userMessage,
+                    ai_response_type: findResponseType(userMessage)
+                });
+            }
+
+            function findResponseType(message) {
+                const msg = message.toLowerCase();
+                for (const [key, data] of Object.entries(aiResponses)) {
+                    if (key !== 'default' && data.keywords) {
+                        if (data.keywords.some(keyword => msg.includes(keyword))) {
+                            return key;
+                        }
+                    }
+                }
+                return 'default';
+            }
+
+            // Quick messages
+            window.sendQuickMessage = function(message) {
+                if (!isOpen) {
+                    chatbotToggle.click();
+                    setTimeout(() => {
+                        chatbotInput.value = message;
+                        sendMessage();
+                    }, 500);
+                } else {
+                    chatbotInput.value = message;
+                    sendMessage();
+                }
+            };
+
+            // Show notification after 30 seconds
+            setTimeout(() => {
+                if (!conversationStarted) {
+                    chatbotPulse.style.display = 'block';
+                }
+            }, 30000);
+        }
 
         // ===== ANALYTICS (Opcional) =====
         function trackEvent(eventName, parameters = {}) {

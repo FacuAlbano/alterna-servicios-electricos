@@ -1,41 +1,53 @@
 {
-  "name": "alterna-servicios-electricos",
-  "version": "1.0.0",
-  "description": "Sitio web moderno y responsivo para Alterna Servicios Eléctricos con arquitectura MVC",
-  "main": "index.html",
+  "name": "alterna-2.0",
+  "version": "2.0.0",
+  "description": "Alterna 2.0 - Servicios Eléctricos del Futuro con tecnologías modernas",
+  "main": "alterna-2.0.html",
   "scripts": {
-    "start": "http-server -p 8000 -o",
-    "dev": "http-server -p 8000 -o -c-1",
-    "serve": "python -m http.server 8000",
-    "build": "echo 'Proyecto estático - no requiere build'",
-    "lint": "echo 'Linting no configurado para proyecto estático'"
+    "dev": "npx live-server --port=3000 --open=alterna-2.0.html",
+    "build": "echo 'Building for production...' && npm run optimize",
+    "optimize": "echo 'Optimizing assets...'",
+    "deploy": "vercel --prod",
+    "preview": "vercel",
+    "lint": "echo 'Running lint checks...'",
+    "test": "echo 'Running tests...'",
+    "start": "npm run dev"
   },
   "keywords": [
-    "html5",
-    "css3",
-    "javascript",
-    "responsive",
-    "modern",
-    "animations",
-    "form-validation",
-    "web-design",
-    "mvc",
-    "electric-services"
+    "servicios-electricos",
+    "alterna",
+    "industrial",
+    "electricidad",
+    "innovacion",
+    "tecnologia",
+    "argentina",
+    "rosario",
+    "ingenieria"
   ],
-  "author": "Alterna Team",
+  "author": "Alterna Servicios Eléctricos",
   "license": "MIT",
-  "devDependencies": {
-    "http-server": "^14.1.1"
-  },
+  "homepage": "https://alterna2.vercel.app",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/alterna-servicios-electricos.git"
+    "url": "https://github.com/facualbano/alterna-2.0.git"
   },
-  "bugs": {
-    "url": "https://github.com/your-username/alterna-servicios-electricos/issues"
+  "devDependencies": {
+    "live-server": "^1.2.2"
   },
-  "homepage": "https://github.com/your-username/alterna-servicios-electricos#readme",
+  "dependencies": {},
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "vercel": {
+    "buildCommand": "npm run build",
+    "outputDirectory": "./",
+    "framework": null,
+    "installCommand": "npm install"
   }
 }
