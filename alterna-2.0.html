@@ -3029,6 +3029,10 @@
                 once: true,
                 offset: 100
             });
+            
+            // Inicializar traductor
+            initializeTranslator();
+        });
 
         
         // ===== TRADUCTOR FUNCIONAL MEJORADO =====
@@ -3217,10 +3221,15 @@
         };
         
         function translateTo(lang) {
-            if (!translations[lang]) return;
+            console.log('translateTo called with:', lang);
+            if (!translations[lang]) {
+                console.log('No translations found for:', lang);
+                return;
+            }
             
             currentLanguage = lang;
             const trans = translations[lang];
+            console.log('Translation object:', trans);
             
             // ===== NAVEGACIÓN =====
             const navLinks = document.querySelectorAll('.nav-link');
@@ -3243,17 +3252,15 @@
             if (btnAbout) btnAbout.textContent = trans['btn-about'];
             if (btnServices) btnServices.textContent = trans['btn-services'];
             
-            // ===== SOBRE NOSOTROS SECTION =====
-            const aboutTitle = document.querySelector('#about .section-title');
-            const aboutSubtitle = document.querySelector('#about .section-subtitle');
-            const aboutDesc = document.querySelector('#about .about-description');
+            // ===== MÉTRICAS SECTION =====
+            const metricsTitle = document.querySelector('#metrics .section-title');
+            const metricsSubtitle = document.querySelector('#metrics .section-subtitle');
             
-            if (aboutTitle) aboutTitle.textContent = trans['about-title'];
-            if (aboutSubtitle) aboutSubtitle.textContent = trans['about-subtitle'];
-            if (aboutDesc) aboutDesc.textContent = trans['about-description'];
+            if (metricsTitle) metricsTitle.textContent = trans['about-title'];
+            if (metricsSubtitle) metricsSubtitle.textContent = trans['about-subtitle'];
             
-            // Actualizar métricas
-            const metrics = document.querySelectorAll('#about .metric-label');
+            // Actualizar métricas (buscar por diferentes selectores posibles)
+            const metrics = document.querySelectorAll('#metrics .metric-label, #metrics .stat-label, #metrics .counter-label');
             const metricLabels = [
                 trans['about-experience'],
                 trans['about-projects'], 
@@ -3267,14 +3274,14 @@
             });
             
             // ===== SERVICIOS SECTION =====
-            const servicesTitle = document.querySelector('#services .section-title');
-            const servicesSubtitle = document.querySelector('#services .section-subtitle');
+            const servicesTitle = document.querySelector('#servicios .section-title');
+            const servicesSubtitle = document.querySelector('#servicios .section-subtitle');
             
             if (servicesTitle) servicesTitle.textContent = trans['services-title'];
             if (servicesSubtitle) servicesSubtitle.textContent = trans['services-subtitle'];
             
             // Actualizar cada servicio
-            const serviceCards = document.querySelectorAll('#services .service-card');
+            const serviceCards = document.querySelectorAll('#servicios .service-card');
             serviceCards.forEach((card, index) => {
                 const title = card.querySelector('h3');
                 const desc = card.querySelector('p');
@@ -3289,44 +3296,44 @@
             });
             
             // ===== PROYECTOS SECTION =====
-            const projectsTitle = document.querySelector('#projects .section-title');
-            const projectsSubtitle = document.querySelector('#projects .section-subtitle');
+            const projectsTitle = document.querySelector('#proyectos .section-title');
+            const projectsSubtitle = document.querySelector('#proyectos .section-subtitle');
             
             if (projectsTitle) projectsTitle.textContent = trans['projects-title'];
             if (projectsSubtitle) projectsSubtitle.textContent = trans['projects-subtitle'];
             
             // Actualizar botones de proyectos
-            const projectButtons = document.querySelectorAll('#projects .project-btn');
+            const projectButtons = document.querySelectorAll('#proyectos .project-btn');
             projectButtons.forEach(btn => {
                 if (btn) btn.textContent = trans['project-view'];
             });
             
             // ===== CLIENTES SECTION =====
-            const clientsTitle = document.querySelector('#clients .section-title');
-            const clientsSubtitle = document.querySelector('#clients .section-subtitle');
+            const clientsTitle = document.querySelector('#clientes .section-title');
+            const clientsSubtitle = document.querySelector('#clientes .section-subtitle');
             
             if (clientsTitle) clientsTitle.textContent = trans['clients-title'];
             if (clientsSubtitle) clientsSubtitle.textContent = trans['clients-subtitle'];
             
             // ===== TIMELINE SECTION =====
-            const timelineTitle = document.querySelector('#timeline .section-title');
-            const timelineSubtitle = document.querySelector('#timeline .section-subtitle');
+            const timelineTitle = document.querySelector('#nosotros .section-title');
+            const timelineSubtitle = document.querySelector('#nosotros .section-subtitle');
             
             if (timelineTitle) timelineTitle.textContent = trans['timeline-title'];
             if (timelineSubtitle) timelineSubtitle.textContent = trans['timeline-subtitle'];
             
             // ===== CONTACTO SECTION =====
-            const contactTitle = document.querySelector('#contact .section-title');
-            const contactSubtitle = document.querySelector('#contact .section-subtitle');
+            const contactTitle = document.querySelector('#contacto .section-title');
+            const contactSubtitle = document.querySelector('#contacto .section-subtitle');
             
             if (contactTitle) contactTitle.textContent = trans['contact-title'];
             if (contactSubtitle) contactSubtitle.textContent = trans['contact-subtitle'];
             
             // Actualizar formulario
-            const formName = document.querySelector('#contact input[name="name"]');
-            const formEmail = document.querySelector('#contact input[name="email"]');
-            const formMessage = document.querySelector('#contact textarea[name="message"]');
-            const formSubmit = document.querySelector('#contact .btn-submit');
+            const formName = document.querySelector('#contacto input[name="name"]');
+            const formEmail = document.querySelector('#contacto input[name="email"]');
+            const formMessage = document.querySelector('#contacto textarea[name="message"]');
+            const formSubmit = document.querySelector('#contacto .btn-submit');
             
             if (formName) formName.placeholder = trans['contact-name'];
             if (formEmail) formEmail.placeholder = trans['contact-email'];
@@ -3334,10 +3341,10 @@
             if (formSubmit) formSubmit.textContent = trans['contact-send'];
             
             // Actualizar información de contacto
-            const contactInfoTitle = document.querySelector('#contact .contact-info h3');
+            const contactInfoTitle = document.querySelector('#contacto .contact-info h3');
             if (contactInfoTitle) contactInfoTitle.textContent = trans['contact-info-title'];
             
-            const contactLabels = document.querySelectorAll('#contact .contact-info .info-label');
+            const contactLabels = document.querySelectorAll('#contacto .contact-info .info-label');
             const contactLabelTexts = [
                 trans['contact-address'],
                 trans['contact-phone'],
@@ -3411,14 +3418,18 @@
         
         // Inicializar dropdown del traductor
         function initializeTranslator() {
+            console.log('Initializing translator...');
             const langToggle = document.querySelector('.language-toggle');
             const translateOptions = document.querySelector('.translate-options');
+            
+            console.log('Found elements:', { langToggle, translateOptions });
             
             if (langToggle && translateOptions) {
                 // Mostrar/ocultar dropdown
                 langToggle.addEventListener('click', (e) => {
                     e.preventDefault();
                     e.stopPropagation();
+                    console.log('Toggle clicked');
                     translateOptions.classList.toggle('show');
                 });
                 
@@ -3433,14 +3444,15 @@
                 translateOptions.addEventListener('click', (e) => {
                     e.stopPropagation();
                 });
+                
+                console.log('Translator initialized successfully');
+            } else {
+                console.log('Translator elements not found');
             }
         }
 
         // Configurar EmailJS
         emailjs.init("tu_user_id_aqui"); // Reemplazar con tu User ID de EmailJS
-            
-            // Inicializar traductor
-            initializeTranslator();
             
             // Inicializar AI Chatbot
             initializeAIChatbot();
