@@ -3462,14 +3462,19 @@
         }
 
         // Configurar EmailJS
-        emailjs.init("tu_user_id_aqui"); // Reemplazar con tu User ID de EmailJS
-            
-            // Inicializar AI Chatbot
+        if (typeof emailjs !== 'undefined') {
+            emailjs.init("tu_user_id_aqui"); // Reemplazar con tu User ID de EmailJS
+        }
+        
+        // Inicializar AI Chatbot
+        if (typeof initializeAIChatbot === 'function') {
             initializeAIChatbot();
-            
-            // Registrar Service Worker para PWA
+        }
+        
+        // Registrar Service Worker para PWA
+        if (typeof registerServiceWorker === 'function') {
             registerServiceWorker();
-        });
+        }
 
         // ===== PARTICLES.JS =====
         function initializeParticles() {
