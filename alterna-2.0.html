@@ -29,7 +29,14 @@
     <script src="https://unpkg.com/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/gsap@3.12.2/dist/TextPlugin.min.js"></script>
     <script src="https://unpkg.com/gsap@3.12.2/dist/MorphSVGPlugin.min.js"></script>
-    <script src="https://unpkg.com/three@0.158.0/build/three.min.js"></script>
+    <!-- Three.js ES Modules -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.158.0/build/three.module.js"
+        }
+    }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -41,6 +48,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
     
     <!-- Google Translate -->
+    <!-- Google Translate Init (comentado - no usado)
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
@@ -51,7 +59,10 @@
             }, 'google_translate_element');
         }
     </script>
+    -->
+    <!-- Google Translate Script (comentado - no usado)
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    -->
     
     <!-- EmailJS -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
@@ -3036,7 +3047,6 @@
 
         
         // ===== TRADUCTOR FUNCIONAL MEJORADO =====
-        let currentLanguage = 'es';
         const translations = {
             es: {
                 // Navegación
@@ -3773,20 +3783,6 @@
             }
         }
 
-        // ===== TRADUCTOR =====
-        function translateTo(lang) {
-            currentLanguage = lang;
-            localStorage.setItem('language', lang);
-            
-            // Trigger Google Translate
-            const translateFrame = document.querySelector('.goog-te-menu-frame');
-            if (translateFrame) {
-                const langOption = translateFrame.contentDocument.querySelector(`[value="${lang}"]`);
-                if (langOption) {
-                    langOption.click();
-                }
-            }
-        }
 
         // ===== LAZY LOADING =====
         function initializeLazyLoading() {
