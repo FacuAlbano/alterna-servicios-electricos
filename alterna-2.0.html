@@ -361,67 +361,129 @@
             gap: var(--space-md);
         }
 
-        /* Dropdown del traductor mejorado */
+        /* Dropdown del traductor elegante */
         .translate-dropdown {
             position: relative;
         }
 
+        .language-toggle {
+            background: linear-gradient(135deg, rgba(32, 178, 170, 0.2), rgba(0, 255, 255, 0.1));
+            border: 1px solid rgba(32, 178, 170, 0.3);
+            border-radius: 25px;
+            padding: 0.5rem 1rem;
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            /* Sombra de texto para legibilidad */
+            text-shadow: 
+                0 1px 3px rgba(0, 0, 0, 0.8),
+                0 0 10px rgba(32, 178, 170, 0.5);
+        }
+
+        .language-toggle:hover {
+            background: linear-gradient(135deg, rgba(32, 178, 170, 0.3), rgba(0, 255, 255, 0.2));
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 
+                0 5px 15px rgba(32, 178, 170, 0.3),
+                0 0 20px rgba(32, 178, 170, 0.2);
+        }
+
+        .language-toggle span {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
         .translate-options {
             position: absolute;
-            top: 100%;
+            top: calc(100% + 10px);
             right: 0;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(20px);
+            background: linear-gradient(135deg, 
+                rgba(15, 15, 15, 0.95), 
+                rgba(25, 25, 25, 0.95));
+            backdrop-filter: blur(20px) saturate(180%);
             border-radius: 15px;
-            border: 2px solid #000000;
+            border: 1px solid rgba(32, 178, 170, 0.3);
             box-shadow: 
-                0 10px 30px rgba(0, 0, 0, 0.8),
-                0 0 0 1px rgba(32, 178, 170, 0.3);
-            padding: 0.5rem 0;
-            min-width: 160px;
-            display: none !important;
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            padding: 0.75rem 0;
+            min-width: 180px;
+            display: none;
             visibility: hidden;
             opacity: 0;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
+            transform: translateY(-15px) scale(0.95);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             z-index: 1000;
-            margin-top: 10px;
         }
 
         .translate-options.show {
-            display: block !important;
+            display: block;
             visibility: visible;
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
         }
 
         .translate-option {
-            display: block;
+            display: flex;
+            align-items: center;
             width: 100%;
-            padding: 0.75rem 1rem;
+            padding: 0.75rem 1.25rem;
             background: none;
             border: none;
-            color: white;
+            color: #ffffff;
             text-align: left;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 500;
-            /* Contorno negro para máxima legibilidad */
+            font-family: 'Space Grotesk', sans-serif;
+            gap: 0.75rem;
+            /* Excelente legibilidad */
             text-shadow: 
-                0 0 3px rgba(0, 0, 0, 1),
-                1px 1px 2px rgba(0, 0, 0, 0.8),
-                -1px -1px 1px rgba(0, 0, 0, 0.8);
+                0 1px 2px rgba(0, 0, 0, 0.9),
+                0 0 8px rgba(0, 0, 0, 0.7);
         }
 
         .translate-option:hover {
-            background: rgba(32, 178, 170, 0.2);
+            background: linear-gradient(90deg, 
+                rgba(32, 178, 170, 0.15), 
+                rgba(0, 255, 255, 0.1));
             color: var(--primary-color);
+            transform: translateX(5px);
             text-shadow: 
-                0 0 3px rgba(0, 0, 0, 1),
-                1px 1px 2px rgba(0, 0, 0, 0.8),
-                -1px -1px 1px rgba(0, 0, 0, 0.8);
+                0 1px 2px rgba(0, 0, 0, 0.9),
+                0 0 15px rgba(32, 178, 170, 0.6);
         }
+
+        .translate-option::before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: conic-gradient(from 45deg, 
+                var(--primary-color), 
+                #00ffff, 
+                var(--primary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .translate-option[data-lang="es"]::before { content: "🇪🇸"; background: none; }
+        .translate-option[data-lang="en"]::before { content: "🇺🇸"; background: none; }
+        .translate-option[data-lang="pt"]::before { content: "🇧🇷"; background: none; }
 
         .nav-contact {
             display: flex;
@@ -1986,49 +2048,6 @@
             display: none;
         }
 
-        .translate-dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .translate-options {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background: var(--bg-primary);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-xl);
-            min-width: 200px;
-            z-index: var(--z-dropdown);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: var(--transition-normal);
-        }
-
-        .translate-dropdown:hover .translate-options {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .translate-option {
-            display: block;
-            width: 100%;
-            padding: var(--space-md);
-            color: var(--text-primary);
-            text-decoration: none;
-            transition: var(--transition-fast);
-            border: none;
-            background: none;
-            text-align: left;
-            cursor: pointer;
-        }
-
-        .translate-option:hover {
-            background: var(--bg-secondary);
-        }
 
         /* AI Chatbot Styles */
         #ai-chatbot {
@@ -2332,17 +2351,13 @@
                     <!-- Traductor de idiomas -->
                     <div class="translate-dropdown">
                         <button class="language-toggle" title="Cambiar idioma">
-                            <i class="fas fa-globe"></i>
+                            🌍 <span>Idioma</span>
                         </button>
                         <div class="translate-options">
-                            <button class="translate-option" onclick="translateTo('es')">🇪🇸 Español</button>
-                            <button class="translate-option" onclick="translateTo('en')">🇺🇸 English</button>
-                            <button class="translate-option" onclick="translateTo('pt')">🇧🇷 Português</button>
-                            <button class="translate-option" onclick="translateTo('fr')">🇫🇷 Français</button>
-                            <button class="translate-option" onclick="translateTo('it')">🇮🇹 Italiano</button>
-                            <button class="translate-option" onclick="translateTo('de')">🇩🇪 Deutsch</button>
+                            <button class="translate-option" data-lang="es" onclick="translateTo('es')">Español</button>
+                            <button class="translate-option" data-lang="en" onclick="translateTo('en')">English</button>
+                            <button class="translate-option" data-lang="pt" onclick="translateTo('pt')">Português</button>
                         </div>
-                        <div id="google_translate_element"></div>
                     </div>
                     
                     <!-- Toggle modo oscuro -->
@@ -3086,12 +3101,28 @@
             if (btnAbout) btnAbout.textContent = trans['btn-about'];
             if (btnServices) btnServices.textContent = trans['btn-services'];
             
+            // Actualizar botón del traductor
+            const langToggleText = document.querySelector('.language-toggle span');
+            if (langToggleText) {
+                const langLabels = {
+                    'es': 'Idioma',
+                    'en': 'Language', 
+                    'pt': 'Idioma'
+                };
+                langToggleText.textContent = langLabels[lang] || 'Idioma';
+            }
+            
             // Cerrar dropdown
             const dropdown = document.querySelector('.translate-options');
             if (dropdown) dropdown.classList.remove('show');
             
-            // Notificación
-            showNotification(`Idioma cambiado a ${lang.toUpperCase()}`);
+            // Notificación moderna
+            const messages = {
+                'es': 'Idioma cambiado a',
+                'en': 'Language changed to',
+                'pt': 'Idioma alterado para'
+            };
+            showNotification(`${messages[lang]} ${lang.toUpperCase()}`);
         }
         
         function showNotification(message) {
