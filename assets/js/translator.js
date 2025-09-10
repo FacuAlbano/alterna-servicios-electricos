@@ -26,6 +26,8 @@ const translations = {
         // Sección Bienvenidos
         'welcome-title': 'Bienvenidos a Alterna',
         'welcome-description': 'Alterna es una empresa joven con un staff de Ingenieros y una metodología de trabajo profesionalizada que busca brindar soluciones en instalaciones eléctricas, en todo tipo de obras civiles e industriales.',
+        // Métricas descripción adicional
+        'about-description': 'Resultados que demuestran nuestro compromiso y excelencia en cada proyecto',
         // Timeline
         'timeline-title': 'Nuestra Historia',
         'timeline-subtitle': 'Creciendo Juntos',
@@ -291,8 +293,158 @@ function translateTo(lang) {
     if (btnAbout) btnAbout.textContent = trans['btn-about'];
     if (btnServices) btnServices.textContent = trans['btn-services'];
     
-    // Continuar con todas las demás secciones...
-    // [Resto del código de traducción]
+    // ===== METRICS SECTION =====
+    const metricsTitle = document.querySelector('#metrics .section-title');
+    const metricsSubtitle = document.querySelector('#metrics .section-subtitle');
+    const metricTitles = document.querySelectorAll('#metrics .metric-title');
+    const metricDescriptions = document.querySelectorAll('#metrics .metric-description');
+    
+    if (metricsTitle) metricsTitle.textContent = trans['about-title'];
+    if (metricsSubtitle) metricsSubtitle.textContent = trans['about-subtitle'];
+    
+    // Description adicional si existe
+    const metricsDescription = document.querySelector('#metrics .about-description');
+    if (metricsDescription) metricsDescription.textContent = trans['about-description'];
+    
+    if (metricTitles.length >= 4) {
+        metricTitles[0].textContent = trans['about-experience'];
+        metricTitles[1].textContent = trans['about-projects'];
+        metricTitles[2].textContent = trans['about-clients'];
+        metricTitles[3].textContent = trans['about-specialists'];
+    }
+    
+    if (metricDescriptions.length >= 4) {
+        metricDescriptions[0].textContent = trans['about-exp-desc'];
+        metricDescriptions[1].textContent = trans['about-proj-desc'];
+        metricDescriptions[2].textContent = trans['about-cli-desc'];
+        metricDescriptions[3].textContent = trans['about-spec-desc'];
+    }
+    
+    // ===== ABOUT SECTION =====
+    const welcomeTitle = document.querySelector('.welcome-title');
+    const mainDescription = document.querySelector('.main-description p');
+    const timelineTitle = document.querySelector('.timeline-title');
+    
+    if (welcomeTitle) welcomeTitle.textContent = trans['welcome-title'];
+    if (mainDescription) mainDescription.textContent = trans['welcome-description'];
+    if (timelineTitle) timelineTitle.textContent = trans['timeline-title'];
+    
+    // Timeline items
+    const timelineItems = document.querySelectorAll('.timeline-content h4');
+    const timelineDescs = document.querySelectorAll('.timeline-content p');
+    
+    if (timelineItems.length >= 4) {
+        timelineItems[0].textContent = trans['timeline-2018-title'];
+        timelineItems[1].textContent = trans['timeline-2020-title'];
+        timelineItems[2].textContent = trans['timeline-2022-title'];
+        timelineItems[3].textContent = trans['timeline-2024-title'];
+    }
+    
+    if (timelineDescs.length >= 4) {
+        timelineDescs[0].textContent = trans['timeline-2018-desc'];
+        timelineDescs[1].textContent = trans['timeline-2020-desc'];
+        timelineDescs[2].textContent = trans['timeline-2022-desc'];
+        timelineDescs[3].textContent = trans['timeline-2024-desc'];
+    }
+    
+    // ===== SERVICES SECTION =====
+    const servicesTitle = document.querySelector('#servicios .section-title');
+    const servicesSubtitle = document.querySelector('#servicios .section-subtitle');
+    const serviceTitles = document.querySelectorAll('#servicios .service-card h3');
+    const serviceDescs = document.querySelectorAll('#servicios .service-card p');
+    
+    if (servicesTitle) servicesTitle.textContent = trans['services-title'];
+    if (servicesSubtitle) servicesSubtitle.textContent = trans['services-subtitle'];
+    
+    if (serviceTitles.length >= 6) {
+        serviceTitles[0].textContent = trans['service-1-title'];
+        serviceTitles[1].textContent = trans['service-2-title'];
+        serviceTitles[2].textContent = trans['service-3-title'];
+        serviceTitles[3].textContent = trans['service-4-title'];
+        serviceTitles[4].textContent = trans['service-5-title'];
+        serviceTitles[5].textContent = trans['service-6-title'];
+    }
+    
+    if (serviceDescs.length >= 6) {
+        serviceDescs[0].textContent = trans['service-1-desc'];
+        serviceDescs[1].textContent = trans['service-2-desc'];
+        serviceDescs[2].textContent = trans['service-3-desc'];
+        serviceDescs[3].textContent = trans['service-4-desc'];
+        serviceDescs[4].textContent = trans['service-5-desc'];
+        serviceDescs[5].textContent = trans['service-6-desc'];
+    }
+    
+    // ===== PROJECTS SECTION =====
+    const projectsTitle = document.querySelector('#proyectos .section-title');
+    const projectsSubtitle = document.querySelector('#proyectos .section-subtitle');
+    const projectButtons = document.querySelectorAll('#proyectos .btn');
+    
+    if (projectsTitle) projectsTitle.textContent = trans['projects-title'];
+    if (projectsSubtitle) projectsSubtitle.textContent = trans['projects-subtitle'];
+    
+    projectButtons.forEach(btn => {
+        if (btn.textContent.includes('Ver Proyecto') || btn.textContent.includes('View Project') || btn.textContent.includes('Ver Projeto')) {
+            btn.textContent = trans['project-view'];
+        }
+    });
+    
+    // ===== CLIENTS SECTION =====
+    const clientsTitle = document.querySelector('#clientes .section-title');
+    const clientsSubtitle = document.querySelector('#clientes .section-subtitle');
+    
+    if (clientsTitle) clientsTitle.textContent = trans['clients-title'];
+    if (clientsSubtitle) clientsSubtitle.textContent = trans['clients-subtitle'];
+    
+    // ===== CONTACT SECTION =====
+    const contactTitle = document.querySelector('#contacto .section-title');
+    const contactSubtitle = document.querySelector('#contacto .section-subtitle');
+    const contactInfoTitle = document.querySelector('.contact-info h3');
+    
+    if (contactTitle) contactTitle.textContent = trans['contact-title'];
+    if (contactSubtitle) contactSubtitle.textContent = trans['contact-subtitle'];
+    if (contactInfoTitle) contactInfoTitle.textContent = trans['contact-info-title'];
+    
+    // Form labels
+    const formLabels = document.querySelectorAll('.form-label');
+    const formInputs = document.querySelectorAll('.form-input, .form-textarea');
+    const submitBtn = document.querySelector('.btn-submit');
+    
+    if (formLabels.length >= 5) {
+        formLabels[0].textContent = trans['form-fullname'];
+        formLabels[1].textContent = trans['contact-email'];
+        formLabels[2].textContent = trans['form-phone'];
+        formLabels[3].textContent = trans['form-company'];
+        formLabels[4].textContent = trans['form-project'];
+    }
+    
+    if (formInputs.length >= 4) {
+        formInputs[3].placeholder = trans['form-company-placeholder'];
+    }
+    
+    if (submitBtn) submitBtn.innerHTML = `<i class="fas fa-paper-plane"></i> ${trans['form-submit']}`;
+    
+    // Contact info items
+    const contactItems = document.querySelectorAll('.contact-item h4');
+    if (contactItems.length >= 3) {
+        contactItems[0].textContent = trans['contact-address'];
+        contactItems[1].textContent = trans['contact-phone'];
+        contactItems[2].textContent = trans['contact-email-label'];
+    }
+    
+    // ===== FOOTER =====
+    const footerSections = document.querySelectorAll('.footer-section h4');
+    if (footerSections.length >= 3) {
+        footerSections[0].textContent = trans['footer-services'];
+        footerSections[1].textContent = trans['footer-company'];
+        footerSections[2].textContent = trans['footer-contact'];
+    }
+    
+    const footerDescription = document.querySelector('.footer-section p');
+    if (footerDescription) footerDescription.textContent = trans['footer-description'];
+    
+    // ===== CHATBOT =====
+    const chatbotTitle = document.querySelector('#chatbot-title');
+    if (chatbotTitle) chatbotTitle.textContent = trans['chatbot-title'];
     
     // Actualizar chatbot si está disponible
     if (window.alternaAI) {
