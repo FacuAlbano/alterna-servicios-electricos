@@ -361,7 +361,7 @@
             gap: var(--space-md);
         }
 
-        /* Dropdown del traductor */
+        /* Dropdown del traductor mejorado */
         .translate-dropdown {
             position: relative;
         }
@@ -370,16 +370,29 @@
             position: absolute;
             top: 100%;
             right: 0;
-            background: rgba(10, 10, 10, 0.9);
+            background: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(20px);
             border-radius: 15px;
-            border: 1px solid rgba(32, 178, 170, 0.3);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid #000000;
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.8),
+                0 0 0 1px rgba(32, 178, 170, 0.3);
             padding: 0.5rem 0;
-            min-width: 150px;
-            display: none;
+            min-width: 160px;
+            display: none !important;
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
             z-index: 1000;
             margin-top: 10px;
+        }
+
+        .translate-options.show {
+            display: block !important;
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .translate-option {
@@ -393,11 +406,21 @@
             cursor: pointer;
             transition: all 0.3s ease;
             font-size: 0.9rem;
+            font-weight: 500;
+            /* Contorno negro para máxima legibilidad */
+            text-shadow: 
+                0 0 3px rgba(0, 0, 0, 1),
+                1px 1px 2px rgba(0, 0, 0, 0.8),
+                -1px -1px 1px rgba(0, 0, 0, 0.8);
         }
 
         .translate-option:hover {
             background: rgba(32, 178, 170, 0.2);
             color: var(--primary-color);
+            text-shadow: 
+                0 0 3px rgba(0, 0, 0, 1),
+                1px 1px 2px rgba(0, 0, 0, 0.8),
+                -1px -1px 1px rgba(0, 0, 0, 0.8);
         }
 
         .nav-contact {
@@ -3065,7 +3088,7 @@
             
             // Cerrar dropdown
             const dropdown = document.querySelector('.translate-options');
-            if (dropdown) dropdown.style.display = 'none';
+            if (dropdown) dropdown.classList.remove('show');
             
             // Notificación
             showNotification(`Idioma cambiado a ${lang.toUpperCase()}`);
@@ -3102,30 +3125,37 @@
         }
         
         // Inicializar dropdown del traductor
-        document.addEventListener('DOMContentLoaded', function() {
+        function initializeTranslator() {
             const langToggle = document.querySelector('.language-toggle');
             const translateOptions = document.querySelector('.translate-options');
             
             if (langToggle && translateOptions) {
+                // Mostrar/ocultar dropdown
                 langToggle.addEventListener('click', (e) => {
+                    e.preventDefault();
                     e.stopPropagation();
-                    const isVisible = translateOptions.style.display === 'block';
-                    translateOptions.style.display = isVisible ? 'none' : 'block';
+                    translateOptions.classList.toggle('show');
                 });
                 
                 // Cerrar al hacer click fuera
-                document.addEventListener('click', () => {
-                    translateOptions.style.display = 'none';
+                document.addEventListener('click', (e) => {
+                    if (!translateOptions.contains(e.target) && e.target !== langToggle) {
+                        translateOptions.classList.remove('show');
+                    }
                 });
                 
+                // Prevenir cierre al hacer click dentro del dropdown
                 translateOptions.addEventListener('click', (e) => {
                     e.stopPropagation();
                 });
             }
-        });
+        }
 
         // Configurar EmailJS
         emailjs.init("tu_user_id_aqui"); // Reemplazar con tu User ID de EmailJS
+            
+            // Inicializar traductor
+            initializeTranslator();
             
             // Inicializar AI Chatbot
             initializeAIChatbot();
