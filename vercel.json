@@ -1,24 +1,7 @@
 {
-  "version": 2,
-  "buildCommand": "echo 'No build needed'",
-  "outputDirectory": "./",
-  "installCommand": "npm install",
-  "framework": null,
   "rewrites": [
     {
       "source": "/",
-      "destination": "/alterna-2.0.html"
-    },
-    {
-      "source": "/index.html", 
-      "destination": "/alterna-2.0.html"
-    },
-    {
-      "source": "/home",
-      "destination": "/alterna-2.0.html"
-    },
-    {
-      "source": "/inicio",
       "destination": "/alterna-2.0.html"
     }
   ]
