@@ -14,6 +14,33 @@ html, body {
     overflow-x: hidden;
     width: 100%;
     max-width: 100%;
+    position: relative;
+}
+
+/* Fixes específicos para Safari y iOS */
+@supports (-webkit-touch-callout: none) {
+    /* Safari específico */
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    body {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    header {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    
+    /* Evitar problemas con backdrop-filter en Safari */
+    @media (max-width: 768px) {
+        header {
+            background: rgba(0, 0, 0, 0.8) !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+        }
+    }
 }
 
 /* Elementos principales responsive */
@@ -153,13 +180,26 @@ select {
 /* Hero Section Responsive */
 .hero {
     min-height: 100vh;
-    height: 100vh;
+    height: auto;
     padding-top: 60px; /* Espacio para header */
 }
 
 .hero-content {
-    padding: 1rem;
+    padding: 2rem 1rem;
     max-width: 90%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 80px; /* Más espacio en móviles */
+    }
+    
+    .hero-content {
+        padding: 1.5rem 1rem;
+        max-width: 95%;
+    }
 }
 
 @media (min-width: 768px) {
@@ -408,10 +448,20 @@ select:focus {
     }
 }
 
-/* Samsung Galaxy S8+ */
+/* Samsung Galaxy S8+ y iPhone similares */
 @media (max-width: 414px) and (max-height: 896px) {
     .hero {
-        padding-top: 3rem;
+        padding-top: 90px;
+        padding-bottom: 2rem;
+    }
+    
+    .hero-content {
+        padding: 1rem;
+        max-width: 100%;
+    }
+    
+    header {
+        background: rgba(0, 0, 0, 0.9) !important;
     }
 }
 

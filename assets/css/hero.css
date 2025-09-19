@@ -180,12 +180,15 @@
 /* Responsive */
 @media (max-width: 768px) {
     .hero {
-        padding-top: 60px; /* Espacio para el header */
+        padding-top: 80px; /* Más espacio para el header */
+        min-height: 100vh;
+        height: auto;
     }
     
     .hero-content {
-        padding: 1rem;
+        padding: 2rem 1rem;
         max-width: 95%;
+        margin: 0 auto;
     }
     
     .hero-logo h1 {
