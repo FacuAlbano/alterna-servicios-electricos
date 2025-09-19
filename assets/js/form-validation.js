@@ -10,9 +10,20 @@ class FormValidator {
     }
 
     // Inicializar EmailJS
-    initializeEmailJS() {
-        // Inicializar EmailJS con tu User ID
-        emailjs.init("YOUR_USER_ID"); // Necesitarás reemplazar esto con tu User ID real
+    async initializeEmailJS() {
+        // Configurar EmailJS usando el archivo de configuración
+        if (window.setupEmailJS) {
+            await window.setupEmailJS();
+        }
+        
+        // Validar configuración
+        if (window.validateEmailConfig) {
+            const validation = window.validateEmailConfig();
+            if (!validation.valid) {
+                console.warn('⚠️ EmailJS no configurado correctamente:', validation.issues);
+                console.log('Usando modo de simulación para desarrollo');
+            }
+        }
     }
 
     // Configurar event listeners
@@ -347,12 +358,14 @@ class FormValidator {
         try {
             // Validar formulario
             if (!this.validateForm()) {
-                this.showNotification('Por favor corrige los errores del formulario', 'error');
+                const message = window.EMAIL_CONFIG?.notifications?.validationError || 'Por favor corrige los errores del formulario';
+                this.showNotification(message, 'error');
                 return;
             }
 
             this.isSubmitting = true;
-            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+            const sendingText = window.EMAIL_CONFIG?.notifications?.sending || 'Enviando...';
+            submitButton.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${sendingText}`;
             submitButton.disabled = true;
 
             // Recopilar datos del formulario
@@ -366,13 +379,15 @@ class FormValidator {
             await this.sendEmail(data);
 
             // Éxito
-            this.showNotification('¡Mensaje enviado exitosamente! Te contactaremos pronto.', 'success');
+            const successMessage = window.EMAIL_CONFIG?.notifications?.success || '¡Mensaje enviado exitosamente! Te contactaremos pronto.';
+            this.showNotification(successMessage, 'success');
             this.form.reset();
             this.clearAllErrors();
 
         } catch (error) {
             console.error('Error al enviar formulario:', error);
-            this.showNotification('Error al enviar el mensaje. Por favor intenta nuevamente.', 'error');
+            const errorMessage = window.EMAIL_CONFIG?.notifications?.error || 'Error al enviar el mensaje. Por favor intenta nuevamente.';
+            this.showNotification(errorMessage, 'error');
         } finally {
             this.isSubmitting = false;
             submitButton.innerHTML = originalText;
@@ -388,14 +403,29 @@ class FormValidator {
             phone: data.phone || 'No proporcionado',
             company: data.company || 'No proporcionado',
             message: data.message,
-            to_email: 'albano.facundo@hotmail.com'
+            to_email: window.EMAIL_CONFIG?.destinationEmail || 'albano.facundo@hotmail.com'
         };
 
-        // Configurar tu Service ID y Template ID de EmailJS
-        const serviceID = 'YOUR_SERVICE_ID'; // Reemplaza con tu Service ID
-        const templateID = 'YOUR_TEMPLATE_ID'; // Reemplaza con tu Template ID
+        // Verificar si EmailJS está configurado y disponible
+        if (typeof emailjs !== 'undefined' && window.EMAIL_CONFIG) {
+            const validation = window.validateEmailConfig();
+            
+            if (validation.valid) {
+                // Usar EmailJS real
+                return emailjs.send(
+                    window.EMAIL_CONFIG.emailjs.serviceID, 
+                    window.EMAIL_CONFIG.emailjs.templateID, 
+                    templateParams
+                );
+            }
+        }
 
-        return emailjs.send(serviceID, templateID, templateParams);
+        // Fallback: usar función alternativa de envío
+        if (window.sendEmailAlternative) {
+            return window.sendEmailAlternative(templateParams);
+        }
+
+        throw new Error('No se pudo configurar el servicio de email');
     }
 
     // Limpiar todos los errores

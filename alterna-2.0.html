@@ -72,6 +72,7 @@
     <link rel="stylesheet" href="assets/css/hero.css">
     <link rel="stylesheet" href="assets/css/buttons.css">
     <link rel="stylesheet" href="assets/css/sections.css">
+    <link rel="stylesheet" href="assets/css/contact-improved.css">
     <link rel="stylesheet" href="assets/css/chatbot.css">
     
     <!-- PWA Manifest -->
@@ -555,18 +556,18 @@
                 <div class="contact-form-container">
                     <form class="contact-form" id="contactForm">
                         <div class="form-group">
-                            <label for="fullname" class="form-label">Nombre Completo</label>
-                            <input type="text" id="fullname" name="fullname" class="form-input" required>
+                            <label for="fullname" class="form-label required">Nombre Completo</label>
+                            <input type="text" id="fullname" name="fullname" class="form-input" placeholder="Tu nombre completo" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" id="email" name="email" class="form-input" required>
+                            <label for="email" class="form-label required">Email</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="tu@email.com" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="phone" class="form-label">Teléfono de Contacto</label>
-                            <input type="tel" id="phone" name="phone" class="form-input">
+                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="+54 341 123-4567 (opcional)">
                         </div>
                         
                         <div class="form-group">
@@ -575,8 +576,8 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="message" class="form-label">Descripción del Proyecto</label>
-                            <textarea id="message" name="message" class="form-textarea" rows="5" required></textarea>
+                            <label for="message" class="form-label required">Descripción del Proyecto</label>
+                            <textarea id="message" name="message" class="form-textarea" rows="6" placeholder="Describe tu proyecto eléctrico, instalaciones necesarias, timeline, etc." required></textarea>
                         </div>
                         
                         <button type="submit" class="btn-submit">
@@ -608,9 +609,37 @@
                         <i class="fas fa-envelope"></i>
                         <div>
                             <h4>Email</h4>
-                            <p>info@alternaservicioselectricos.com</p>
+                            <p><a href="mailto:info@alternaservicioselectricos.com">info@alternaservicioselectricos.com</a></p>
                         </div>
                     </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Horario de Atención</h4>
+                            <p>Lunes a Viernes: 8:00 - 18:00<br>
+                            Sábados: 8:00 - 13:00</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-reply"></i>
+                        <div>
+                            <h4>Tiempo de Respuesta</h4>
+                            <p>Respuesta en menos de 2 horas<br>
+                            Urgencias 24/7</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-additional">
+                    <h4>¿Listo para tu próximo proyecto eléctrico?</h4>
+                    <p>
+                        Nuestro equipo de ingenieros especializados está preparado para brindarte 
+                        soluciones personalizadas. Desde instalaciones industriales hasta proyectos 
+                        de automatización, trabajamos con las últimas tecnologías para garantizar 
+                        resultados excepcionales.
+                    </p>
                 </div>
             </div>
         </div>
@@ -682,9 +711,10 @@
     </footer>
 
     <!-- JavaScript Modular -->
-    <script src="assets/js/translator.js"></script>
+    <script src="assets/js/translator-improved.js"></script>
     <script src="assets/js/lazy-loading.js"></script>
-    <script src="assets/js/chatbot.js"></script>
+    <script src="assets/js/chatbot-improved.js"></script>
+    <script src="assets/js/email-config.js"></script>
     <script src="assets/js/form-validation.js"></script>
     
     <!-- Initialization Script -->
@@ -737,6 +767,9 @@
             // Initialize translator
             if (typeof initializeTranslator === 'function') {
                 initializeTranslator();
+                console.log('✅ Translator initialized');
+            } else {
+                console.warn('❌ Translator function not found');
             }
             
             // Smooth scroll for navigation
