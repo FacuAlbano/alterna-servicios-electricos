@@ -6,16 +6,17 @@ header {
     right: 0;
     z-index: var(--z-dropdown);
     transition: all var(--transition-normal);
-    backdrop-filter: blur(20px) saturate(180%);
-    background: rgba(10, 10, 10, 0.85);
-    border-bottom: 1px solid rgba(32, 178, 170, 0.2);
-    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px) saturate(120%);
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    box-shadow: none;
 }
 
 header.scrolled {
-    background: rgba(5, 5, 5, 0.95);
-    border-bottom-color: rgba(32, 178, 170, 0.4);
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+    background: rgba(5, 5, 5, 0.7);
+    backdrop-filter: blur(15px) saturate(150%);
+    border-bottom-color: rgba(32, 178, 170, 0.3);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
 }
 
 nav {
