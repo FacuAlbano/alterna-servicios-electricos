@@ -108,9 +108,9 @@
                         <i class="fas fa-globe"></i>
                     </button>
                     <div class="translate-options">
-                        <button class="translate-option" data-lang="es" onclick="translateTo('es')">Español</button>
-                        <button class="translate-option" data-lang="en" onclick="translateTo('en')">English</button>
-                        <button class="translate-option" data-lang="pt" onclick="translateTo('pt')">Português</button>
+                        <button class="translate-option" data-lang="es">Español</button>
+                        <button class="translate-option" data-lang="en">English</button>
+                        <button class="translate-option" data-lang="pt">Português</button>
                     </div>
                 </div>
                 
@@ -588,27 +588,36 @@
                 
                 <div class="contact-info">
                     <h3>Información de Contacto</h3>
-                    <div class="contact-item">
+                    <div class="contact-item" onclick="window.open('https://maps.google.com/?q=Rosario,Santa Fe,Argentina', '_blank')">
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
                             <h4>Dirección</h4>
                             <p>Rosario, Santa Fe, Argentina</p>
+                            <small style="color: #20b2aa; font-size: 0.8rem;">📍 Ver en Google Maps</small>
                         </div>
                     </div>
-                    
-                    <div class="contact-item">
+                    <div class="contact-item" onclick="window.open('https://wa.me/5493415123456', '_blank')">
                         <i class="fas fa-phone"></i>
                         <div>
                             <h4>Teléfono</h4>
                             <p>+54 341 512-3456</p>
+                            <small style="color: #20b2aa; font-size: 0.8rem;">💬 Contactar por WhatsApp</small>
                         </div>
                     </div>
-                    
-                    <div class="contact-item">
+                    <div class="contact-item" onclick="window.location.href='mailto:info@alternaservicioselectricos.com?subject=Consulta desde la web'">
                         <i class="fas fa-envelope"></i>
                         <div>
                             <h4>Email</h4>
                             <p>info@alternaservicioselectricos.com</p>
+                            <small style="color: #20b2aa; font-size: 0.8rem;">✉️ Enviar email directo</small>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Horarios</h4>
+                            <p>Lunes a Viernes: 8:00 - 18:00</p>
+                            <small style="color: #20b2aa; font-size: 0.8rem;">⚡ Urgencias 24/7</small>
                         </div>
                     </div>
                 </div>
@@ -687,6 +696,897 @@
     <script src="assets/js/chatbot.js"></script>
     <script src="assets/js/form-validation.js"></script>
     
+    <!-- ESTILOS DIRECTOS PARA ARREGLAR CONTACTO Y CHATBOT -->
+    <style>
+        /* FORZAR ESTILOS DE CONTACTO */
+        .contact-info {
+            background: linear-gradient(135deg, rgba(32, 178, 170, 0.08) 0%, rgba(72, 202, 228, 0.05) 100%) !important;
+            backdrop-filter: blur(30px) !important;
+            border: 1px solid rgba(32, 178, 170, 0.2) !important;
+            border-radius: 24px !important;
+            padding: 2.5rem !important;
+            position: relative !important;
+            overflow: hidden !important;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .contact-info::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            background: radial-gradient(circle at 20% 30%, rgba(32, 178, 170, 0.1) 0%, transparent 60%) !important;
+            z-index: 1 !important;
+        }
+
+        .contact-info > * {
+            position: relative !important;
+            z-index: 2 !important;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem !important;
+            font-weight: 700 !important;
+            margin-bottom: 2rem !important;
+            color: var(--primary-color) !important;
+            text-align: center !important;
+            font-family: 'Orbitron', sans-serif !important;
+            text-shadow: 0 0 20px rgba(32, 178, 170, 0.3) !important;
+        }
+
+        .contact-item {
+            display: flex !important;
+            align-items: center !important;
+            gap: 1.5rem !important;
+            margin-bottom: 2rem !important;
+            padding: 1.5rem !important;
+            background: rgba(255, 255, 255, 0.05) !important;
+            border-radius: 16px !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            transition: all 0.3s ease !important;
+            cursor: pointer !important;
+        }
+
+        .contact-item:hover {
+            background: rgba(32, 178, 170, 0.1) !important;
+            border-color: rgba(32, 178, 170, 0.4) !important;
+            transform: translateX(8px) !important;
+            box-shadow: 0 8px 25px rgba(32, 178, 170, 0.2) !important;
+        }
+
+        .contact-item i {
+            font-size: 2rem !important;
+            color: var(--primary-color) !important;
+            width: 50px !important;
+            height: 50px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            background: linear-gradient(135deg, rgba(32, 178, 170, 0.2), rgba(72, 202, 228, 0.1)) !important;
+            border-radius: 12px !important;
+            border: 1px solid rgba(32, 178, 170, 0.3) !important;
+        }
+
+        .contact-item div {
+            flex: 1 !important;
+        }
+
+        .contact-item h4 {
+            font-size: 1.1rem !important;
+            font-weight: 600 !important;
+            margin-bottom: 0.5rem !important;
+            color: var(--text-primary) !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            font-family: 'Space Grotesk', sans-serif !important;
+        }
+
+        .contact-item p {
+            color: var(--text-secondary) !important;
+            font-size: 1rem !important;
+            font-weight: 500 !important;
+            transition: color 0.3s ease !important;
+            margin: 0 !important;
+        }
+
+        .contact-item small {
+            color: var(--primary-color) !important;
+            font-weight: 500 !important;
+            display: block !important;
+            margin-top: 4px !important;
+            font-size: 0.85rem !important;
+        }
+
+        .contact-item:hover p {
+            color: var(--primary-color) !important;
+        }
+
+        /* FORZAR ESTILOS DE CHATBOT */
+        .chatbot-window {
+            background: linear-gradient(135deg, rgba(8, 15, 26, 0.98) 0%, rgba(15, 25, 35, 0.98) 50%, rgba(20, 30, 40, 0.98) 100%) !important;
+        }
+
+        .chatbot-body {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.01) 100%) !important;
+        }
+
+        .chat-messages {
+            background: transparent !important;
+        }
+
+        #botui-app {
+            background: transparent !important;
+        }
+
+        /* Animaciones específicas para contacto */
+        .contact-item:nth-child(2):hover i {
+            animation: mapPulse 0.6s ease-in-out !important;
+        }
+
+        .contact-item:nth-child(3):hover i {
+            animation: phoneBuzz 0.5s ease-in-out !important;
+        }
+
+        .contact-item:nth-child(4):hover i {
+            animation: emailGlow 0.8s ease-in-out !important;
+        }
+
+        .contact-item:nth-child(5):hover i {
+            animation: clockTick 0.8s ease-in-out !important;
+        }
+
+        @keyframes mapPulse {
+            0%, 100% { transform: scale(1) !important; }
+            50% { transform: scale(1.1) !important; }
+        }
+
+        @keyframes phoneBuzz {
+            0%, 100% { transform: rotate(0deg) !important; }
+            25% { transform: rotate(-5deg) !important; }
+            75% { transform: rotate(5deg) !important; }
+        }
+
+        @keyframes emailGlow {
+            0%, 100% { box-shadow: 0 0 0 rgba(32, 178, 170, 0) !important; }
+            50% { box-shadow: 0 0 20px rgba(32, 178, 170, 0.6) !important; }
+        }
+
+        @keyframes clockTick {
+            0%, 100% { transform: scale(1) !important; }
+            50% { transform: scale(1.1) rotate(10deg) !important; }
+        }
+    </style>
+
+    <!-- TRADUCTOR SIMPLE Y DIRECTO -->
+    <script>
+        // Solución súper simple que funciona al 100%
+        function setupSimpleTranslator() {
+            console.log('🔧 Setting up SIMPLE translator...');
+            
+            // Buscar elementos
+            const langToggle = document.querySelector('.language-toggle');
+            const translateOptions = document.querySelector('.translate-options');
+            const translateButtons = document.querySelectorAll('.translate-option');
+            
+            if (!langToggle || !translateOptions) {
+                console.log('❌ Elements not found, creating simple translator...');
+                createSimpleTranslatorButton();
+                return;
+            }
+            
+            // ESTILOS ELEGANTES Y MODERNOS
+            translateOptions.style.cssText = `
+                position: absolute !important;
+                top: calc(100% + 15px) !important;
+                right: 0 !important;
+                background: linear-gradient(135deg, rgba(15, 15, 15, 0.98), rgba(25, 25, 25, 0.98)) !important;
+                border: 1px solid rgba(32, 178, 170, 0.4) !important;
+                border-radius: 16px !important;
+                padding: 12px 0 !important;
+                min-width: 180px !important;
+                display: none !important;
+                z-index: 999999 !important;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+                backdrop-filter: blur(20px) saturate(180%) !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                transform: none !important;
+                transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+            `;
+            
+            // Variable para rastrear el estado del dropdown
+            let isOpen = false;
+            
+            // Estilos para botones de idioma - ELEGANTES Y MODERNOS
+            translateButtons.forEach(btn => {
+                btn.style.cssText = `
+                    display: flex !important;
+                    align-items: center !important;
+                    width: 100% !important;
+                    padding: 12px 18px !important;
+                    background: transparent !important;
+                    border: none !important;
+                    color: #ffffff !important;
+                    cursor: pointer !important;
+                    text-align: left !important;
+                    border-radius: 8px !important;
+                    margin: 2px 0 !important;
+                    font-weight: 500 !important;
+                    font-size: 14px !important;
+                    font-family: 'Space Grotesk', sans-serif !important;
+                    gap: 10px !important;
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+                    position: relative !important;
+                    overflow: hidden !important;
+                `;
+                
+                // Agregar bandera emoji al inicio si no existe
+                if (!btn.textContent.includes('🇪🇸') && !btn.textContent.includes('🇺🇸') && !btn.textContent.includes('🇧🇷')) {
+                    const lang = btn.getAttribute('data-lang');
+                    const flags = { es: '🇪🇸', en: '🇺🇸', pt: '🇧🇷' };
+                    btn.textContent = `${flags[lang]} ${btn.textContent}`;
+                }
+                
+                btn.addEventListener('mouseenter', function() {
+                    this.style.background = 'linear-gradient(90deg, rgba(32, 178, 170, 0.15), rgba(72, 202, 228, 0.1)) !important';
+                    this.style.color = '#20b2aa !important';
+                    this.style.transform = 'translateX(5px) !important';
+                    this.style.textShadow = '0 0 15px rgba(32, 178, 170, 0.6) !important';
+                });
+                
+                btn.addEventListener('mouseleave', function() {
+                    this.style.background = 'transparent !important';
+                    this.style.color = '#ffffff !important';
+                    this.style.transform = 'translateX(0) !important';
+                    this.style.textShadow = 'none !important';
+                });
+                
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const lang = this.getAttribute('data-lang');
+                    console.log('🌍 Language selected:', lang);
+                    
+                    // Llamar a translateTo
+                    if (window.translateTo) {
+                        translateTo(lang);
+                    }
+                    
+                    // Cerrar dropdown con animación elegante
+                    translateOptions.style.opacity = '0';
+                    translateOptions.style.transform = 'translateY(-10px) scale(0.95)';
+                    translateOptions.style.pointerEvents = 'none';
+                    
+                    setTimeout(() => {
+                        translateOptions.style.display = 'none';
+                        translateOptions.style.visibility = 'hidden';
+                    }, 300);
+                    
+                    isOpen = false;
+                    console.log('🎯 Language changed and dropdown closed with animation');
+                });
+            });
+            
+            // Event listener SÚPER SIMPLE para el toggle
+            langToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                console.log('🔄 Toggle clicked! Current state:', isOpen);
+                
+                if (!isOpen) {
+                    // ABRIR con animación elegante
+                    translateOptions.style.display = 'block';
+                    translateOptions.style.visibility = 'visible';
+                    translateOptions.style.opacity = '0';
+                    translateOptions.style.transform = 'translateY(-10px) scale(0.95)';
+                    translateOptions.style.pointerEvents = 'auto';
+                    
+                    // Animación suave de entrada
+                    requestAnimationFrame(() => {
+                        translateOptions.style.opacity = '1';
+                        translateOptions.style.transform = 'translateY(0) scale(1)';
+                    });
+                    
+                    isOpen = true;
+                    console.log('✅ Dropdown OPENED with elegant animation!');
+                    
+                } else {
+                    // CERRAR con animación elegante
+                    translateOptions.style.opacity = '0';
+                    translateOptions.style.transform = 'translateY(-10px) scale(0.95)';
+                    translateOptions.style.pointerEvents = 'none';
+                    
+                    setTimeout(() => {
+                        translateOptions.style.display = 'none';
+                        translateOptions.style.visibility = 'hidden';
+                    }, 300);
+                    
+                    isOpen = false;
+                    console.log('❌ Dropdown CLOSED with elegant animation');
+                }
+            });
+            
+            // Cerrar al hacer click fuera con animación elegante
+            document.addEventListener('click', function(e) {
+                if (!langToggle.contains(e.target) && !translateOptions.contains(e.target) && isOpen) {
+                    translateOptions.style.opacity = '0';
+                    translateOptions.style.transform = 'translateY(-10px) scale(0.95)';
+                    translateOptions.style.pointerEvents = 'none';
+                    
+                    setTimeout(() => {
+                        translateOptions.style.display = 'none';
+                        translateOptions.style.visibility = 'hidden';
+                    }, 300);
+                    
+                    isOpen = false;
+                    console.log('📍 Clicked outside - dropdown closed with animation');
+                }
+            });
+            
+            console.log('✅ Simple translator setup complete!');
+        }
+        
+        function createSimpleTranslatorButton() {
+            console.log('🚧 Creating simple translator button from scratch...');
+            
+            // Crear botón flotante súper simple
+            const translatorBtn = document.createElement('div');
+            translatorBtn.id = 'simple-translator';
+            translatorBtn.innerHTML = `
+                <button id="lang-btn" style="
+                    position: fixed;
+                    top: 100px;
+                    right: 20px;
+                    background: linear-gradient(45deg, #20b2aa, #48cae4);
+                    color: white;
+                    border: none;
+                    padding: 15px;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    z-index: 10000;
+                    font-size: 18px;
+                    width: 60px;
+                    height: 60px;
+                    box-shadow: 0 4px 15px rgba(32, 178, 170, 0.4);
+                    transition: all 0.3s;
+                ">🌍</button>
+                
+                <div id="lang-dropdown" style="
+                    position: fixed;
+                    top: 170px;
+                    right: 20px;
+                    background: rgba(0, 0, 0, 0.95);
+                    border: 2px solid #20b2aa;
+                    border-radius: 8px;
+                    padding: 10px;
+                    display: none;
+                    z-index: 10001;
+                    min-width: 120px;
+                ">
+                    <div class="lang-option" data-lang="es" style="
+                        padding: 8px 12px;
+                        color: white;
+                        cursor: pointer;
+                        border-radius: 4px;
+                        margin: 2px 0;
+                    ">🇪🇸 Español</div>
+                    <div class="lang-option" data-lang="en" style="
+                        padding: 8px 12px;
+                        color: white;
+                        cursor: pointer;
+                        border-radius: 4px;
+                        margin: 2px 0;
+                    ">🇺🇸 English</div>
+                    <div class="lang-option" data-lang="pt" style="
+                        padding: 8px 12px;
+                        color: white;
+                        cursor: pointer;
+                        border-radius: 4px;
+                        margin: 2px 0;
+                    ">🇧🇷 Português</div>
+                </div>
+            `;
+            
+            document.body.appendChild(translatorBtn);
+            
+            // Event listeners súper simples
+            const btn = document.getElementById('lang-btn');
+            const dropdown = document.getElementById('lang-dropdown');
+            const options = document.querySelectorAll('.lang-option');
+            
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                dropdown.style.display = dropdown.style.display === 'none' || !dropdown.style.display ? 'block' : 'none';
+            });
+            
+            options.forEach(option => {
+                option.addEventListener('mouseenter', function() {
+                    this.style.backgroundColor = '#20b2aa';
+                });
+                option.addEventListener('mouseleave', function() {
+                    this.style.backgroundColor = 'transparent';
+                });
+                option.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    console.log('🌍 Language selected (simple):', lang);
+                    
+                    if (window.translateTo) {
+                        translateTo(lang);
+                    }
+                    
+                    dropdown.style.display = 'none';
+                });
+            });
+            
+            document.addEventListener('click', function() {
+                dropdown.style.display = 'none';
+            });
+            
+            console.log('✅ Simple translator button created!');
+        }
+        
+        // Ejecutar después de que todo esté cargado
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(setupSimpleTranslator, 500);
+        });
+        
+        // Backup adicional
+        window.addEventListener('load', function() {
+            setTimeout(setupSimpleTranslator, 1000);
+        });
+        
+        // Ejecutar inmediatamente si el DOM ya está listo
+        if (document.readyState !== 'loading') {
+            setTimeout(setupSimpleTranslator, 100);
+        }
+
+        // FORZAR ESTILOS CON JAVASCRIPT
+        function forceContactStyles() {
+            console.log('🎨 Forcing contact styles...');
+            
+            const contactInfo = document.querySelector('.contact-info');
+            const contactItems = document.querySelectorAll('.contact-item');
+            const chatbotWindow = document.querySelector('.chatbot-window');
+            const chatbotBody = document.querySelector('.chatbot-body');
+            
+            if (contactInfo) {
+                console.log('✅ Contact info found, applying styles...');
+                contactInfo.style.cssText = `
+                    background: linear-gradient(135deg, rgba(32, 178, 170, 0.08) 0%, rgba(72, 202, 228, 0.05) 100%) !important;
+                    backdrop-filter: blur(30px) !important;
+                    border: 1px solid rgba(32, 178, 170, 0.2) !important;
+                    border-radius: 24px !important;
+                    padding: 2.5rem !important;
+                    position: relative !important;
+                    overflow: hidden !important;
+                    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+                `;
+            }
+            
+            contactItems.forEach((item, index) => {
+                console.log(`🎯 Styling contact item ${index + 1}...`);
+                item.style.cssText = `
+                    display: flex !important;
+                    align-items: center !important;
+                    gap: 1.5rem !important;
+                    margin-bottom: 2rem !important;
+                    padding: 1.5rem !important;
+                    background: rgba(255, 255, 255, 0.05) !important;
+                    border-radius: 16px !important;
+                    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+                    transition: all 0.3s ease !important;
+                    cursor: pointer !important;
+                `;
+                
+                const icon = item.querySelector('i');
+                const text = item.querySelector('div');
+                const h4 = item.querySelector('h4');
+                const p = item.querySelector('p');
+                const small = item.querySelector('small');
+                
+                if (icon) {
+                    icon.style.cssText = `
+                        font-size: 2rem !important;
+                        color: #20b2aa !important;
+                        width: 50px !important;
+                        height: 50px !important;
+                        display: flex !important;
+                        align-items: center !important;
+                        justify-content: center !important;
+                        background: linear-gradient(135deg, rgba(32, 178, 170, 0.2), rgba(72, 202, 228, 0.1)) !important;
+                        border-radius: 12px !important;
+                        border: 1px solid rgba(32, 178, 170, 0.3) !important;
+                    `;
+                }
+                
+                if (text) {
+                    text.style.cssText = `flex: 1 !important;`;
+                }
+                
+                if (h4) {
+                    h4.style.cssText = `
+                        font-size: 1.1rem !important;
+                        font-weight: 600 !important;
+                        margin-bottom: 0.5rem !important;
+                        color: white !important;
+                        text-transform: uppercase !important;
+                        letter-spacing: 1px !important;
+                        margin: 0 0 8px 0 !important;
+                    `;
+                }
+                
+                if (p) {
+                    p.style.cssText = `
+                        color: #cccccc !important;
+                        font-size: 1rem !important;
+                        font-weight: 500 !important;
+                        margin: 0 0 4px 0 !important;
+                    `;
+                }
+                
+                if (small) {
+                    small.style.cssText = `
+                        color: #20b2aa !important;
+                        font-weight: 500 !important;
+                        display: block !important;
+                        margin-top: 4px !important;
+                        font-size: 0.85rem !important;
+                    `;
+                }
+            });
+            
+            // Forzar estilos del chatbot
+            if (chatbotWindow) {
+                console.log('🤖 Fixing chatbot window...');
+                chatbotWindow.style.background = 'linear-gradient(135deg, rgba(8, 15, 26, 0.98) 0%, rgba(15, 25, 35, 0.98) 50%, rgba(20, 30, 40, 0.98) 100%) !important';
+            }
+            
+            if (chatbotBody) {
+                console.log('💬 Fixing chatbot body...');
+                chatbotBody.style.background = 'linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.01) 100%) !important';
+            }
+            
+            console.log('✅ All styles forced!');
+        }
+        
+        // Ejecutar múltiples veces para asegurar que se aplique
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(forceContactStyles, 100);
+            setTimeout(forceContactStyles, 500);
+            setTimeout(forceContactStyles, 1000);
+        });
+        
+        window.addEventListener('load', function() {
+            setTimeout(forceContactStyles, 200);
+            setTimeout(forceContactStyles, 1000);
+        });
+        
+        // Ejecutar inmediatamente
+        setTimeout(forceContactStyles, 50);
+
+        // FUNCIÓN DE DEBUGGING PARA VER QUÉ PASA
+        function debugContactSection() {
+            console.log('🔍 DEBUGGING CONTACT SECTION...');
+            
+            const contactInfo = document.querySelector('.contact-info');
+            const contactItems = document.querySelectorAll('.contact-item');
+            const contactH3 = document.querySelector('.contact-info h3');
+            const contactIcons = document.querySelectorAll('.contact-item i');
+            const contactTexts = document.querySelectorAll('.contact-item div');
+            
+            console.log('📊 Found elements:', {
+                contactInfo: !!contactInfo,
+                contactItems: contactItems.length,
+                contactH3: !!contactH3,
+                contactIcons: contactIcons.length,
+                contactTexts: contactTexts.length
+            });
+            
+            if (contactInfo) {
+                console.log('📐 Contact info dimensions:', {
+                    width: contactInfo.offsetWidth,
+                    height: contactInfo.offsetHeight,
+                    visible: contactInfo.offsetParent !== null
+                });
+            }
+            
+            contactItems.forEach((item, index) => {
+                console.log(`📋 Contact item ${index + 1}:`, {
+                    visible: item.offsetParent !== null,
+                    hasIcon: !!item.querySelector('i'),
+                    hasText: !!item.querySelector('div'),
+                    hasH4: !!item.querySelector('h4'),
+                    hasP: !!item.querySelector('p'),
+                    hasSmall: !!item.querySelector('small')
+                });
+            });
+        }
+
+        // FUNCIÓN PARA FORZAR ESTILOS DE CHATBOT CUANDO SE ABRA
+        function forceChatbotStyles() {
+            console.log('🤖 Forcing chatbot styles when opened...');
+            
+            const chatbotWindow = document.querySelector('.chatbot-window');
+            const chatbotBody = document.querySelector('.chatbot-body');
+            const chatMessages = document.querySelector('.chat-messages');
+            const botuiApp = document.querySelector('#botui-app');
+            
+            if (chatbotWindow) {
+                chatbotWindow.style.background = 'linear-gradient(135deg, rgba(8, 15, 26, 0.98) 0%, rgba(15, 25, 35, 0.98) 50%, rgba(20, 30, 40, 0.98) 100%)';
+            }
+            
+            if (chatbotBody) {
+                chatbotBody.style.background = 'transparent';
+            }
+            
+            if (chatMessages) {
+                chatMessages.style.background = 'transparent';
+            }
+            
+            if (botuiApp) {
+                botuiApp.style.background = 'transparent';
+            }
+            
+            // También buscar cualquier elemento con fondo blanco en el chatbot
+            const chatbotElements = document.querySelectorAll('#chatbot-window *');
+            chatbotElements.forEach(el => {
+                const computedStyle = window.getComputedStyle(el);
+                if (computedStyle.backgroundColor === 'rgb(255, 255, 255)' || 
+                    computedStyle.backgroundColor === '#ffffff' ||
+                    computedStyle.backgroundColor === 'white') {
+                    el.style.background = 'transparent';
+                    console.log('🎨 Fixed white background element:', el);
+                }
+            });
+        }
+
+        // Conectar con el toggle del chatbot
+        setTimeout(() => {
+            const chatbotToggle = document.getElementById('chatbot-toggle');
+            if (chatbotToggle) {
+                chatbotToggle.addEventListener('click', function() {
+                    setTimeout(forceChatbotStyles, 100);
+                    setTimeout(forceChatbotStyles, 500);
+                });
+            }
+        }, 1000);
+
+        // Ejecutar debugging después de 3 segundos
+        setTimeout(debugContactSection, 3000);
+
+        // CSS YA SE ENCARGA DE TODO
+
+        window.fixChatbotNow = function() {
+            console.log('🚨 EMERGENCY CHATBOT FIX!');
+            forceChatbotStyles();
+            
+            // Buscar todos los elementos del chatbot y forzar fondo oscuro
+            const allChatElements = document.querySelectorAll('#chatbot-container *, #chatbot-window *, #chatbot-body *, #botui-app *, .chat-messages *');
+            allChatElements.forEach(el => {
+                if (window.getComputedStyle(el).backgroundColor.includes('255, 255, 255')) {
+                    el.style.backgroundColor = 'rgba(15, 25, 35, 0.5)';
+                    console.log('🎨 Fixed white element:', el.className);
+                }
+            });
+            
+            alert('✅ Chatbot emergency fix applied!');
+        };
+
+        window.debugEverything = function() {
+            console.log('🔍 COMPLETE DEBUGGING...');
+            debugContactSection();
+            
+            // Debug chatbot
+            const chatbot = document.querySelector('#chatbot-container');
+            const chatbotWindow = document.querySelector('.chatbot-window');
+            const chatbotBody = document.querySelector('.chatbot-body');
+            
+            console.log('🤖 Chatbot debug:', {
+                chatbot: !!chatbot,
+                chatbotWindow: !!chatbotWindow,
+                chatbotBody: !!chatbotBody,
+                chatbotVisible: chatbotWindow && chatbotWindow.offsetParent !== null
+            });
+            
+            if (chatbotBody) {
+                const computedStyle = window.getComputedStyle(chatbotBody);
+                console.log('🎨 Chatbot body current style:', {
+                    background: computedStyle.backgroundColor,
+                    color: computedStyle.color
+                });
+            }
+        };
+
+        // FUNCIÓN SUPER SIMPLE QUE REEMPLAZA TODO
+        window.createAwesomeContact = function() {
+            console.log('🚨 CREATING AWESOME CONTACT SECTION!');
+            
+            // Buscar el contenedor de contacto
+            const contactInfo = document.querySelector('.contact-info');
+            if (!contactInfo) {
+                console.error('❌ Contact info container not found!');
+                return;
+            }
+            
+            // REEMPLAZAR TODO CON HTML SIMPLE
+            contactInfo.innerHTML = '';
+            contactInfo.style.cssText = '';
+            
+            // Crear título
+            const title = document.createElement('h3');
+            title.textContent = 'Información de Contacto';
+            title.style.cssText = `
+                color: #20b2aa;
+                text-align: center;
+                font-size: 1.8rem;
+                margin-bottom: 2rem;
+                font-weight: bold;
+            `;
+            contactInfo.appendChild(title);
+            
+            // Datos de contacto
+            const contactData = [
+                { icon: '📍', title: 'DIRECCIÓN', text: 'Rosario, Santa Fe, Argentina', action: 'Ver en Google Maps', link: 'https://maps.google.com/?q=Rosario,Santa Fe,Argentina' },
+                { icon: '📞', title: 'TELÉFONO', text: '+54 341 512-3456', action: 'Contactar por WhatsApp', link: 'https://wa.me/5493415123456' },
+                { icon: '✉️', title: 'EMAIL', text: 'info@alternaservicioselectricos.com', action: 'Enviar email directo', link: 'mailto:info@alternaservicioselectricos.com?subject=Consulta desde la web' },
+                { icon: '🕒', title: 'HORARIOS', text: 'Lunes a Viernes: 8:00 - 18:00', action: 'Urgencias 24/7', link: null }
+            ];
+            
+            // Crear cada item de contacto
+            contactData.forEach((data, index) => {
+                const item = document.createElement('div');
+                item.style.cssText = `
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                    margin: 1rem 0;
+                    padding: 1.2rem;
+                    background: rgba(32, 178, 170, 0.1);
+                    border: 1px solid rgba(32, 178, 170, 0.3);
+                    border-radius: 12px;
+                    cursor: ${data.link ? 'pointer' : 'default'};
+                    transition: all 0.3s ease;
+                `;
+                
+                // Crear icono
+                const iconDiv = document.createElement('div');
+                iconDiv.textContent = data.icon;
+                iconDiv.style.cssText = `
+                    font-size: 2rem;
+                    width: 50px;
+                    height: 50px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: rgba(32, 178, 170, 0.2);
+                    border-radius: 8px;
+                    border: 1px solid rgba(32, 178, 170, 0.4);
+                `;
+                
+                // Crear contenido
+                const contentDiv = document.createElement('div');
+                contentDiv.style.cssText = 'flex: 1;';
+                
+                const titleEl = document.createElement('div');
+                titleEl.textContent = data.title;
+                titleEl.style.cssText = `
+                    color: white;
+                    font-weight: bold;
+                    font-size: 1rem;
+                    margin-bottom: 4px;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                `;
+                
+                const textEl = document.createElement('div');
+                textEl.textContent = data.text;
+                textEl.style.cssText = `
+                    color: #cccccc;
+                    font-size: 0.9rem;
+                    margin-bottom: 4px;
+                `;
+                
+                const actionEl = document.createElement('div');
+                actionEl.textContent = data.action;
+                actionEl.style.cssText = `
+                    color: #20b2aa;
+                    font-size: 0.8rem;
+                    font-weight: 500;
+                `;
+                
+                contentDiv.appendChild(titleEl);
+                contentDiv.appendChild(textEl);
+                contentDiv.appendChild(actionEl);
+                
+                item.appendChild(iconDiv);
+                item.appendChild(contentDiv);
+                
+                // Agregar hover y click
+                item.addEventListener('mouseenter', function() {
+                    this.style.background = 'rgba(32, 178, 170, 0.15)';
+                    this.style.transform = 'translateX(5px)';
+                    this.style.boxShadow = '0 5px 15px rgba(32, 178, 170, 0.3)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.background = 'rgba(32, 178, 170, 0.1)';
+                    this.style.transform = 'translateX(0)';
+                    this.style.boxShadow = 'none';
+                });
+                
+                if (data.link) {
+                    item.addEventListener('click', function() {
+                        if (data.link.includes('mailto:')) {
+                            window.location.href = data.link;
+                        } else {
+                            window.open(data.link, '_blank');
+                        }
+                    });
+                }
+                
+                contactInfo.appendChild(item);
+            });
+            
+            // Aplicar estilos al contenedor principal
+            contactInfo.style.cssText = `
+                background: linear-gradient(135deg, rgba(32, 178, 170, 0.05) 0%, rgba(72, 202, 228, 0.02) 100%);
+                border: 1px solid rgba(32, 178, 170, 0.2);
+                border-radius: 16px;
+                padding: 2rem;
+                margin: 1rem 0;
+                box-shadow: 0 8px 24px rgba(32, 178, 170, 0.1);
+            `;
+            
+            console.log('✅ AWESOME CONTACT SECTION CREATED!');
+            alert('🎉 ¡Información de contacto ARREGLADA y HERMOSA!');
+        };
+
+        // FUNCIÓN PARA CONFIGURAR EMAILJS REAL (opcional)
+        window.setupRealEmailJS = function() {
+            console.log('⚙️ CONFIGURANDO EmailJS REAL...');
+            
+            const userID = prompt('📧 Ingresa tu EmailJS User ID (o deja vacío para saltar):');
+            const serviceID = prompt('🔧 Ingresa tu EmailJS Service ID (o deja vacío para saltar):');
+            const templateID = prompt('📄 Ingresa tu EmailJS Template ID (o deja vacío para saltar):');
+            
+            if (userID && serviceID && templateID) {
+                console.log('✅ Configurando EmailJS con credenciales reales...');
+                
+                // Reconfigurar EmailJS
+                emailjs.init(userID);
+                
+                // Actualizar la función de envío
+                if (window.formValidator) {
+                    window.formValidator.emailJSConfig = {
+                        serviceID: serviceID,
+                        templateID: templateID,
+                        configured: true
+                    };
+                    
+                    console.log('✅ EmailJS configurado correctamente!');
+                    alert('✅ EmailJS configurado! Ahora los emails se enviarán automáticamente a albano.facundo@hotmail.com');
+                } else {
+                    console.error('❌ Form validator no disponible');
+                }
+            } else {
+                console.log('⏭️ Configuración de EmailJS saltada - usando método directo');
+                alert('⏭️ Sin EmailJS - se usará el cliente de email directo');
+            }
+        };
+        
+        // INFORMACIÓN PARA EL USUARIO
+        setTimeout(() => {
+            console.log('📧 EMAIL SYSTEM INFO:');
+            console.log('   📍 Emails van a: albano.facundo@hotmail.com');
+            console.log('   🔧 Método actual: Cliente de email directo');
+            console.log('   🚀 Para auto-envío: setupRealEmailJS()');
+            console.log('   🧪 Para probar: testEmailSending()');
+        }, 4000);
+    </script>
+    
     <!-- Initialization Script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -734,10 +1634,7 @@
                 });
             }
             
-            // Initialize translator
-            if (typeof initializeTranslator === 'function') {
-                initializeTranslator();
-            }
+            // Translator se inicializa automáticamente desde translator.js
             
             // Smooth scroll for navigation
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {

@@ -72,6 +72,12 @@ const translations = {
         'contact-address': 'Dirección',
         'contact-phone': 'Teléfono',
         'contact-email-label': 'Email',
+        'contact-hours': 'Horarios',
+        'contact-hours-text': 'Lunes a Viernes: 8:00 - 18:00',
+        'contact-maps': '📍 Ver en Google Maps',
+        'contact-whatsapp': '💬 Contactar por WhatsApp',
+        'contact-email-direct': '✉️ Enviar email directo',
+        'contact-emergency': '⚡ Urgencias 24/7',
         // Formulario expandido
         'form-fullname': 'Nombre Completo',
         'form-phone': 'Teléfono de Contacto',
@@ -82,12 +88,49 @@ const translations = {
         // Chatbot
         'chatbot-title': 'Asistente Alterna AI',
         'chatbot-greeting': '¡Hola! Soy el asistente virtual de Alterna. ¿En qué puedo ayudarte hoy?',
-        // Footer
-        'footer-description': 'Alterna Servicios Eléctricos - Profesionalismo y calidad en cada proyecto eléctrico.',
+        
+        // Proyectos específicos
+        'project-1-title': 'Instalación Industrial',
+        'project-1-desc': 'Sistema eléctrico completo para planta industrial',
+        'project-2-title': 'Automatización',
+        'project-2-desc': 'Sistema de control automatizado',
+        'project-3-title': 'Tableros Eléctricos',
+        'project-3-desc': 'Fabricación y montaje de tableros industriales',
+        'project-4-title': 'Mediciones Eléctricas',
+        'project-4-desc': 'Análisis y certificación de instalaciones',
+        'project-5-title': 'Mantenimiento Preventivo',
+        'project-5-desc': 'Servicios especializados de mantenimiento',
+        'project-6-title': 'Instalación Comercial',
+        'project-6-desc': 'Proyecto eléctrico para centro comercial',
+        'project-7-title': 'Energía Solar',
+        'project-7-desc': 'Sistema fotovoltaico industrial',
+        'project-8-title': 'Sistemas de Control',
+        'project-8-desc': 'Automatización de procesos industriales',
+        'project-9-title': 'Iluminación LED',
+        'project-9-desc': 'Modernización de sistemas de iluminación',
+        'project-10-title': 'Sistemas de Seguridad',
+        'project-10-desc': 'Instalación de sistemas de alarma y CCTV',
+        
+        // Métricas descripción
+        'metric-exp-desc': 'Instalaciones eléctricas exitosas en diversas industrias',
+        'metric-proj-desc': 'Proyectos exitosos en sector industrial y comercial',
+        'metric-cli-desc': 'Empresas que confían en nuestros servicios especializados',
+        'metric-spec-desc': 'Equipo altamente capacitado en tecnologías avanzadas',
+        
+        // Footer expandido
+        'footer-description': 'Profesionalismo y calidad en cada proyecto eléctrico.',
         'footer-services': 'Servicios',
         'footer-company': 'Empresa',
         'footer-contact': 'Contacto',
-        'footer-follow': 'Síguenos'
+        'footer-follow': 'Síguenos',
+        'footer-address': 'Rosario, Santa Fe',
+        'footer-copyright': 'Todos los derechos reservados.',
+        
+        // Botones y acciones
+        'btn-view-project': 'Ver Proyecto',
+        'btn-quote': 'Solicitar Cotización',
+        'btn-more-info': 'Más Información',
+        'scroll-indicator': 'Desplázate hacia abajo'
     },
     en: {
         // Navigation
@@ -157,6 +200,12 @@ const translations = {
         'contact-address': 'Address',
         'contact-phone': 'Phone',
         'contact-email-label': 'Email',
+        'contact-hours': 'Hours',
+        'contact-hours-text': 'Monday to Friday: 8:00 - 18:00',
+        'contact-maps': '📍 View on Google Maps',
+        'contact-whatsapp': '💬 Contact via WhatsApp',
+        'contact-email-direct': '✉️ Send direct email',
+        'contact-emergency': '⚡ Emergencies 24/7',
         // Extended Form
         'form-fullname': 'Full Name',
         'form-phone': 'Contact Phone',
@@ -167,12 +216,49 @@ const translations = {
         // Chatbot
         'chatbot-title': 'Alterna AI Assistant',
         'chatbot-greeting': 'Hello! I am Alterna\'s virtual assistant. How can I help you today?',
-        // Footer
-        'footer-description': 'Alterna Electrical Services - Professionalism and quality in every electrical project.',
+        
+        // Specific Projects
+        'project-1-title': 'Industrial Installation',
+        'project-1-desc': 'Complete electrical system for industrial plant',
+        'project-2-title': 'Automation',
+        'project-2-desc': 'Automated control system',
+        'project-3-title': 'Electrical Panels',
+        'project-3-desc': 'Manufacturing and assembly of industrial panels',
+        'project-4-title': 'Electrical Measurements',
+        'project-4-desc': 'Analysis and certification of installations',
+        'project-5-title': 'Preventive Maintenance',
+        'project-5-desc': 'Specialized maintenance services',
+        'project-6-title': 'Commercial Installation',
+        'project-6-desc': 'Electrical project for shopping center',
+        'project-7-title': 'Solar Energy',
+        'project-7-desc': 'Industrial photovoltaic system',
+        'project-8-title': 'Control Systems',
+        'project-8-desc': 'Industrial process automation',
+        'project-9-title': 'LED Lighting',
+        'project-9-desc': 'Modernization of lighting systems',
+        'project-10-title': 'Security Systems',
+        'project-10-desc': 'Installation of alarm and CCTV systems',
+        
+        // Metrics description
+        'metric-exp-desc': 'Successful electrical installations in various industries',
+        'metric-proj-desc': 'Successful projects in industrial and commercial sector',
+        'metric-cli-desc': 'Companies that trust our specialized services',
+        'metric-spec-desc': 'Highly trained team in advanced technologies',
+        
+        // Extended Footer
+        'footer-description': 'Professionalism and quality in every electrical project.',
         'footer-services': 'Services',
         'footer-company': 'Company',
         'footer-contact': 'Contact',
-        'footer-follow': 'Follow Us'
+        'footer-follow': 'Follow Us',
+        'footer-address': 'Rosario, Santa Fe',
+        'footer-copyright': 'All rights reserved.',
+        
+        // Buttons and actions
+        'btn-view-project': 'View Project',
+        'btn-quote': 'Request Quote',
+        'btn-more-info': 'More Information',
+        'scroll-indicator': 'Scroll down'
     },
     pt: {
         // Navegação
@@ -242,6 +328,12 @@ const translations = {
         'contact-address': 'Endereço',
         'contact-phone': 'Telefone',
         'contact-email-label': 'Email',
+        'contact-hours': 'Horários',
+        'contact-hours-text': 'Segunda a Sexta: 8:00 - 18:00',
+        'contact-maps': '📍 Ver no Google Maps',
+        'contact-whatsapp': '💬 Contatar via WhatsApp',
+        'contact-email-direct': '✉️ Enviar email direto',
+        'contact-emergency': '⚡ Emergências 24/7',
         // Formulário Estendido
         'form-fullname': 'Nome Completo',
         'form-phone': 'Telefone de Contato',
@@ -252,12 +344,49 @@ const translations = {
         // Chatbot
         'chatbot-title': 'Assistente Alterna AI',
         'chatbot-greeting': 'Olá! Sou o assistente virtual da Alterna. Como posso ajudá-lo hoje?',
-        // Rodapé
-        'footer-description': 'Alterna Serviços Elétricos - Profissionalismo e qualidade em cada projeto elétrico.',
+        
+        // Projetos específicos
+        'project-1-title': 'Instalação Industrial',
+        'project-1-desc': 'Sistema elétrico completo para planta industrial',
+        'project-2-title': 'Automação',
+        'project-2-desc': 'Sistema de controle automatizado',
+        'project-3-title': 'Painéis Elétricos',
+        'project-3-desc': 'Fabricação e montagem de painéis industriais',
+        'project-4-title': 'Medições Elétricas',
+        'project-4-desc': 'Análise e certificação de instalações',
+        'project-5-title': 'Manutenção Preventiva',
+        'project-5-desc': 'Serviços especializados de manutenção',
+        'project-6-title': 'Instalação Comercial',
+        'project-6-desc': 'Projeto elétrico para centro comercial',
+        'project-7-title': 'Energia Solar',
+        'project-7-desc': 'Sistema fotovoltaico industrial',
+        'project-8-title': 'Sistemas de Controle',
+        'project-8-desc': 'Automação de processos industriais',
+        'project-9-title': 'Iluminação LED',
+        'project-9-desc': 'Modernização de sistemas de iluminação',
+        'project-10-title': 'Sistemas de Segurança',
+        'project-10-desc': 'Instalação de sistemas de alarme e CCTV',
+        
+        // Descrição das métricas
+        'metric-exp-desc': 'Instalações elétricas bem-sucedidas em várias indústrias',
+        'metric-proj-desc': 'Projetos bem-sucedidos no setor industrial e comercial',
+        'metric-cli-desc': 'Empresas que confiam em nossos serviços especializados',
+        'metric-spec-desc': 'Equipe altamente treinada em tecnologias avançadas',
+        
+        // Rodapé expandido
+        'footer-description': 'Profissionalismo e qualidade em cada projeto elétrico.',
         'footer-services': 'Serviços',
         'footer-company': 'Empresa',
         'footer-contact': 'Contato',
-        'footer-follow': 'Siga-nos'
+        'footer-follow': 'Siga-nos',
+        'footer-address': 'Rosario, Santa Fe',
+        'footer-copyright': 'Todos os direitos reservados.',
+        
+        // Botões e ações
+        'btn-view-project': 'Ver Projeto',
+        'btn-quote': 'Solicitar Orçamento',
+        'btn-more-info': 'Mais Informações',
+        'scroll-indicator': 'Role para baixo'
     }
 };
 
@@ -425,13 +554,59 @@ function translateTo(lang) {
     
     // Contact info items
     const contactItems = document.querySelectorAll('.contact-item h4');
-    if (contactItems.length >= 3) {
+        const contactTexts = document.querySelectorAll('.contact-item p');
+        const contactSubTexts = document.querySelectorAll('.contact-item small');
+        
+        if (contactItems.length >= 4) {
         contactItems[0].textContent = trans['contact-address'];
         contactItems[1].textContent = trans['contact-phone'];
         contactItems[2].textContent = trans['contact-email-label'];
+            contactItems[3].textContent = trans['contact-hours'];
+        }
+        
+        if (contactTexts.length >= 4) {
+            // La dirección y números no se traducen, solo horarios
+            contactTexts[3].textContent = trans['contact-hours-text'];
+        }
+        
+        if (contactSubTexts.length >= 4) {
+            contactSubTexts[0].textContent = trans['contact-maps'];
+            contactSubTexts[1].textContent = trans['contact-whatsapp'];
+            contactSubTexts[2].textContent = trans['contact-email-direct'];
+            contactSubTexts[3].textContent = trans['contact-emergency'];
+        }
+    
+    // ===== PROYECTOS ESPECÍFICOS =====
+    const projectOverlays = document.querySelectorAll('#proyectos .project-overlay');
+    if (projectOverlays.length >= 10) {
+        // Traducir títulos y descripciones de proyectos específicos
+        for (let i = 0; i < Math.min(10, projectOverlays.length); i++) {
+            const title = projectOverlays[i].querySelector('h3');
+            const desc = projectOverlays[i].querySelector('p');
+            
+            if (title) title.textContent = trans[`project-${i+1}-title`];
+            if (desc) desc.textContent = trans[`project-${i+1}-desc`];
+        }
     }
     
-    // ===== FOOTER =====
+    // Traducir botones "Ver Proyecto"
+    const viewProjectButtons = document.querySelectorAll('#proyectos .btn');
+    viewProjectButtons.forEach(btn => {
+        if (btn.textContent.includes('Ver Proyecto') || btn.textContent.includes('View Project') || btn.textContent.includes('Ver Projeto')) {
+            btn.textContent = trans['btn-view-project'];
+        }
+    });
+
+    // ===== MÉTRICAS EXPANDIDAS =====
+    const metricDescriptionsElements = document.querySelectorAll('#metrics .metric-description');
+    if (metricDescriptionsElements.length >= 4) {
+        metricDescriptionsElements[0].textContent = trans['metric-exp-desc'];
+        metricDescriptionsElements[1].textContent = trans['metric-proj-desc'];
+        metricDescriptionsElements[2].textContent = trans['metric-cli-desc'];
+        metricDescriptionsElements[3].textContent = trans['metric-spec-desc'];
+    }
+
+    // ===== FOOTER EXPANDIDO =====
     const footerSections = document.querySelectorAll('.footer-section h4');
     if (footerSections.length >= 3) {
         footerSections[0].textContent = trans['footer-services'];
@@ -442,14 +617,71 @@ function translateTo(lang) {
     const footerDescription = document.querySelector('.footer-section p');
     if (footerDescription) footerDescription.textContent = trans['footer-description'];
     
+    // Traducir dirección y copyright en footer
+    const footerAddress = document.querySelector('.footer-content .contact-item span');
+    if (footerAddress && footerAddress.textContent.includes('Rosario')) {
+        footerAddress.textContent = trans['footer-address'];
+    }
+    
+    const footerCopyright = document.querySelector('.footer-bottom p');
+    if (footerCopyright) {
+        const year = new Date().getFullYear();
+        footerCopyright.innerHTML = `&copy; ${year} Alterna Servicios Eléctricos. ${trans['footer-copyright']}`;
+    }
+    
+    // ===== BOTONES GENERALES =====
+    const quoteButtons = document.querySelectorAll('.btn');
+    quoteButtons.forEach(btn => {
+        const text = btn.textContent.toLowerCase();
+        if (text.includes('cotización') || text.includes('quote') || text.includes('orçamento')) {
+            btn.textContent = trans['btn-quote'];
+        } else if (text.includes('información') || text.includes('information') || text.includes('informações')) {
+            btn.textContent = trans['btn-more-info'];
+        }
+    });
+    
     // ===== CHATBOT =====
     const chatbotTitle = document.querySelector('#chatbot-title');
     if (chatbotTitle) chatbotTitle.textContent = trans['chatbot-title'];
+    
+    // ===== ACTUALIZAR SISTEMAS CONECTADOS =====
     
     // Actualizar chatbot si está disponible
     if (window.alternaAI) {
         window.alternaAI.updateLanguage(lang);
     }
+    
+    // Actualizar validator de formulario si está disponible
+    if (window.formValidator) {
+        window.formValidator.updateLanguage(lang);
+    }
+    
+    // Actualizar placeholders dinámicos
+    const placeholders = document.querySelectorAll('[data-translate-placeholder]');
+    placeholders.forEach(element => {
+        const key = element.getAttribute('data-translate-placeholder');
+        if (trans[key]) {
+            element.placeholder = trans[key];
+        }
+    });
+    
+    // Actualizar tooltips y títulos
+    const tooltips = document.querySelectorAll('[data-translate-title]');
+    tooltips.forEach(element => {
+        const key = element.getAttribute('data-translate-title');
+        if (trans[key]) {
+            element.title = trans[key];
+        }
+    });
+    
+    // Actualizar elementos con atributo data-translate
+    const dataTranslateElements = document.querySelectorAll('[data-translate]');
+    dataTranslateElements.forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (trans[key]) {
+            element.textContent = trans[key];
+        }
+    });
     
     // Cerrar dropdown
     const dropdown = document.querySelector('.translate-options');
@@ -495,25 +727,73 @@ function showNotification(message) {
 
 // Inicializar dropdown del traductor
 function initializeTranslator() {
-    console.log('Initializing translator...');
+    console.log('🌍 Initializing translator...');
+    
+    // Buscar elementos del traductor
     const langToggle = document.querySelector('.language-toggle');
     const translateOptions = document.querySelector('.translate-options');
+    const translateButtons = document.querySelectorAll('.translate-option');
     
-    console.log('Found elements:', { langToggle, translateOptions });
+    console.log('Found elements:', { 
+        langToggle: !!langToggle, 
+        translateOptions: !!translateOptions, 
+        translateButtons: translateButtons.length 
+    });
     
     if (langToggle && translateOptions) {
-        // Mostrar/ocultar dropdown
-        langToggle.addEventListener('click', (e) => {
+        
+        // Función para mostrar/ocultar dropdown
+        const toggleDropdown = (e) => {
             e.preventDefault();
             e.stopPropagation();
-            console.log('Toggle clicked');
-            translateOptions.classList.toggle('show');
+            console.log('🔄 Toggle clicked, current show:', translateOptions.classList.contains('show'));
+            
+            const isShowing = translateOptions.classList.contains('show');
+            
+            if (isShowing) {
+                translateOptions.classList.remove('show');
+                console.log('❌ Dropdown closed');
+            } else {
+                translateOptions.classList.add('show');
+                console.log('✅ Dropdown opened');
+            }
+        };
+        
+        // Event listener para el botón toggle
+        langToggle.addEventListener('click', toggleDropdown);
+        
+        // También agregar para el caso de touch en móviles
+        langToggle.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            toggleDropdown(e);
         });
         
-        // Cerrar al hacer click fuera
-        document.addEventListener('click', (e) => {
-            if (!translateOptions.contains(e.target) && e.target !== langToggle) {
+        // Event listeners para los botones de idioma
+        translateButtons.forEach(button => {
+            const lang = button.getAttribute('data-lang');
+            
+            // Remover onclick inline y agregar event listener
+            button.removeAttribute('onclick');
+            
+            button.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+                console.log(`🌍 Language selected: ${lang}`);
+                
+                // Cambiar idioma
+                translateTo(lang);
+                
+                // Cerrar dropdown
                 translateOptions.classList.remove('show');
+            });
+        });
+        
+        // Cerrar dropdown al hacer click fuera
+        document.addEventListener('click', (e) => {
+            if (!translateOptions.contains(e.target) && 
+                !langToggle.contains(e.target)) {
+                translateOptions.classList.remove('show');
+                console.log('📍 Clicked outside - dropdown closed');
             }
         });
         
@@ -522,12 +802,361 @@ function initializeTranslator() {
             e.stopPropagation();
         });
         
-        console.log('Translator initialized successfully');
+        // Cerrar con tecla Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && translateOptions.classList.contains('show')) {
+                translateOptions.classList.remove('show');
+                console.log('⌨️ Escape pressed - dropdown closed');
+            }
+        });
+        
+        console.log('✅ Translator initialized successfully');
     } else {
-        console.log('Translator elements not found');
+        console.error('❌ Translator elements not found!');
+        console.log('Looking for:', {
+            '.language-toggle': document.querySelector('.language-toggle'),
+            '.translate-options': document.querySelector('.translate-options')
+        });
     }
+}
+
+// Función de emergencia para diagnosticar problemas
+function emergencyTranslatorFix() {
+    console.log('🚨 EMERGENCY TRANSLATOR FIX ACTIVATED!');
+    
+    // Forzar creación del traductor
+    createTranslatorBackup();
+    
+    // También crear un botón visible de emergencia
+    const emergencyBtn = document.createElement('div');
+    emergencyBtn.id = 'emergency-translator';
+    emergencyBtn.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+        color: white;
+        padding: 10px 15px;
+        border-radius: 25px;
+        cursor: pointer;
+        z-index: 10000;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+    `;
+    emergencyBtn.innerHTML = '🌍 Idiomas';
+    
+    // Crear dropdown de emergencia
+    const emergencyDropdown = document.createElement('div');
+    emergencyDropdown.style.cssText = `
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: rgba(0, 0, 0, 0.9);
+        border-radius: 10px;
+        padding: 10px;
+        margin-top: 5px;
+        display: none;
+        min-width: 120px;
+    `;
+    
+    const languages = [
+        { code: 'es', name: '🇪🇸 Español' },
+        { code: 'en', name: '🇺🇸 English' },
+        { code: 'pt', name: '🇧🇷 Português' }
+    ];
+    
+    languages.forEach(lang => {
+        const btn = document.createElement('div');
+        btn.style.cssText = `
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 2px 0;
+            transition: all 0.3s;
+            color: white;
+        `;
+        btn.textContent = lang.name;
+        btn.addEventListener('click', () => {
+            translateTo(lang.code);
+            emergencyDropdown.style.display = 'none';
+        });
+        btn.addEventListener('mouseenter', () => {
+            btn.style.background = 'rgba(32, 178, 170, 0.5)';
+        });
+        btn.addEventListener('mouseleave', () => {
+            btn.style.background = 'none';
+        });
+        emergencyDropdown.appendChild(btn);
+    });
+    
+    emergencyBtn.appendChild(emergencyDropdown);
+    
+    // Toggle dropdown
+    emergencyBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isVisible = emergencyDropdown.style.display === 'block';
+        emergencyDropdown.style.display = isVisible ? 'none' : 'block';
+    });
+    
+    // Cerrar al click fuera
+    document.addEventListener('click', () => {
+        emergencyDropdown.style.display = 'none';
+    });
+    
+    // Remover cualquier botón de emergencia anterior
+    const existing = document.getElementById('emergency-translator');
+    if (existing) existing.remove();
+    
+    document.body.appendChild(emergencyBtn);
+    
+    console.log('✅ Emergency translator button created in top-right corner!');
+    
+    // Auto-remover después de 30 segundos si el traductor normal funciona
+    setTimeout(() => {
+        const normalTranslator = document.querySelector('.language-toggle');
+        if (normalTranslator && normalTranslator.onclick) {
+            emergencyBtn.remove();
+            console.log('🗑️ Emergency translator removed - normal one works!');
+        }
+    }, 30000);
 }
 
 // Exportar funciones para uso global
 window.translateTo = translateTo;
 window.initializeTranslator = initializeTranslator;
+window.emergencyTranslatorFix = emergencyTranslatorFix;
+window.forceInitializeTranslator = forceInitializeTranslator;
+
+// Función de inicialización más robusta
+function forceInitializeTranslator() {
+    console.log('🔧 FORCE initializing translator...');
+    
+    // Verificar elementos múltiples veces
+    let attempts = 0;
+    const maxAttempts = 20; // 2 segundos máximo
+    
+    const checkAndInit = () => {
+        attempts++;
+        console.log(`🔍 Attempt ${attempts}/${maxAttempts} - Looking for translator elements...`);
+        
+        const langToggle = document.querySelector('.language-toggle');
+        const translateOptions = document.querySelector('.translate-options');
+        const translateButtons = document.querySelectorAll('.translate-option');
+        
+        if (langToggle && translateOptions && translateButtons.length > 0) {
+            console.log('✅ All elements found! Initializing...');
+            initializeTranslator();
+            return true;
+        } else {
+            console.log('❌ Elements missing:', {
+                langToggle: !!langToggle,
+                translateOptions: !!translateOptions,
+                translateButtons: translateButtons.length
+            });
+            
+            if (attempts < maxAttempts) {
+                setTimeout(checkAndInit, 100);
+                return false;
+            } else {
+                console.error('💥 Failed to initialize translator after max attempts');
+                // Crear elementos manualmente como backup
+                createTranslatorBackup();
+                return false;
+            }
+        }
+    };
+    
+    checkAndInit();
+}
+
+// Función backup para crear el traductor si no existe
+function createTranslatorBackup() {
+    console.log('🆘 Creating translator backup...');
+    
+    // Buscar el header donde debería estar
+    const header = document.querySelector('header nav');
+    if (!header) {
+        console.error('No header found!');
+        return;
+    }
+    
+    // Crear el dropdown de traducción
+    const navContact = header.querySelector('.nav-contact') || header;
+    
+    // Crear dropdown si no existe
+    let translateDropdown = header.querySelector('.translate-dropdown');
+    if (!translateDropdown) {
+        translateDropdown = document.createElement('div');
+        translateDropdown.className = 'translate-dropdown';
+        translateDropdown.innerHTML = `
+            <button class="language-toggle" aria-label="Cambiar idioma">
+                <i class="fas fa-globe"></i>
+            </button>
+            <div class="translate-options">
+                <button class="translate-option" data-lang="es">🇪🇸 Español</button>
+                <button class="translate-option" data-lang="en">🇺🇸 English</button>
+                <button class="translate-option" data-lang="pt">🇧🇷 Português</button>
+            </div>
+        `;
+        
+        // Agregar estilos inline como backup
+        translateDropdown.style.cssText = `
+            position: relative;
+            display: inline-block;
+            margin-left: 1rem;
+        `;
+        
+        const toggleBtn = translateDropdown.querySelector('.language-toggle');
+        toggleBtn.style.cssText = `
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+        `;
+        
+        const options = translateDropdown.querySelector('.translate-options');
+        options.style.cssText = `
+            position: absolute;
+            top: calc(100% + 10px);
+            right: 0;
+            background: rgba(15, 15, 15, 0.95);
+            border-radius: 8px;
+            border: 1px solid rgba(32, 178, 170, 0.3);
+            padding: 0.5rem 0;
+            min-width: 150px;
+            display: none;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        `;
+        
+        const optionButtons = translateDropdown.querySelectorAll('.translate-option');
+        optionButtons.forEach(btn => {
+            btn.style.cssText = `
+                display: block;
+                width: 100%;
+                padding: 0.5rem 1rem;
+                background: none;
+                border: none;
+                color: white;
+                cursor: pointer;
+                text-align: left;
+                transition: all 0.3s;
+            `;
+            
+            btn.addEventListener('mouseenter', () => {
+                btn.style.background = 'rgba(32, 178, 170, 0.2)';
+            });
+            
+            btn.addEventListener('mouseleave', () => {
+                btn.style.background = 'none';
+            });
+        });
+        
+        navContact.appendChild(translateDropdown);
+        console.log('✅ Backup translator created!');
+        
+        // Inicializar el nuevo traductor
+        setTimeout(() => {
+            initializeTranslator();
+        }, 100);
+    }
+}
+
+// Auto-inicializar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('🚀 DOM loaded, force initializing translator...');
+    setTimeout(forceInitializeTranslator, 200);
+});
+
+// También inicializar si el DOM ya está listo
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', forceInitializeTranslator);
+} else {
+    console.log('🚀 DOM already ready, force initializing translator immediately...');
+    setTimeout(forceInitializeTranslator, 200);
+}
+
+// Backup adicional - inicializar después de que todo esté cargado
+window.addEventListener('load', () => {
+    console.log('🔄 Window loaded, checking translator one more time...');
+    setTimeout(() => {
+        const langToggle = document.querySelector('.language-toggle');
+        if (!langToggle || !langToggle.onclick) {
+            console.log('🆘 Translator still not working, force initializing...');
+            forceInitializeTranslator();
+            
+            // Si después de más intentos sigue sin funcionar, activar emergencia
+            setTimeout(() => {
+                const langToggleAfter = document.querySelector('.language-toggle');
+                if (!langToggleAfter) {
+                    console.log('💥 ACTIVATING EMERGENCY TRANSLATOR!');
+                    emergencyTranslatorFix();
+                }
+            }, 2000);
+        }
+    }, 500);
+});
+
+// TEST DIRECTO: Verificar si el traductor funciona después de 3 segundos
+setTimeout(() => {
+    console.log('🧪 TESTING translator functionality...');
+    const langToggle = document.querySelector('.language-toggle');
+    const translateOptions = document.querySelector('.translate-options');
+    
+    if (!langToggle) {
+        console.error('❌ No language toggle button found!');
+        emergencyTranslatorFix();
+        return;
+    }
+    
+    if (!translateOptions) {
+        console.error('❌ No translate options dropdown found!');
+        emergencyTranslatorFix();
+        return;
+    }
+    
+    // Verificar si tiene event listeners
+    const hasClickHandler = langToggle.onclick !== null || 
+                          langToggle.getAttribute('onclick') !== null ||
+                          langToggle.listeners?.('click')?.length > 0;
+    
+    console.log('🔍 Translator status:', {
+        hasToggleButton: !!langToggle,
+        hasDropdown: !!translateOptions,
+        hasClickHandler: hasClickHandler,
+        dropdownVisible: translateOptions.style.display !== 'none'
+    });
+    
+    // Crear indicador visual de que el traductor está siendo probado
+    if (langToggle) {
+        const originalStyle = langToggle.style.cssText;
+        langToggle.style.cssText += '; animation: pulse 0.5s ease-in-out;';
+        
+        setTimeout(() => {
+            langToggle.style.cssText = originalStyle;
+        }, 1000);
+        
+        // Agregar los estilos de pulse si no existen
+        if (!document.getElementById('pulse-animation')) {
+            const style = document.createElement('style');
+            style.id = 'pulse-animation';
+            style.textContent = `
+                @keyframes pulse {
+                    0% { transform: scale(1); }
+                    50% { transform: scale(1.1); }
+                    100% { transform: scale(1); }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+    }
+    
+}, 3000);
