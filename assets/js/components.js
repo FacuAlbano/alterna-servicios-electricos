@@ -46,7 +46,7 @@ class ComponentLoader {
      */
     setupNavigation() {
         const currentPage = this.getCurrentPage();
-        const navLinks = document.querySelectorAll('.nav-link');
+        const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
         
         navLinks.forEach(link => {
             link.classList.remove('active');
@@ -78,36 +78,110 @@ class ComponentLoader {
      */
     getHeaderHTML() {
         return `
-            <header class="header">
-                <nav class="navbar">
-                    <div class="nav-container">
-                        <div class="nav-logo">
-                            <img src="../../assets/images/LogoAlterna.jpg" alt="Logo Alterna" class="logo-image">
+            <header>
+                <nav>
+                    <a href="index.html" class="logo">
+                        <img src="../../assets/images/LogoAlterna-removebg-preview.png" alt="Logo Alterna">
+                        <span>ALTERNA</span>
+                    </a>
+                    
+                    <!-- Menú Desktop -->
+                    <ul class="nav-menu">
+                        <li><a href="index.html" class="nav-link">Inicio</a></li>
+                        <li><a href="sobre-nosotros.html" class="nav-link">Sobre Nosotros</a></li>
+                        <li><a href="servicios.html" class="nav-link">Servicios</a></li>
+                        <li><a href="trabajamos-juntos.html" class="nav-link">Trabajamos Juntos</a></li>
+                        <li><a href="galeria.html" class="nav-link">Galería</a></li>
+                        <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+                    </ul>
+                    
+                    <!-- Contacto y Traductor Desktop -->
+                    <div class="nav-contact">
+                        <a href="https://wa.me/5493413856810" target="_blank" class="contact-info">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>+54 9 341 3856810</span>
+                        </a>
+                        
+                        <div class="translate-dropdown">
+                            <button class="language-toggle">
+                                <span>🌐</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="translate-options">
+                                <button class="translate-option" data-lang="es">Español</button>
+                                <button class="translate-option" data-lang="en">English</button>
+                                <button class="translate-option" data-lang="pt">Português</button>
+                            </div>
                         </div>
-                        
-                        <ul class="nav-menu">
-                            <li><a href="index.html" class="nav-link">Inicio</a></li>
-                            <li><a href="sobre-nosotros.html" class="nav-link">Sobre Nosotros</a></li>
-                            <li><a href="servicios.html" class="nav-link">Servicios</a></li>
-                            <li><a href="trabajamos-juntos.html" class="nav-link">Trabajamos Juntos</a></li>
-                            <li><a href="galeria.html" class="nav-link">Galería</a></li>
-                            <li><a href="contacto.html" class="nav-link">Contacto</a></li>
-                        </ul>
-                        
-                        <div class="nav-contact">
-                            <a href="https://wa.me/549341856810" target="_blank" class="nav-whatsapp-link">
-                                <i class="fab fa-whatsapp"></i>
-                                <span>+54 9 341 856810</span>
+                    </div>
+                    
+                    <!-- Botón Hamburguesa Móvil -->
+                    <button class="mobile-menu-toggle" aria-label="Abrir menú">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </button>
+                </nav>
+                
+                <!-- Menú Móvil -->
+                <div class="mobile-menu">
+                    <div class="mobile-menu-content">
+                        <!-- Enlaces de navegación -->
+                        <div class="mobile-nav-links">
+                            <a href="index.html" class="mobile-nav-link">
+                                <i class="fas fa-home"></i>
+                                <span>Inicio</span>
+                            </a>
+                            <a href="sobre-nosotros.html" class="mobile-nav-link">
+                                <i class="fas fa-users"></i>
+                                <span>Sobre Nosotros</span>
+                            </a>
+                            <a href="servicios.html" class="mobile-nav-link">
+                                <i class="fas fa-cogs"></i>
+                                <span>Servicios</span>
+                            </a>
+                            <a href="trabajamos-juntos.html" class="mobile-nav-link">
+                                <i class="fas fa-handshake"></i>
+                                <span>Trabajamos Juntos</span>
+                            </a>
+                            <a href="galeria.html" class="mobile-nav-link">
+                                <i class="fas fa-images"></i>
+                                <span>Galería</span>
+                            </a>
+                            <a href="contacto.html" class="mobile-nav-link">
+                                <i class="fas fa-envelope"></i>
+                                <span>Contacto</span>
                             </a>
                         </div>
                         
-                        <div class="hamburger">
-                            <span class="bar"></span>
-                            <span class="bar"></span>
-                            <span class="bar"></span>
+                        <!-- Sección de contacto -->
+                        <div class="mobile-contact-section">
+                            <h4 class="mobile-contact-title">Contacto</h4>
+                            <a href="https://wa.me/5493413856810" target="_blank" class="mobile-contact-item">
+                                <i class="fab fa-whatsapp"></i>
+                                <span>+54 9 341 3856810</span>
+                            </a>
+                            <a href="mailto:tomasppendino@gmail.com" class="mobile-contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>tomasppendino@gmail.com</span>
+                            </a>
+                            <a href="https://www.linkedin.com/company/alterna-servicios/" target="_blank" class="mobile-contact-item">
+                                <i class="fab fa-linkedin"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                        </div>
+                        
+                        <!-- Sección de idiomas -->
+                        <div class="mobile-translate-section">
+                            <h4 class="mobile-translate-title">Idioma</h4>
+                            <div class="mobile-translate-options">
+                                <button class="mobile-translate-option" data-lang="es">Español</button>
+                                <button class="mobile-translate-option" data-lang="en">English</button>
+                                <button class="mobile-translate-option" data-lang="pt">Português</button>
+                            </div>
                         </div>
                     </div>
-                </nav>
+                </div>
             </header>
         `;
     }
@@ -169,4 +243,14 @@ class ComponentLoader {
 // Inicializar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
     window.componentLoader = new ComponentLoader();
+    
+    // Ejecutar la configuración de navegación móvil después de cargar los componentes
+    setTimeout(() => {
+        if (typeof setupMobileNavigation === 'function') {
+            setupMobileNavigation();
+        }
+        if (typeof setActiveNavigation === 'function') {
+            setActiveNavigation();
+        }
+    }, 100); // Pequeño delay para asegurar que el DOM esté completamente cargado
 });

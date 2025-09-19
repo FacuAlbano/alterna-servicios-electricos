@@ -554,28 +554,40 @@ nav {
     header {
         height: 60px; /* Mantener altura consistente */
         min-height: 60px;
+        background: transparent !important;
+        backdrop-filter: blur(10px) saturate(120%);
     }
     
     nav {
         padding: 0.5rem 1rem;
         height: 60px;
+        width: 100%;
+        max-width: 100%;
     }
     
     /* Ocultar menú desktop y mostrar hamburguesa */
     .nav-menu {
-        display: none;
+        display: none !important;
     }
     
     .nav-contact {
-        display: none;
+        display: none !important;
     }
     
     .translate-dropdown {
-        display: none;
+        display: none !important;
     }
     
     .mobile-menu-toggle {
+        display: flex !important;
+        z-index: 1001;
+    }
+    
+    .logo {
+        flex: 1;
         display: flex;
+        align-items: center;
+        font-size: 1.1rem;
     }
     
     .logo img {
@@ -583,8 +595,27 @@ nav {
         height: 28px;
     }
     
-    .logo {
-        font-size: 1.1rem;
+    /* Asegurar que el menú móvil esté visible */
+    .mobile-menu {
+        display: block;
+        z-index: 1000;
+    }
+    
+    /* Ajustes para el contenido del menú móvil */
+    .mobile-menu-content {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+    
+    .mobile-nav-links {
+        width: 100%;
+    }
+    
+    .mobile-nav-link {
+        width: 100%;
+        justify-content: flex-start;
+        text-align: left;
     }
 }
 

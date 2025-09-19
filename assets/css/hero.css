@@ -179,6 +179,15 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+    .hero {
+        padding-top: 60px; /* Espacio para el header */
+    }
+    
+    .hero-content {
+        padding: 1rem;
+        max-width: 95%;
+    }
+    
     .hero-logo h1 {
         font-size: 2rem;
     }
@@ -194,11 +203,21 @@
 
     .hero-description p {
         font-size: 1rem;
+        max-width: 100%;
     }
 
     .hero-buttons {
         flex-direction: column;
         align-items: center;
+        gap: 1rem;
+        width: 100%;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 280px;
+        padding: 1rem 1.5rem;
+        font-size: 0.9rem;
     }
 }
 

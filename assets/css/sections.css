@@ -662,6 +662,40 @@
     .timeline-items::before {
         left: 20px;
     }
+    
+    /* Hero responsive para móviles */
+    .hero {
+        padding-top: 60px;
+    }
+    
+    .hero-content {
+        padding: 1rem;
+        max-width: 95%;
+    }
+    
+    /* Métricas responsive */
+    .metrics-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+        padding: 0 1rem;
+    }
+    
+    .metric-card {
+        padding: var(--space-lg);
+        margin: 0.5rem 0;
+    }
+    
+    /* Servicios responsive */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+        padding: 0 1rem;
+    }
+    
+    .service-card {
+        margin: 0.5rem 0;
+        padding: var(--space-lg);
+    }
 }
 
 @media (max-width: 480px) {
