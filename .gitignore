@@ -31,3 +31,4 @@ package-lock.json
 # Archivos de backup
 *.bak
 *.backup
+.vercel
