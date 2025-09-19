@@ -217,28 +217,80 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .footer {
+        padding: 2rem 0 1rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .footer-logo {
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+    
     .footer-logo .logo-image {
-        width: 35px;
-        height: 35px;
+        width: 40px;
+        height: 40px;
     }
 
     .footer-whatsapp-link,
     .footer-email-link,
     .footer-linkedin-link {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.8rem;
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
         justify-content: center;
+        margin: 0.5rem auto;
+        max-width: 200px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
     }
 
     .footer-whatsapp-link i,
     .footer-email-link i,
     .footer-linkedin-link i {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 
     .footer-whatsapp-link span,
     .footer-email-link span,
     .footer-linkedin-link span {
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
+    
+    .footer-section {
+        margin-bottom: 1.5rem;
+    }
+    
+    .footer-section h4 {
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+    }
+    
+    .footer-section ul li {
+        margin-bottom: 0.5rem;
+    }
+    
+    .footer-section ul li a {
+        font-size: 0.9rem;
+        display: block;
+        padding: 0.25rem;
+    }
+    
+    .contact-info p {
+        justify-content: center;
+        margin-bottom: 0.75rem;
+        font-size: 0.9rem;
+    }
+    
+    .footer-bottom {
         font-size: 0.8rem;
+        padding-top: 1rem;
+        margin-top: 1rem;
     }
 }

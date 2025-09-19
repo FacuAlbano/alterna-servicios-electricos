@@ -27,27 +27,61 @@ document.addEventListener('DOMContentLoaded', function() {
     if (window.location.pathname.includes('contacto.html')) {
         setupContactForm();
     }
+    
+    // Configuración del traductor
+    setupTranslator();
 });
 
 /**
  * Configura la navegación móvil
  */
 function setupMobileNavigation() {
-    const hamburger = document.querySelector('.hamburger');
+    const mobileToggle = document.querySelector('.mobile-menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
+    const body = document.body;
 
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('active');
+    if (mobileToggle && navMenu) {
+        // Toggle del menú móvil
+        mobileToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            mobileToggle.classList.toggle('active');
             navMenu.classList.toggle('active');
+            
+            // Prevenir scroll del body cuando el menú está abierto
+            if (navMenu.classList.contains('active')) {
+                body.style.overflow = 'hidden';
+            } else {
+                body.style.overflow = '';
+            }
         });
 
         // Cerrar menú al hacer click en un enlace
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function() {
-                hamburger.classList.remove('active');
+                mobileToggle.classList.remove('active');
                 navMenu.classList.remove('active');
+                body.style.overflow = '';
             });
+        });
+        
+        // Cerrar menú al hacer click fuera de él
+        document.addEventListener('click', function(e) {
+            if (!navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+                mobileToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
+        });
+        
+        // Cerrar menú al redimensionar la ventana
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                mobileToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
         });
     }
 }
@@ -773,4 +807,44 @@ ${data.mensaje}
 Este mensaje fue enviado desde el formulario de contacto de alterna.com`;
 }
 
+/**
+ * Configuración del traductor
+ */
+function setupTranslator() {
+    const languageToggle = document.querySelector('.language-toggle');
+    const translateOptions = document.querySelector('.translate-options');
+    const translateButtons = document.querySelectorAll('.translate-option');
 
+    if (languageToggle && translateOptions) {
+        // Toggle del dropdown del traductor
+        languageToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            translateOptions.classList.toggle('show');
+        });
+
+        // Cerrar dropdown al hacer click fuera
+        document.addEventListener('click', function(e) {
+            if (!languageToggle.contains(e.target) && !translateOptions.contains(e.target)) {
+                translateOptions.classList.remove('show');
+            }
+        });
+
+        // Funcionalidad de los botones del traductor
+        translateButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const lang = this.dataset.lang;
+                const langText = this.textContent;
+                
+                // Actualizar el toggle
+                languageToggle.querySelector('span').textContent = lang.toUpperCase();
+                
+                // Cerrar dropdown
+                translateOptions.classList.remove('show');
+                
+                // Aquí podrías añadir la lógica del traductor
+                console.log('Idioma seleccionado:', lang);
+            });
+        });
+    }
+}

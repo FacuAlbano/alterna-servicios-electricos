@@ -1,32 +1,42 @@
 <!-- Header y Navegación -->
-<header class="header">
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <img src="../../assets/images/LogoAlterna.jpg" alt="Logo Alterna" class="logo-image">
-            </div>
+<header>
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="../../assets/images/LogoAlterna.jpg" alt="Logo Alterna">
+            <span>Alterna</span>
+        </a>
+        
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link active">Inicio</a></li>
+            <li><a href="sobre-nosotros.html" class="nav-link">Sobre Nosotros</a></li>
+            <li><a href="servicios.html" class="nav-link">Servicios</a></li>
+            <li><a href="trabajamos-juntos.html" class="nav-link">Trabajamos Juntos</a></li>
+            <li><a href="galeria.html" class="nav-link">Galería</a></li>
+            <li><a href="contacto.html" class="nav-link">Contacto</a></li>
             
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link active">Inicio</a></li>
-                <li><a href="sobre-nosotros.html" class="nav-link">Sobre Nosotros</a></li>
-                <li><a href="servicios.html" class="nav-link">Servicios</a></li>
-                <li><a href="trabajamos-juntos.html" class="nav-link">Trabajamos Juntos</a></li>
-                <li><a href="galeria.html" class="nav-link">Galería</a></li>
-                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
-            </ul>
-            
-            <div class="nav-contact">
-                <a href="https://wa.me/5493413856810" target="_blank" class="nav-whatsapp-link">
+            <li class="nav-contact">
+                <a href="https://wa.me/5493413856810" target="_blank" class="contact-info">
                     <i class="fab fa-whatsapp"></i>
-                    <span>+54 9 341 3856810</span>
+                    <span>WhatsApp</span>
                 </a>
-            </div>
-            
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
+                
+                <div class="translate-dropdown">
+                    <button class="language-toggle">
+                        🌐 <span>ES</span>
+                    </button>
+                    <div class="translate-options">
+                        <button class="translate-option" data-lang="es">Español</button>
+                        <button class="translate-option" data-lang="en">English</button>
+                        <button class="translate-option" data-lang="pt">Português</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        
+        <button class="mobile-menu-toggle" aria-label="Menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </nav>
 </header>
