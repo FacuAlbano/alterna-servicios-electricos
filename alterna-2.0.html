@@ -68,15 +68,11 @@
     
     <!-- CSS Modular -->
     <link rel="stylesheet" href="assets/css/variables.css">
-    <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/hero.css">
     <link rel="stylesheet" href="assets/css/buttons.css">
     <link rel="stylesheet" href="assets/css/sections.css">
-    <link rel="stylesheet" href="assets/css/contact-improved.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
     <link rel="stylesheet" href="assets/css/chatbot.css">
-    <link rel="stylesheet" href="assets/css/mobile-responsive.css">
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
@@ -104,32 +100,25 @@
                 <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
                 <li><a href="#clientes" class="nav-link">Clientes</a></li>
                 <li><a href="#contacto" class="nav-link">Contacto</a></li>
-                
-                <li class="nav-contact">
-                    <a href="tel:+543415123456" class="contact-info">
-                        <i class="fas fa-phone"></i>
-                        <span>+54 341 512-3456</span>
-                    </a>
-                    
-                    <div class="translate-dropdown">
-                        <button class="language-toggle" aria-label="Cambiar idioma">
-                            <i class="fas fa-globe"></i>
-                            <span>ES</span>
-                        </button>
-                        <div class="translate-options">
-                            <button class="translate-option" data-lang="es">Español</button>
-                            <button class="translate-option" data-lang="en">English</button>
-                            <button class="translate-option" data-lang="pt">Português</button>
-                        </div>
-                    </div>
-                </li>
             </ul>
             
-            <button class="mobile-menu-toggle" aria-label="Menú">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <div class="nav-contact">
+                <div class="translate-dropdown">
+                    <button class="language-toggle" aria-label="Cambiar idioma">
+                        <i class="fas fa-globe"></i>
+                    </button>
+                    <div class="translate-options">
+                        <button class="translate-option" data-lang="es">Español</button>
+                        <button class="translate-option" data-lang="en">English</button>
+                        <button class="translate-option" data-lang="pt">Português</button>
+                    </div>
+                </div>
+                
+                <a href="tel:+543415123456" class="contact-info">
+                    <i class="fas fa-phone"></i>
+                    <span>+54 341 512-3456</span>
+                </a>
+            </div>
         </nav>
     </header>
 
@@ -1597,9 +1586,6 @@
             console.log('   🧪 Para probar: testEmailSending()');
         }, 4000);
     </script>
-    
-    <!-- Main JavaScript -->
-    <script src="assets/js/main.js"></script>
     
     <!-- Initialization Script -->
     <script>

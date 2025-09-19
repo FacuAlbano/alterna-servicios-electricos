@@ -6,8 +6,8 @@
 /* Importar todos los módulos CSS */
 @import url('base.css');
 @import url('variables.css');
-@import url('navigation.css');
 @import url('header.css');
+@import url('navigation.css');
 @import url('hero.css');
 @import url('page-hero.css');
 @import url('services.css');
@@ -15,12 +15,8 @@
 @import url('partners.css');
 @import url('gallery.css');
 @import url('contact.css');
-@import url('contact-improved.css');
 @import url('footer.css');
-@import url('buttons.css');
-@import url('chatbot.css');
-@import url('sections.css');
-@import url('mobile-responsive.css');
+@import url('responsive-fixes.css');
 
 /* ========================================
    ESTILOS GLOBALES Y UTILIDADES

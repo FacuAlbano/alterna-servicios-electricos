@@ -2,10 +2,11 @@
 <header>
     <nav>
         <a href="index.html" class="logo">
-            <img src="../../assets/images/LogoAlterna.jpg" alt="Logo Alterna">
-            <span>Alterna</span>
+            <img src="../../assets/images/LogoAlterna-removebg-preview.png" alt="Logo Alterna">
+            <span>ALTERNA</span>
         </a>
         
+        <!-- Menú Desktop -->
         <ul class="nav-menu">
             <li><a href="index.html" class="nav-link active">Inicio</a></li>
             <li><a href="sobre-nosotros.html" class="nav-link">Sobre Nosotros</a></li>
@@ -13,30 +14,93 @@
             <li><a href="trabajamos-juntos.html" class="nav-link">Trabajamos Juntos</a></li>
             <li><a href="galeria.html" class="nav-link">Galería</a></li>
             <li><a href="contacto.html" class="nav-link">Contacto</a></li>
-            
-            <li class="nav-contact">
-                <a href="https://wa.me/5493413856810" target="_blank" class="contact-info">
-                    <i class="fab fa-whatsapp"></i>
-                    <span>WhatsApp</span>
-                </a>
-                
-                <div class="translate-dropdown">
-                    <button class="language-toggle">
-                        🌐 <span>ES</span>
-                    </button>
-                    <div class="translate-options">
-                        <button class="translate-option" data-lang="es">Español</button>
-                        <button class="translate-option" data-lang="en">English</button>
-                        <button class="translate-option" data-lang="pt">Português</button>
-                    </div>
-                </div>
-            </li>
         </ul>
         
-        <button class="mobile-menu-toggle" aria-label="Menú">
-            <span></span>
-            <span></span>
-            <span></span>
+        <!-- Contacto y Traductor Desktop -->
+        <div class="nav-contact">
+            <a href="https://wa.me/5493413856810" target="_blank" class="contact-info">
+                <i class="fab fa-whatsapp"></i>
+                <span>+54 9 341 3856810</span>
+            </a>
+            
+            <div class="translate-dropdown">
+                <button class="language-toggle">
+                    <span>🌐</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="translate-options">
+                    <button class="translate-option" data-lang="es">Español</button>
+                    <button class="translate-option" data-lang="en">English</button>
+                    <button class="translate-option" data-lang="pt">Português</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Botón Hamburguesa Móvil -->
+        <button class="mobile-menu-toggle" aria-label="Abrir menú">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
         </button>
     </nav>
+    
+    <!-- Menú Móvil -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-content">
+            <!-- Enlaces de navegación -->
+            <div class="mobile-nav-links">
+                <a href="index.html" class="mobile-nav-link active">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span>
+                </a>
+                <a href="sobre-nosotros.html" class="mobile-nav-link">
+                    <i class="fas fa-users"></i>
+                    <span>Sobre Nosotros</span>
+                </a>
+                <a href="servicios.html" class="mobile-nav-link">
+                    <i class="fas fa-cogs"></i>
+                    <span>Servicios</span>
+                </a>
+                <a href="trabajamos-juntos.html" class="mobile-nav-link">
+                    <i class="fas fa-handshake"></i>
+                    <span>Trabajamos Juntos</span>
+                </a>
+                <a href="galeria.html" class="mobile-nav-link">
+                    <i class="fas fa-images"></i>
+                    <span>Galería</span>
+                </a>
+                <a href="contacto.html" class="mobile-nav-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contacto</span>
+                </a>
+            </div>
+            
+            <!-- Sección de contacto -->
+            <div class="mobile-contact-section">
+                <h4 class="mobile-contact-title">Contacto</h4>
+                <a href="https://wa.me/5493413856810" target="_blank" class="mobile-contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>+54 9 341 3856810</span>
+                </a>
+                <a href="mailto:info@alterna.com" class="mobile-contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>info@alterna.com</span>
+                </a>
+                <a href="https://linkedin.com/company/alterna" target="_blank" class="mobile-contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+            
+            <!-- Sección de idiomas -->
+            <div class="mobile-translate-section">
+                <h4 class="mobile-translate-title">Idioma</h4>
+                <div class="mobile-translate-options">
+                    <button class="mobile-translate-option" data-lang="es">Español</button>
+                    <button class="mobile-translate-option" data-lang="en">English</button>
+                    <button class="mobile-translate-option" data-lang="pt">Português</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </header>
