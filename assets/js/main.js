@@ -40,11 +40,17 @@ function setupMobileNavigation() {
     const navMenu = document.querySelector('.nav-menu');
     const body = document.body;
 
+    console.log('Configurando navegación móvil...'); // Debug
+    console.log('Mobile toggle encontrado:', !!mobileToggle); // Debug
+    console.log('Nav menu encontrado:', !!navMenu); // Debug
+
     if (mobileToggle && navMenu) {
         // Toggle del menú móvil
         mobileToggle.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
+            
+            console.log('Click en toggle móvil'); // Debug
             
             mobileToggle.classList.toggle('active');
             navMenu.classList.toggle('active');
@@ -52,14 +58,17 @@ function setupMobileNavigation() {
             // Prevenir scroll del body cuando el menú está abierto
             if (navMenu.classList.contains('active')) {
                 body.style.overflow = 'hidden';
+                console.log('Menú abierto'); // Debug
             } else {
                 body.style.overflow = '';
+                console.log('Menú cerrado'); // Debug
             }
         });
 
         // Cerrar menú al hacer click en un enlace
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function() {
+                console.log('Click en enlace, cerrando menú'); // Debug
                 mobileToggle.classList.remove('active');
                 navMenu.classList.remove('active');
                 body.style.overflow = '';
@@ -83,6 +92,10 @@ function setupMobileNavigation() {
                 body.style.overflow = '';
             }
         });
+        
+        console.log('Navegación móvil configurada exitosamente'); // Debug
+    } else {
+        console.error('No se encontraron elementos necesarios para el menú móvil'); // Debug
     }
 }
 
