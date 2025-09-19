@@ -1,24 +1,13 @@
 {
   "version": 2,
-  "name": "alterna-2.0",
-  "builds": [
+  "rewrites": [
     {
-      "src": "alterna-2.0.html",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/",
-      "dest": "/alterna-2.0.html"
+      "source": "/",
+      "destination": "/alterna-2.0.html"
     },
     {
-      "src": "/index.html",
-      "dest": "/alterna-2.0.html"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
+      "source": "/index.html", 
+      "destination": "/alterna-2.0.html"
     }
   ],
   "headers": [
