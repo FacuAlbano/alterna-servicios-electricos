@@ -143,6 +143,9 @@
         
         <!-- Menú de idiomas móvil -->
         <div class="mobile-language-menu" id="mobile-language-menu">
+            <button class="mobile-language-close" id="mobile-language-close" aria-label="Cerrar menú de idiomas">
+                <i class="fas fa-times"></i>
+            </button>
             <div class="translate-options">
                 <button class="translate-option" data-lang="es">🇪🇸 Español</button>
                 <button class="translate-option" data-lang="en">🇺🇸 English</button>
@@ -1654,45 +1657,93 @@
                 });
             }
             
-            // Menú de idiomas móvil
+            // Menú de idiomas (móvil y desktop)
             if (languageToggle && mobileLanguageMenu) {
+                console.log('🌍 Configurando menú de idiomas...');
+                
+                const mobileLanguageClose = document.getElementById('mobile-language-close');
+                
                 languageToggle.addEventListener('click', function(e) {
                     e.preventDefault();
                     e.stopPropagation();
                     
-                    // Solo en móvil (pantalla < 1024px)
+                    console.log('🌍 Click en selector de idiomas');
+                    console.log('📱 Ancho de pantalla:', window.innerWidth);
+                    
+                    // En móvil: mostrar menú de pantalla completa
                     if (window.innerWidth < 1024) {
+                        console.log('📱 Activando menú móvil de idiomas');
                         mobileLanguageMenu.classList.toggle('active');
                         document.body.style.overflow = mobileLanguageMenu.classList.contains('active') ? 'hidden' : '';
+                    } else {
+                        // En desktop: mostrar dropdown normal
+                        console.log('🖥️ Activando dropdown desktop');
+                        const desktopOptions = document.querySelector('.translate-options');
+                        if (desktopOptions) {
+                            desktopOptions.classList.toggle('show');
+                        }
                     }
                 });
                 
+                // Botón de cerrar
+                if (mobileLanguageClose) {
+                    mobileLanguageClose.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        console.log('🌍 Cerrando menú de idiomas (botón X)');
+                        mobileLanguageMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+                }
+                
                 // Cerrar menú de idiomas al seleccionar una opción
                 const languageOptions = mobileLanguageMenu.querySelectorAll('.translate-option');
+                console.log('🌍 Opciones de idioma encontradas:', languageOptions.length);
+                
                 languageOptions.forEach(option => {
-                    option.addEventListener('click', function() {
+                    option.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        const selectedLang = this.getAttribute('data-lang');
+                        console.log('🌍 Idioma seleccionado:', selectedLang);
+                        
+                        // Cerrar menú móvil
                         mobileLanguageMenu.classList.remove('active');
                         document.body.style.overflow = '';
                         
-                        // Aquí puedes añadir la lógica de cambio de idioma
-                        const selectedLang = this.getAttribute('data-lang');
-                        console.log('Idioma seleccionado:', selectedLang);
-                        
-                        // Actualizar el texto del botón si es necesario
-                        const globeIcon = languageToggle.querySelector('i');
-                        if (globeIcon) {
-                            // Aquí puedes cambiar el icono o texto según el idioma
+                        // Cerrar dropdown desktop si está abierto
+                        const desktopOptions = document.querySelector('.translate-options');
+                        if (desktopOptions) {
+                            desktopOptions.classList.remove('show');
                         }
+                        
+                        // Aquí puedes añadir la lógica de cambio de idioma
+                        // Por ahora solo mostramos en consola
+                        alert(`Idioma seleccionado: ${selectedLang}`);
                     });
                 });
                 
                 // Cerrar menú de idiomas al hacer click fuera
                 mobileLanguageMenu.addEventListener('click', function(e) {
                     if (e.target === mobileLanguageMenu) {
+                        console.log('🌍 Cerrando menú de idiomas (click fuera)');
                         mobileLanguageMenu.classList.remove('active');
                         document.body.style.overflow = '';
                     }
                 });
+                
+                // Cerrar dropdown desktop al hacer click fuera
+                document.addEventListener('click', function(e) {
+                    if (!languageToggle.contains(e.target) && !mobileLanguageMenu.contains(e.target)) {
+                        const desktopOptions = document.querySelector('.translate-options');
+                        if (desktopOptions) {
+                            desktopOptions.classList.remove('show');
+                        }
+                    }
+                });
+            } else {
+                console.log('❌ No se encontraron elementos del menú de idiomas');
             }
             
             // Cerrar menús al redimensionar la ventana
