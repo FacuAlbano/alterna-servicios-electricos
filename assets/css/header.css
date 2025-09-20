@@ -460,7 +460,7 @@ nav {
     
     /* Traductor - más grande y funcional en móvil */
     .translate-dropdown {
-        display: block !important;
+        display: none !important; /* Ocultar dropdown en móvil */
     }
     
     .language-toggle {
@@ -554,7 +554,7 @@ nav {
     }
     
     .translate-dropdown {
-        display: block !important;
+        display: none !important; /* Ocultar dropdown en móvil pequeño */
     }
     
     .language-toggle {

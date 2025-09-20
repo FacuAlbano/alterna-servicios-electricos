@@ -111,16 +111,10 @@
             </button>
             
             <div class="nav-contact">
-                <div class="translate-dropdown">
-                    <button class="language-toggle" aria-label="Cambiar idioma" onclick="toggleLanguageMenu()">
-                        <i class="fas fa-globe"></i>
-                    </button>
-                    <div class="translate-options">
-                        <button class="translate-option" data-lang="es">Español</button>
-                        <button class="translate-option" data-lang="en">English</button>
-                        <button class="translate-option" data-lang="pt">Português</button>
-                    </div>
-                </div>
+                <!-- Botón de idiomas independiente -->
+                <button class="language-toggle" aria-label="Cambiar idioma" onclick="toggleLanguageMenu()">
+                    <i class="fas fa-globe"></i>
+                </button>
                 
                 <a href="tel:+543415123456" class="contact-info">
                     <i class="fas fa-phone"></i>
@@ -152,6 +146,10 @@
             </div>
         </div>
         
+        <!-- Botón de prueba temporal -->
+        <button onclick="toggleLanguageMenu()" style="position: fixed; top: 10px; right: 10px; z-index: 10000; background: red; color: white; padding: 10px; border: none; border-radius: 5px; font-size: 12px;">
+            TEST 🌍
+        </button>
     </header>
 
     <!-- Hero Section -->
