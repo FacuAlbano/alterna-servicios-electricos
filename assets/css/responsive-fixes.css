@@ -193,12 +193,18 @@ select {
 
 @media (max-width: 768px) {
     .hero {
-        padding-top: 80px; /* Más espacio en móviles */
+        padding-top: 90px; /* Más espacio en móviles */
     }
     
     .hero-content {
         padding: 1.5rem 1rem;
         max-width: 95%;
+    }
+    
+    /* Asegurar que todas las secciones tengan espacio suficiente */
+    section {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
     }
 }
 
@@ -293,19 +299,21 @@ select {
     }
     
     .contact-form {
-        padding: 1.5rem 1rem !important;
+        padding: 1.5rem 0.5rem !important;
         margin: 0 !important;
         width: 100% !important;
         box-sizing: border-box !important;
         max-width: 100% !important;
+        overflow: hidden !important;
     }
     
     .contact-info {
-        padding: 1.5rem 1rem !important;
+        padding: 1.5rem 0.5rem !important;
         margin: 0 !important;
         width: 100% !important;
         box-sizing: border-box !important;
         max-width: 100% !important;
+        overflow: hidden !important;
     }
     
     .form-group {
@@ -319,6 +327,22 @@ select {
         max-width: 100% !important;
         box-sizing: border-box !important;
         padding: 0.75rem !important;
+    }
+    
+    /* Evitar texto cortado */
+    h1, h2, h3, h4, h5, h6, p, span, div {
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+        max-width: 100% !important;
+    }
+    
+    /* Asegurar que emails largos no se salgan */
+    .contact-item p {
+        word-break: break-all !important;
+        overflow-wrap: anywhere !important;
+        max-width: 100% !important;
+        font-size: 0.8rem !important;
     }
 }
 
