@@ -637,8 +637,8 @@
     color: var(--text-secondary);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Enhanced Responsive Design */
+@media (max-width: 1024px) {
     .about-content {
         grid-template-columns: 1fr;
         gap: var(--space-xl);
@@ -649,6 +649,12 @@
         gap: var(--space-xl);
     }
     
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    }
+}
+
+@media (max-width: 768px) {
     .timeline-item {
         padding-left: 60px;
     }
@@ -662,19 +668,81 @@
     .timeline-items::before {
         left: 20px;
     }
+    
+    .metric-number {
+        font-size: var(--text-5xl);
+    }
+    
+    .service-image {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .project-card {
+        height: clamp(200px, 40vw, 250px);
+    }
 }
 
 @media (max-width: 480px) {
     .metrics-grid {
         grid-template-columns: 1fr;
+        gap: var(--space-md);
     }
     
     .services-grid {
         grid-template-columns: 1fr;
+        gap: var(--space-md);
     }
     
     .clients-grid {
         grid-template-columns: 1fr;
+        gap: var(--space-sm);
+    }
+    
+    .timeline-item {
+        padding-left: 50px;
+    }
+    
+    .timeline-year {
+        width: 35px;
+        height: 35px;
+        font-size: 0.7rem;
+    }
+    
+    .timeline-items::before {
+        left: 17px;
+    }
+    
+    .metric-card,
+    .service-card {
+        padding: var(--space-md);
+    }
+    
+    .contact-item {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: var(--space-sm) !important;
+    }
+    
+    .contact-item i {
+        margin-bottom: var(--space-xs) !important;
+    }
+}
+
+@media (max-width: 320px) {
+    .metric-card,
+    .service-card {
+        padding: var(--space-sm);
+    }
+    
+    .contact-item {
+        padding: var(--space-sm) !important;
+    }
+    
+    .form-input,
+    .form-textarea,
+    .btn-submit {
+        font-size: 16px; /* Evita zoom en iOS */
     }
 }
 

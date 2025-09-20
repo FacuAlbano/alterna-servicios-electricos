@@ -55,24 +55,106 @@ class LazyLoader {
     }
 
     setupLazyImages() {
+        console.log('🖼️ Setting up enhanced lazy image loading...');
+        
         // Configurar lazy loading para imágenes
         const imageObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const img = entry.target;
-                    if (img.dataset.src) {
-                        img.src = img.dataset.src;
-                        img.classList.remove('lazy');
-                        img.classList.add('loaded');
-                    }
+                    this.loadImage(img);
                     observer.unobserve(img);
                 }
             });
+        }, {
+            rootMargin: '100px 0px', // Cargar antes de que aparezca
+            threshold: 0.01
         });
 
-        // Aplicar a todas las imágenes con data-src
-        document.querySelectorAll('img[data-src]').forEach(img => {
+        // Encontrar todas las imágenes para lazy loading
+        const lazyImages = document.querySelectorAll('img[data-src], img[loading="lazy"]');
+        console.log(`🔍 Found ${lazyImages.length} images for lazy loading`);
+        
+        lazyImages.forEach(img => {
+            // Optimizar atributos de imagen
+            if (!img.hasAttribute('loading')) {
+                img.setAttribute('loading', 'lazy');
+            }
+            if (!img.hasAttribute('decoding')) {
+                img.setAttribute('decoding', 'async');
+            }
+            
+            // Añadir estilos de carga
+            img.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+            if (img.dataset.src) {
+                img.style.opacity = '0';
+            }
+            
             imageObserver.observe(img);
+        });
+
+        // Precargar imágenes críticas
+        this.preloadCriticalImages();
+    }
+
+    loadImage(img) {
+        return new Promise((resolve, reject) => {
+            const imageLoader = new Image();
+            
+            imageLoader.onload = () => {
+                // Aplicar la imagen cargada
+                if (img.dataset.src) {
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                }
+                
+                // Añadir clase loaded para animaciones
+                img.classList.remove('lazy', 'loading');
+                img.classList.add('loaded');
+                
+                // Fade in suave
+                requestAnimationFrame(() => {
+                    img.style.opacity = '1';
+                    img.style.transform = 'scale(1)';
+                });
+                
+                console.log('✅ Image loaded:', img.src);
+                resolve();
+            };
+
+            imageLoader.onerror = () => {
+                console.error('❌ Failed to load image:', img.dataset.src);
+                img.classList.add('error');
+                // Ocultar imagen rota
+                img.style.display = 'none';
+                reject();
+            };
+
+            // Añadir clase loading
+            img.classList.add('loading');
+            
+            // Iniciar carga
+            imageLoader.src = img.dataset.src || img.src;
+        });
+    }
+
+    preloadCriticalImages() {
+        const criticalImages = [
+            'assets/images/LogoAlterna-removebg-preview.png',
+            'assets/images/Servicio1.jpg',
+            'assets/images/Servicio2.jpg',
+            'assets/images/trabajamos1.jpg'
+        ];
+
+        console.log('⚡ Preloading critical images...');
+        
+        criticalImages.forEach((src, index) => {
+            setTimeout(() => {
+                const img = new Image();
+                img.onload = () => console.log(`✅ Critical image preloaded: ${src}`);
+                img.onerror = () => console.error(`❌ Failed to preload: ${src}`);
+                img.src = src;
+            }, index * 50);
         });
     }
 
