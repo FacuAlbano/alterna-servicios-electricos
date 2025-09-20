@@ -140,6 +140,15 @@
                 <li><a href="#contacto" class="nav-link">Contacto</a></li>
             </ul>
         </div>
+        
+        <!-- Menú de idiomas móvil -->
+        <div class="mobile-language-menu" id="mobile-language-menu">
+            <div class="translate-options">
+                <button class="translate-option" data-lang="es">🇪🇸 Español</button>
+                <button class="translate-option" data-lang="en">🇺🇸 English</button>
+                <button class="translate-option" data-lang="pt">🇧🇷 Português</button>
+            </div>
+        </div>
     </header>
 
     <!-- Hero Section -->
@@ -1614,7 +1623,10 @@
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
             const mobileMenu = document.getElementById('mobile-menu');
+            const languageToggle = document.querySelector('.language-toggle');
+            const mobileLanguageMenu = document.getElementById('mobile-language-menu');
             
+            // Menú hamburguesa
             if (mobileMenuToggle && mobileMenu) {
                 mobileMenuToggle.addEventListener('click', function() {
                     mobileMenuToggle.classList.toggle('active');
@@ -1641,6 +1653,56 @@
                     }
                 });
             }
+            
+            // Menú de idiomas móvil
+            if (languageToggle && mobileLanguageMenu) {
+                languageToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Solo en móvil (pantalla < 1024px)
+                    if (window.innerWidth < 1024) {
+                        mobileLanguageMenu.classList.toggle('active');
+                        document.body.style.overflow = mobileLanguageMenu.classList.contains('active') ? 'hidden' : '';
+                    }
+                });
+                
+                // Cerrar menú de idiomas al seleccionar una opción
+                const languageOptions = mobileLanguageMenu.querySelectorAll('.translate-option');
+                languageOptions.forEach(option => {
+                    option.addEventListener('click', function() {
+                        mobileLanguageMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                        
+                        // Aquí puedes añadir la lógica de cambio de idioma
+                        const selectedLang = this.getAttribute('data-lang');
+                        console.log('Idioma seleccionado:', selectedLang);
+                        
+                        // Actualizar el texto del botón si es necesario
+                        const globeIcon = languageToggle.querySelector('i');
+                        if (globeIcon) {
+                            // Aquí puedes cambiar el icono o texto según el idioma
+                        }
+                    });
+                });
+                
+                // Cerrar menú de idiomas al hacer click fuera
+                mobileLanguageMenu.addEventListener('click', function(e) {
+                    if (e.target === mobileLanguageMenu) {
+                        mobileLanguageMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
+            
+            // Cerrar menús al redimensionar la ventana
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 1024) {
+                    mobileMenu.classList.remove('active');
+                    mobileLanguageMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
         });
     </script>
 
