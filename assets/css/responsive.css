@@ -139,8 +139,8 @@ body {
    NAVEGACIÓN RESPONSIVA - CORRECCIÓN ESPECÍFICA
    ========================================== */
 
-/* REGLA GENERAL: Mantener navegación en una línea en desktop */
-@media (min-width: 769px) {
+/* REGLA ESPECÍFICA: Solo para desktop - NO afectar móvil */
+@media (min-width: 1024px) {
     #header nav {
         display: flex !important;
         justify-content: space-between !important;
@@ -166,6 +166,36 @@ body {
     .logo {
         flex-shrink: 0 !important;
         margin-right: auto !important;
+    }
+}
+
+/* MÓVIL: Asegurar que los elementos se vean correctamente */
+@media (max-width: 1023px) {
+    .nav-contact {
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.5rem !important;
+        flex-shrink: 0 !important;
+    }
+    
+    .contact-info {
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.3rem !important;
+    }
+    
+    .contact-info span {
+        font-size: 0.7rem !important;
+    }
+    
+    .translate-dropdown {
+        display: block !important;
+    }
+    
+    .language-toggle {
+        display: flex !important;
+        align-items: center !important;
+        padding: 0.3rem !important;
     }
 }
 

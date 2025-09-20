@@ -247,7 +247,13 @@ nav {
     }
     
     .contact-info {
-        display: none; /* Ocultar en móvil para más espacio */
+        display: flex !important; /* Mostrar en móvil pero compacto */
+        align-items: center !important;
+        gap: 0.3rem !important;
+    }
+    
+    .contact-info span {
+        display: none; /* Solo ocultar el texto, mantener el icono */
     }
     
     .logo img {
@@ -257,6 +263,18 @@ nav {
     
     .logo {
         font-size: 1rem; /* Texto del logo más pequeño */
+    }
+    
+    /* Asegurar que el traductor se vea en móvil */
+    .translate-dropdown {
+        display: block !important;
+    }
+    
+    .language-toggle {
+        display: flex !important;
+        align-items: center !important;
+        padding: 0.3rem !important;
+        font-size: 0.9rem !important;
     }
 }
 
@@ -287,5 +305,29 @@ nav {
     
     .logo {
         font-size: 0.9rem; /* Texto del logo muy pequeño */
+    }
+    
+    /* Asegurar que los elementos de contacto se vean en móvil pequeño */
+    .nav-contact {
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.3rem !important;
+    }
+    
+    .contact-info {
+        display: flex !important;
+        align-items: center !important;
+        padding: 0.2rem !important;
+    }
+    
+    .translate-dropdown {
+        display: block !important;
+    }
+    
+    .language-toggle {
+        display: flex !important;
+        align-items: center !important;
+        padding: 0.2rem !important;
+        font-size: 0.8rem !important;
     }
 }
