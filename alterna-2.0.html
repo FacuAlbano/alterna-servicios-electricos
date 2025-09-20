@@ -152,6 +152,11 @@
                 <button class="translate-option" data-lang="pt">🇧🇷 Português</button>
             </div>
         </div>
+        
+        <!-- Botón de prueba temporal (solo para debug) -->
+        <button onclick="toggleLanguageMenu()" style="position: fixed; top: 10px; right: 10px; z-index: 10000; background: red; color: white; padding: 10px; border: none; border-radius: 5px;">
+            TEST IDIOMAS
+        </button>
     </header>
 
     <!-- Hero Section -->
@@ -1622,14 +1627,40 @@
     
     <!-- Mobile Menu Script -->
     <script>
-        // Menú móvil hamburguesa
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const languageToggle = document.querySelector('.language-toggle');
+        // Función para mostrar/ocultar menú de idiomas
+        function toggleLanguageMenu() {
             const mobileLanguageMenu = document.getElementById('mobile-language-menu');
+            if (mobileLanguageMenu) {
+                mobileLanguageMenu.classList.toggle('active');
+                document.body.style.overflow = mobileLanguageMenu.classList.contains('active') ? 'hidden' : '';
+                console.log('🌍 Menú de idiomas toggled:', mobileLanguageMenu.classList.contains('active'));
+            }
+        }
+        
+        // Función para cerrar menú de idiomas
+        function closeLanguageMenu() {
+            const mobileLanguageMenu = document.getElementById('mobile-language-menu');
+            if (mobileLanguageMenu) {
+                mobileLanguageMenu.classList.remove('active');
+                document.body.style.overflow = '';
+                console.log('🌍 Menú de idiomas cerrado');
+            }
+        }
+        
+        // Función para seleccionar idioma
+        function selectLanguage(lang) {
+            console.log('🌍 Idioma seleccionado:', lang);
+            alert(`Idioma seleccionado: ${lang}`);
+            closeLanguageMenu();
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Inicializando menús móviles...');
             
             // Menú hamburguesa
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
             if (mobileMenuToggle && mobileMenu) {
                 mobileMenuToggle.addEventListener('click', function() {
                     mobileMenuToggle.classList.toggle('active');
@@ -1657,103 +1688,63 @@
                 });
             }
             
-            // Menú de idiomas (móvil y desktop)
-            if (languageToggle && mobileLanguageMenu) {
-                console.log('🌍 Configurando menú de idiomas...');
-                
-                const mobileLanguageClose = document.getElementById('mobile-language-close');
-                
+            // Menú de idiomas - SOLUCIÓN SIMPLE
+            const languageToggle = document.querySelector('.language-toggle');
+            const mobileLanguageMenu = document.getElementById('mobile-language-menu');
+            const mobileLanguageClose = document.getElementById('mobile-language-close');
+            
+            console.log('🌍 Elementos encontrados:');
+            console.log('- languageToggle:', !!languageToggle);
+            console.log('- mobileLanguageMenu:', !!mobileLanguageMenu);
+            console.log('- mobileLanguageClose:', !!mobileLanguageClose);
+            
+            // Click en el botón de idiomas
+            if (languageToggle) {
                 languageToggle.addEventListener('click', function(e) {
                     e.preventDefault();
                     e.stopPropagation();
+                    console.log('🌍 Click en botón de idiomas');
                     
-                    console.log('🌍 Click en selector de idiomas');
-                    console.log('📱 Ancho de pantalla:', window.innerWidth);
-                    
-                    // En móvil: mostrar menú de pantalla completa
+                    // Solo en móvil
                     if (window.innerWidth < 1024) {
-                        console.log('📱 Activando menú móvil de idiomas');
-                        mobileLanguageMenu.classList.toggle('active');
-                        document.body.style.overflow = mobileLanguageMenu.classList.contains('active') ? 'hidden' : '';
-                    } else {
-                        // En desktop: mostrar dropdown normal
-                        console.log('🖥️ Activando dropdown desktop');
-                        const desktopOptions = document.querySelector('.translate-options');
-                        if (desktopOptions) {
-                            desktopOptions.classList.toggle('show');
-                        }
+                        toggleLanguageMenu();
                     }
                 });
-                
-                // Botón de cerrar
-                if (mobileLanguageClose) {
-                    mobileLanguageClose.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        console.log('🌍 Cerrando menú de idiomas (botón X)');
-                        mobileLanguageMenu.classList.remove('active');
-                        document.body.style.overflow = '';
-                    });
-                }
-                
-                // Cerrar menú de idiomas al seleccionar una opción
-                const languageOptions = mobileLanguageMenu.querySelectorAll('.translate-option');
-                console.log('🌍 Opciones de idioma encontradas:', languageOptions.length);
-                
-                languageOptions.forEach(option => {
-                    option.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        
-                        const selectedLang = this.getAttribute('data-lang');
-                        console.log('🌍 Idioma seleccionado:', selectedLang);
-                        
-                        // Cerrar menú móvil
-                        mobileLanguageMenu.classList.remove('active');
-                        document.body.style.overflow = '';
-                        
-                        // Cerrar dropdown desktop si está abierto
-                        const desktopOptions = document.querySelector('.translate-options');
-                        if (desktopOptions) {
-                            desktopOptions.classList.remove('show');
-                        }
-                        
-                        // Aquí puedes añadir la lógica de cambio de idioma
-                        // Por ahora solo mostramos en consola
-                        alert(`Idioma seleccionado: ${selectedLang}`);
-                    });
-                });
-                
-                // Cerrar menú de idiomas al hacer click fuera
-                mobileLanguageMenu.addEventListener('click', function(e) {
-                    if (e.target === mobileLanguageMenu) {
-                        console.log('🌍 Cerrando menú de idiomas (click fuera)');
-                        mobileLanguageMenu.classList.remove('active');
-                        document.body.style.overflow = '';
-                    }
-                });
-                
-                // Cerrar dropdown desktop al hacer click fuera
-                document.addEventListener('click', function(e) {
-                    if (!languageToggle.contains(e.target) && !mobileLanguageMenu.contains(e.target)) {
-                        const desktopOptions = document.querySelector('.translate-options');
-                        if (desktopOptions) {
-                            desktopOptions.classList.remove('show');
-                        }
-                    }
-                });
-            } else {
-                console.log('❌ No se encontraron elementos del menú de idiomas');
             }
             
-            // Cerrar menús al redimensionar la ventana
-            window.addEventListener('resize', function() {
-                if (window.innerWidth >= 1024) {
-                    mobileMenu.classList.remove('active');
-                    mobileLanguageMenu.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
+            // Botón de cerrar
+            if (mobileLanguageClose) {
+                mobileLanguageClose.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('🌍 Click en botón cerrar');
+                    closeLanguageMenu();
+                });
+            }
+            
+            // Opciones de idioma
+            const languageOptions = document.querySelectorAll('.mobile-language-menu .translate-option');
+            console.log('🌍 Opciones de idioma encontradas:', languageOptions.length);
+            
+            languageOptions.forEach(option => {
+                option.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const lang = this.getAttribute('data-lang');
+                    selectLanguage(lang);
+                });
             });
+            
+            // Click fuera para cerrar
+            if (mobileLanguageMenu) {
+                mobileLanguageMenu.addEventListener('click', function(e) {
+                    if (e.target === mobileLanguageMenu) {
+                        closeLanguageMenu();
+                    }
+                });
+            }
+            
+            console.log('✅ Menús móviles inicializados');
         });
     </script>
 
