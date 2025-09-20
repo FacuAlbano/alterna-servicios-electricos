@@ -36,12 +36,16 @@ document.addEventListener('DOMContentLoaded', function() {
  * Configura la navegación móvil
  */
 function setupMobileNavigation() {
+    console.log('🔍 Buscando elementos del menú móvil...');
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const mobileMenu = document.querySelector('.mobile-menu');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
     const translateDropdown = document.querySelector('.translate-dropdown');
     const languageToggle = document.querySelector('.language-toggle');
     const translateOptions = document.querySelector('.translate-options');
+    
+    console.log('📱 mobileMenuToggle:', mobileMenuToggle);
+    console.log('📋 mobileMenu:', mobileMenu);
 
     // Toggle del menú móvil
     if (mobileMenuToggle && mobileMenu) {

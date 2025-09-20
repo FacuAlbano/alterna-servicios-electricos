@@ -7,20 +7,20 @@ header {
     z-index: 1000;
     transition: all var(--transition-normal);
     backdrop-filter: blur(15px) saturate(120%);
-    background: rgba(0, 0, 0, 0.95) !important;
-    border-bottom: 2px solid rgba(32, 178, 170, 0.8);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    height: 60px; /* Altura fija para que sea compacta */
-    min-height: 60px; /* Altura mínima */
+    background: transparent !important; /* TRANSPARENTE EN DESKTOP */
+    border-bottom: 1px solid rgba(32, 178, 170, 0.3);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    height: 60px;
+    min-height: 60px;
     width: 100% !important;
 }
 
 header.scrolled {
-    background: rgba(0, 0, 0, 0.98) !important;
+    background: rgba(0, 0, 0, 0.4) !important; /* MÁS SUTIL EN DESKTOP */
     backdrop-filter: blur(20px) saturate(150%);
-    border-bottom-color: rgba(32, 178, 170, 0.9);
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.6);
-    height: 60px; /* Mantener altura compacta */
+    border-bottom-color: rgba(32, 178, 170, 0.4);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    height: 60px;
 }
 
 nav {
@@ -279,7 +279,7 @@ nav {
 /* ===== MENÚ MÓVIL DESPLEGABLE ===== */
 .mobile-menu {
     position: fixed;
-    top: 70px;
+    top: 60px;
     left: 0;
     right: 0;
     background: linear-gradient(135deg, 
@@ -560,26 +560,28 @@ nav {
 /* Responsive */
 @media (max-width: 768px) {
     header {
-        height: 70px !important; /* Más altura en móviles */
-        min-height: 70px !important;
-        background: rgba(0, 0, 0, 0.98) !important; /* Casi sólido */
+        height: 60px !important; /* Altura normal */
+        min-height: 60px !important;
+        background: rgba(0, 0, 0, 0.95) !important; /* Sólido SOLO EN MÓVILES */
         backdrop-filter: blur(25px) saturate(150%) !important;
         -webkit-backdrop-filter: blur(25px) saturate(150%) !important;
-        border-bottom: 3px solid rgba(32, 178, 170, 1) !important; /* Border muy visible */
-        box-shadow: 0 4px 25px rgba(0, 0, 0, 0.8) !important;
+        border-bottom: 2px solid rgba(32, 178, 170, 0.8) !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6) !important;
         position: fixed !important;
         top: 0 !important;
         left: 0 !important;
         right: 0 !important;
         z-index: 1000 !important;
         width: 100% !important;
+        display: block !important; /* FORZAR VISIBILIDAD */
     }
     
     nav {
-        padding: 0.75rem 1rem;
-        height: 70px !important;
+        padding: 0.5rem 1rem;
+        height: 60px !important;
         width: 100%;
         max-width: 100%;
+        display: flex !important; /* FORZAR FLEX */
     }
     
     /* Ocultar menú desktop y mostrar hamburguesa */
@@ -597,29 +599,33 @@ nav {
     
     .mobile-menu-toggle {
         display: flex !important;
+        visibility: visible !important; /* FORZAR VISIBILIDAD */
+        opacity: 1 !important;
         z-index: 1001 !important;
         position: relative !important;
-        background: rgba(32, 178, 170, 0.9) !important; /* Más opaco */
-        border: 4px solid #20b2aa !important; /* Border sólido */
+        background: #20b2aa !important; /* SÓLIDO CYAN */
+        border: 3px solid #ffffff !important; /* BORDER BLANCO */
         box-shadow: 
-            0 4px 15px rgba(0, 0, 0, 0.9) !important,
-            0 0 20px rgba(32, 178, 170, 0.7) !important; /* Glow */
+            0 4px 15px rgba(0, 0, 0, 0.8) !important,
+            0 0 15px rgba(32, 178, 170, 0.9) !important;
         flex-direction: column !important;
         cursor: pointer !important;
-        padding: 0.8rem !important; /* Más padding */
-        border-radius: 12px !important; /* Más redondeado */
+        padding: 0.6rem !important;
+        border-radius: 8px !important;
+        min-width: 44px !important; /* TAMAÑO MÍNIMO TOUCH */
+        min-height: 44px !important;
     }
     
     .mobile-menu-toggle .hamburger-line {
-        width: 28px !important; /* Más anchas */
-        height: 4px !important; /* Más gruesas */
+        width: 24px !important;
+        height: 3px !important;
         background: white !important;
-        margin: 4px 0 !important; /* Más separación */
-        border-radius: 3px !important;
-        box-shadow: 
-            0 2px 5px rgba(0, 0, 0, 1) !important,
-            0 0 10px rgba(255, 255, 255, 0.5) !important; /* Glow blanco */
-        border: 1px solid rgba(0, 0, 0, 0.5) !important; /* Border más visible */
+        margin: 3px 0 !important;
+        border-radius: 2px !important;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
     
     .logo {

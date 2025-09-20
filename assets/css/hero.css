@@ -180,7 +180,7 @@
 /* Responsive */
 @media (max-width: 768px) {
     .hero {
-        padding-top: 90px; /* Más espacio para el header más alto */
+        padding-top: 80px; /* Espacio normal para header */
         min-height: 100vh;
         height: auto;
     }
