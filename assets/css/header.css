@@ -605,9 +605,7 @@ nav {
         position: relative !important;
         background: #20b2aa !important; /* SÓLIDO CYAN */
         border: 3px solid #ffffff !important; /* BORDER BLANCO */
-        box-shadow: 
-            0 4px 15px rgba(0, 0, 0, 0.8) !important,
-            0 0 15px rgba(32, 178, 170, 0.9) !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8), 0 0 15px rgba(32, 178, 170, 0.9) !important;
         flex-direction: column !important;
         cursor: pointer !important;
         padding: 0.6rem !important;
