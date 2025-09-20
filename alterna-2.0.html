@@ -103,6 +103,13 @@
                 <li><a href="#contacto" class="nav-link">Contacto</a></li>
             </ul>
             
+            <!-- Botón de menú hamburguesa para móvil -->
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
             <div class="nav-contact">
                 <div class="translate-dropdown">
                     <button class="language-toggle" aria-label="Cambiar idioma">
@@ -121,6 +128,18 @@
                 </a>
             </div>
         </nav>
+        
+        <!-- Menú móvil desplegable -->
+        <div class="mobile-menu" id="mobile-menu">
+            <ul class="nav-menu">
+                <li><a href="#hero" class="nav-link">Inicio</a></li>
+                <li><a href="#metrics" class="nav-link">Nosotros</a></li>
+                <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+                <li><a href="#clientes" class="nav-link">Clientes</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+        </div>
     </header>
 
     <!-- Hero Section -->
@@ -1589,6 +1608,42 @@
         }, 4000);
     </script>
     
+    <!-- Mobile Menu Script -->
+    <script>
+        // Menú móvil hamburguesa
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuToggle && mobileMenu) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    mobileMenuToggle.classList.toggle('active');
+                    mobileMenu.classList.toggle('active');
+                    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+                });
+                
+                // Cerrar menú al hacer click en un enlace
+                const mobileLinks = mobileMenu.querySelectorAll('.nav-link');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenuToggle.classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+                });
+                
+                // Cerrar menú al hacer click fuera
+                mobileMenu.addEventListener('click', function(e) {
+                    if (e.target === mobileMenu) {
+                        mobileMenuToggle.classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
+        });
+    </script>
+
     <!-- Initialization Script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
