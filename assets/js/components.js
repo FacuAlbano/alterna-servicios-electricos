@@ -78,25 +78,25 @@ class ComponentLoader {
      */
     getHeaderHTML() {
         return `
-            <header>
-                <nav>
-                    <a href="index.html" class="logo">
-                        <img src="../../assets/images/LogoAlterna-removebg-preview.png" alt="Logo Alterna">
-                        <span>ALTERNA</span>
+            <header style="position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; z-index: 1000 !important; background: rgba(0,0,0,0.7) !important; backdrop-filter: blur(15px) !important; -webkit-backdrop-filter: blur(15px) !important; border-bottom: 1px solid rgba(32,178,170,0.5) !important; box-shadow: 0 2px 15px rgba(0,0,0,0.3) !important; height: 60px !important; min-height: 60px !important;">
+                <nav style="display: flex !important; align-items: center !important; justify-content: space-between !important; padding: 0.5rem 1rem !important; height: 60px !important; width: 100% !important; max-width: 1400px !important; margin: 0 auto !important;">
+                    <a href="index.html" class="logo" style="display: flex !important; align-items: center !important; text-decoration: none !important; color: white !important; font-weight: 700 !important; font-size: 1.1rem !important; text-shadow: 0 1px 3px rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.6) !important;">
+                        <img src="../../assets/images/LogoAlterna-removebg-preview.png" alt="Logo Alterna" style="width: 28px !important; height: 28px !important; margin-right: 0.5rem !important;">
+                        <span style="color: white !important; text-shadow: 0 1px 3px rgba(0,0,0,0.8) !important;">ALTERNA</span>
                     </a>
                     
                     <!-- Menú Desktop -->
-                    <ul class="nav-menu">
-                        <li><a href="index.html" class="nav-link">Inicio</a></li>
-                        <li><a href="sobre-nosotros.html" class="nav-link">Sobre Nosotros</a></li>
-                        <li><a href="servicios.html" class="nav-link">Servicios</a></li>
-                        <li><a href="trabajamos-juntos.html" class="nav-link">Trabajamos Juntos</a></li>
-                        <li><a href="galeria.html" class="nav-link">Galería</a></li>
-                        <li><a href="contacto.html" class="nav-link">Contacto</a></li>
-                    </ul>
-                    
+                        <ul class="nav-menu">
+                            <li><a href="index.html" class="nav-link">Inicio</a></li>
+                            <li><a href="sobre-nosotros.html" class="nav-link">Sobre Nosotros</a></li>
+                            <li><a href="servicios.html" class="nav-link">Servicios</a></li>
+                            <li><a href="trabajamos-juntos.html" class="nav-link">Trabajamos Juntos</a></li>
+                            <li><a href="galeria.html" class="nav-link">Galería</a></li>
+                            <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+                        </ul>
+                        
                     <!-- Contacto y Traductor Desktop -->
-                    <div class="nav-contact">
+                        <div class="nav-contact">
                         <a href="https://wa.me/5493413856810" target="_blank" class="contact-info">
                             <i class="fab fa-whatsapp"></i>
                             <span>+54 9 341 3856810</span>
@@ -116,10 +116,10 @@ class ComponentLoader {
                     </div>
                     
                     <!-- Botón Hamburguesa Móvil -->
-                    <button class="mobile-menu-toggle" aria-label="Abrir menú">
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
+                    <button class="mobile-menu-toggle" aria-label="Abrir menú" style="display: none !important; flex-direction: column !important; cursor: pointer !important; padding: 0.7rem !important; border-radius: 8px !important; background: rgba(32,178,170,0.4) !important; border: 2px solid rgba(32,178,170,0.8) !important; box-shadow: 0 2px 8px rgba(0,0,0,0.5) !important; position: relative !important; z-index: 1001 !important;">
+                        <span class="hamburger-line" style="width: 25px !important; height: 3px !important; background: white !important; margin: 3px 0 !important; border-radius: 2px !important; box-shadow: 0 1px 3px rgba(0,0,0,1), 0 2px 6px rgba(0,0,0,0.8) !important; border: 0.5px solid rgba(0,0,0,0.2) !important;"></span>
+                        <span class="hamburger-line" style="width: 25px !important; height: 3px !important; background: white !important; margin: 3px 0 !important; border-radius: 2px !important; box-shadow: 0 1px 3px rgba(0,0,0,1), 0 2px 6px rgba(0,0,0,0.8) !important; border: 0.5px solid rgba(0,0,0,0.2) !important;"></span>
+                        <span class="hamburger-line" style="width: 25px !important; height: 3px !important; background: white !important; margin: 3px 0 !important; border-radius: 2px !important; box-shadow: 0 1px 3px rgba(0,0,0,1), 0 2px 6px rgba(0,0,0,0.8) !important; border: 0.5px solid rgba(0,0,0,0.2) !important;"></span>
                     </button>
                 </nav>
                 
