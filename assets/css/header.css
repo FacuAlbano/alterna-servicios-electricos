@@ -467,17 +467,20 @@ nav {
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        padding: 0.6rem !important;
-        font-size: 1.2rem !important;
-        background: rgba(32, 178, 170, 0.3) !important;
-        border-radius: 8px !important;
-        border: 3px solid var(--primary-color) !important;
+        padding: 1rem !important;
+        font-size: 1.5rem !important;
+        background: rgba(32, 178, 170, 0.4) !important;
+        border-radius: 12px !important;
+        border: 4px solid var(--primary-color) !important;
         color: var(--primary-color) !important;
-        width: 45px !important;
-        height: 45px !important;
+        width: 60px !important;
+        height: 60px !important;
         transition: all 0.3s ease !important;
-        box-shadow: 0 2px 8px rgba(32, 178, 170, 0.3) !important;
+        box-shadow: 0 4px 12px rgba(32, 178, 170, 0.4) !important;
         cursor: pointer !important;
+        margin: 0.5rem !important;
+        min-width: 60px !important;
+        min-height: 60px !important;
     }
     
     .language-toggle:hover {
@@ -558,15 +561,19 @@ nav {
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        padding: 0.5rem !important;
-        font-size: 1rem !important;
-        background: rgba(32, 178, 170, 0.15) !important;
-        border-radius: 6px !important;
-        border: 2px solid rgba(32, 178, 170, 0.4) !important;
+        padding: 0.8rem !important;
+        font-size: 1.3rem !important;
+        background: rgba(32, 178, 170, 0.4) !important;
+        border-radius: 10px !important;
+        border: 3px solid var(--primary-color) !important;
         color: var(--primary-color) !important;
-        width: 40px !important;
-        height: 40px !important;
+        width: 50px !important;
+        height: 50px !important;
         transition: all 0.3s ease !important;
+        margin: 0.3rem !important;
+        min-width: 50px !important;
+        min-height: 50px !important;
+        box-shadow: 0 3px 10px rgba(32, 178, 170, 0.4) !important;
     }
     
     .language-toggle:hover {
