@@ -464,13 +464,15 @@ nav {
         justify-content: center !important;
         padding: 0.6rem !important;
         font-size: 1.2rem !important;
-        background: rgba(32, 178, 170, 0.15) !important;
+        background: rgba(32, 178, 170, 0.3) !important;
         border-radius: 8px !important;
-        border: 2px solid rgba(32, 178, 170, 0.4) !important;
+        border: 3px solid var(--primary-color) !important;
         color: var(--primary-color) !important;
         width: 45px !important;
         height: 45px !important;
         transition: all 0.3s ease !important;
+        box-shadow: 0 2px 8px rgba(32, 178, 170, 0.3) !important;
+        cursor: pointer !important;
     }
     
     .language-toggle:hover {

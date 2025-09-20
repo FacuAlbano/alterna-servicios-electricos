@@ -153,10 +153,6 @@
             </div>
         </div>
         
-        <!-- Botón de prueba temporal (solo para debug) -->
-        <button onclick="toggleLanguageMenu()" style="position: fixed; top: 10px; right: 10px; z-index: 10000; background: red; color: white; padding: 10px; border: none; border-radius: 5px;">
-            TEST IDIOMAS
-        </button>
     </header>
 
     <!-- Hero Section -->
@@ -1698,16 +1694,48 @@
             console.log('- mobileLanguageMenu:', !!mobileLanguageMenu);
             console.log('- mobileLanguageClose:', !!mobileLanguageClose);
             
-            // Click en el botón de idiomas
+            // Click en el botón de idiomas - MÚLTIPLES SELECTORES
+            const languageButtons = document.querySelectorAll('.language-toggle, .translate-dropdown button, [aria-label="Cambiar idioma"]');
+            console.log('🌍 Botones de idioma encontrados:', languageButtons.length);
+            
+            languageButtons.forEach((button, index) => {
+                console.log(`🌍 Botón ${index + 1}:`, button);
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('🌍 Click en botón de idiomas (cualquiera)');
+                    
+                    // Solo en móvil
+                    if (window.innerWidth < 1024) {
+                        console.log('📱 Activando menú móvil desde botón');
+                        toggleLanguageMenu();
+                    } else {
+                        console.log('🖥️ Activando dropdown desktop');
+                        const desktopOptions = document.querySelector('.translate-options');
+                        if (desktopOptions) {
+                            desktopOptions.classList.toggle('show');
+                        }
+                    }
+                });
+            });
+            
+            // También intentar con el selector original
             if (languageToggle) {
                 languageToggle.addEventListener('click', function(e) {
                     e.preventDefault();
                     e.stopPropagation();
-                    console.log('🌍 Click en botón de idiomas');
+                    console.log('🌍 Click en botón de idiomas (selector original)');
                     
                     // Solo en móvil
                     if (window.innerWidth < 1024) {
+                        console.log('📱 Activando menú móvil desde selector original');
                         toggleLanguageMenu();
+                    } else {
+                        console.log('🖥️ Activando dropdown desktop desde selector original');
+                        const desktopOptions = document.querySelector('.translate-options');
+                        if (desktopOptions) {
+                            desktopOptions.classList.toggle('show');
+                        }
                     }
                 });
             }
