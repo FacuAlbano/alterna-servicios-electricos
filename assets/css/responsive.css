@@ -135,61 +135,38 @@ body {
    NAVEGACIÓN RESPONSIVA
    ========================================== */
 
-/* Header responsivo */
-#header {
-    width: 100%;
-    padding: var(--space-fluid-sm) 0;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-}
+/* ==========================================
+   NAVEGACIÓN RESPONSIVA - CORRECCIÓN ESPECÍFICA
+   ========================================== */
 
-#header nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: var(--space-fluid-md);
-    max-width: var(--container-max);
-    margin: 0 auto;
-    padding: 0 var(--container-fluid);
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: var(--space-fluid-sm);
-    font-size: var(--text-fluid-xl);
-    font-weight: 700;
-    white-space: nowrap;
-}
-
-.logo img {
-    width: clamp(35px, 5vw, 50px);
-    height: clamp(35px, 5vw, 50px);
-    object-fit: contain;
-}
-
-.nav-menu {
-    display: flex;
-    list-style: none;
-    gap: var(--space-fluid-md);
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.nav-menu li a {
-    font-size: var(--text-fluid-base);
-    padding: var(--space-fluid-xs) var(--space-fluid-sm);
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-}
-
-.nav-contact {
-    display: flex;
-    align-items: center;
-    gap: var(--space-fluid-md);
-    flex-wrap: wrap;
+/* REGLA GENERAL: Mantener navegación en una línea en desktop */
+@media (min-width: 769px) {
+    #header nav {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        flex-wrap: nowrap !important;
+        width: 100% !important;
+    }
+    
+    .nav-contact {
+        display: flex !important;
+        align-items: center !important;
+        flex-wrap: nowrap !important;
+        flex-shrink: 0 !important;
+        margin-left: auto !important;
+    }
+    
+    .nav-menu {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        margin: 0 auto !important;
+    }
+    
+    .logo {
+        flex-shrink: 0 !important;
+        margin-right: auto !important;
+    }
 }
 
 /* ==========================================
@@ -746,6 +723,19 @@ img {
         right: 1rem;
         left: 1rem;
     }
+    
+    /* Navegación móvil - mantener estructura pero más compacta */
+    .nav-contact {
+        gap: var(--space-xs) !important;
+    }
+    
+    .contact-info span {
+        display: none; /* Ocultar texto, solo mostrar icono */
+    }
+    
+    .translate-dropdown .language-toggle {
+        padding: 0.3rem !important;
+    }
 }
 
 /* Tablet (768px - 1023px) */
@@ -790,6 +780,17 @@ img {
     .services-grid {
         grid-template-columns: repeat(3, 1fr);
     }
+    
+    /* Navegación desktop - asegurar que esté en una línea */
+    nav {
+        flex-wrap: nowrap !important;
+        min-height: 60px !important;
+    }
+    
+    .nav-contact {
+        flex-wrap: nowrap !important;
+        min-width: max-content !important;
+    }
 }
 
 /* Laptop Grande (1440px - 2559px) */
@@ -804,6 +805,17 @@ img {
     
     .clients-grid {
         grid-template-columns: repeat(4, 1fr);
+    }
+    
+    /* Navegación desktop grande */
+    nav {
+        flex-wrap: nowrap !important;
+        min-height: 60px !important;
+    }
+    
+    .nav-contact {
+        flex-wrap: nowrap !important;
+        gap: var(--space-md) !important;
     }
 }
 
