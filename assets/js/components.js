@@ -46,7 +46,7 @@ class ComponentLoader {
      */
     setupNavigation() {
         const currentPage = this.getCurrentPage();
-        const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+        const navLinks = document.querySelectorAll('.nav-link');
         
         navLinks.forEach(link => {
             link.classList.remove('active');
@@ -78,14 +78,13 @@ class ComponentLoader {
      */
     getHeaderHTML() {
         return `
-            <header style="position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; z-index: 1000 !important; background: transparent !important; backdrop-filter: blur(15px) !important; -webkit-backdrop-filter: blur(15px) !important; border-bottom: 1px solid rgba(32,178,170,0.3) !important; box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important; height: 60px !important; min-height: 60px !important; width: 100% !important;">
-                <nav style="display: flex !important; align-items: center !important; justify-content: space-between !important; padding: 0.5rem 1rem !important; height: 60px !important; width: 100% !important; max-width: 1400px !important; margin: 0 auto !important;">
-                    <a href="index.html" class="logo" style="display: flex !important; align-items: center !important; text-decoration: none !important; color: white !important; font-weight: 700 !important; font-size: 1.1rem !important; text-shadow: 0 1px 3px rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.6) !important;">
-                        <img src="../../assets/images/LogoAlterna-removebg-preview.png" alt="Logo Alterna" style="width: 28px !important; height: 28px !important; margin-right: 0.5rem !important;">
-                        <span style="color: white !important; text-shadow: 0 1px 3px rgba(0,0,0,0.8) !important;">ALTERNA</span>
-                    </a>
-                    
-                    <!-- Menú Desktop -->
+            <header class="header">
+                <nav class="navbar">
+                    <div class="nav-container">
+                        <div class="nav-logo">
+                            <img src="../../assets/images/LogoAlterna.jpg" alt="Logo Alterna" class="logo-image">
+                        </div>
+                        
                         <ul class="nav-menu">
                             <li><a href="index.html" class="nav-link">Inicio</a></li>
                             <li><a href="sobre-nosotros.html" class="nav-link">Sobre Nosotros</a></li>
@@ -95,93 +94,20 @@ class ComponentLoader {
                             <li><a href="contacto.html" class="nav-link">Contacto</a></li>
                         </ul>
                         
-                    <!-- Contacto y Traductor Desktop -->
                         <div class="nav-contact">
-                        <a href="https://wa.me/5493413856810" target="_blank" class="contact-info">
-                            <i class="fab fa-whatsapp"></i>
-                            <span>+54 9 341 3856810</span>
-                        </a>
-                        
-                        <div class="translate-dropdown">
-                            <button class="language-toggle">
-                                <span>🌐</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </button>
-                            <div class="translate-options">
-                                <button class="translate-option" data-lang="es">Español</button>
-                                <button class="translate-option" data-lang="en">English</button>
-                                <button class="translate-option" data-lang="pt">Português</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Botón Hamburguesa Móvil -->
-                    <button class="mobile-menu-toggle" aria-label="Abrir menú" style="display: none !important; flex-direction: column !important; cursor: pointer !important; padding: 0.6rem !important; border-radius: 8px !important; background: #20b2aa !important; border: 3px solid #ffffff !important; box-shadow: 0 4px 15px rgba(0,0,0,0.8), 0 0 15px rgba(32,178,170,0.9) !important; position: relative !important; z-index: 1001 !important; min-width: 44px !important; min-height: 44px !important; visibility: visible !important; opacity: 1 !important;">
-                        <span class="hamburger-line" style="width: 24px !important; height: 3px !important; background: white !important; margin: 3px 0 !important; border-radius: 2px !important; box-shadow: 0 1px 3px rgba(0,0,0,0.8) !important; display: block !important; visibility: visible !important; opacity: 1 !important;"></span>
-                        <span class="hamburger-line" style="width: 24px !important; height: 3px !important; background: white !important; margin: 3px 0 !important; border-radius: 2px !important; box-shadow: 0 1px 3px rgba(0,0,0,0.8) !important; display: block !important; visibility: visible !important; opacity: 1 !important;"></span>
-                        <span class="hamburger-line" style="width: 24px !important; height: 3px !important; background: white !important; margin: 3px 0 !important; border-radius: 2px !important; box-shadow: 0 1px 3px rgba(0,0,0,0.8) !important; display: block !important; visibility: visible !important; opacity: 1 !important;"></span>
-                    </button>
-                </nav>
-                
-                <!-- Menú Móvil -->
-                <div class="mobile-menu">
-                    <div class="mobile-menu-content">
-                        <!-- Enlaces de navegación -->
-                        <div class="mobile-nav-links">
-                            <a href="index.html" class="mobile-nav-link">
-                                <i class="fas fa-home"></i>
-                                <span>Inicio</span>
-                            </a>
-                            <a href="sobre-nosotros.html" class="mobile-nav-link">
-                                <i class="fas fa-users"></i>
-                                <span>Sobre Nosotros</span>
-                            </a>
-                            <a href="servicios.html" class="mobile-nav-link">
-                                <i class="fas fa-cogs"></i>
-                                <span>Servicios</span>
-                            </a>
-                            <a href="trabajamos-juntos.html" class="mobile-nav-link">
-                                <i class="fas fa-handshake"></i>
-                                <span>Trabajamos Juntos</span>
-                            </a>
-                            <a href="galeria.html" class="mobile-nav-link">
-                                <i class="fas fa-images"></i>
-                                <span>Galería</span>
-                            </a>
-                            <a href="contacto.html" class="mobile-nav-link">
-                                <i class="fas fa-envelope"></i>
-                                <span>Contacto</span>
-                            </a>
-                        </div>
-                        
-                        <!-- Sección de contacto -->
-                        <div class="mobile-contact-section">
-                            <h4 class="mobile-contact-title">Contacto</h4>
-                            <a href="https://wa.me/5493413856810" target="_blank" class="mobile-contact-item">
+                            <a href="https://wa.me/549341856810" target="_blank" class="nav-whatsapp-link">
                                 <i class="fab fa-whatsapp"></i>
-                                <span>+54 9 341 3856810</span>
-                            </a>
-                            <a href="mailto:tomasppendino@gmail.com" class="mobile-contact-item">
-                                <i class="fas fa-envelope"></i>
-                                <span>tomasppendino@gmail.com</span>
-                            </a>
-                            <a href="https://www.linkedin.com/company/alterna-servicios/" target="_blank" class="mobile-contact-item">
-                                <i class="fab fa-linkedin"></i>
-                                <span>LinkedIn</span>
+                                <span>+54 9 341 856810</span>
                             </a>
                         </div>
                         
-                        <!-- Sección de idiomas -->
-                        <div class="mobile-translate-section">
-                            <h4 class="mobile-translate-title">Idioma</h4>
-                            <div class="mobile-translate-options">
-                                <button class="mobile-translate-option" data-lang="es">Español</button>
-                                <button class="mobile-translate-option" data-lang="en">English</button>
-                                <button class="mobile-translate-option" data-lang="pt">Português</button>
-                            </div>
+                        <div class="hamburger">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
                         </div>
                     </div>
-                </div>
+                </nav>
             </header>
         `;
     }
@@ -243,14 +169,4 @@ class ComponentLoader {
 // Inicializar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
     window.componentLoader = new ComponentLoader();
-    
-    // Ejecutar la configuración de navegación móvil después de cargar los componentes
-    setTimeout(() => {
-        if (typeof setupMobileNavigation === 'function') {
-            setupMobileNavigation();
-        }
-        if (typeof setActiveNavigation === 'function') {
-            setActiveNavigation();
-        }
-    }, 100); // Pequeño delay para asegurar que el DOM esté completamente cargado
 });

@@ -8,9 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Navegación móvil
     setupMobileNavigation();
     
-    // Marcar página activa en navegación
-    setActiveNavigation();
-    
     // Scroll suave para indicadores de scroll
     setupScrollIndicators();
     
@@ -36,147 +33,23 @@ document.addEventListener('DOMContentLoaded', function() {
  * Configura la navegación móvil
  */
 function setupMobileNavigation() {
-    console.log('🔍 Buscando elementos del menú móvil...');
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-    const translateDropdown = document.querySelector('.translate-dropdown');
-    const languageToggle = document.querySelector('.language-toggle');
-    const translateOptions = document.querySelector('.translate-options');
-    
-    console.log('📱 mobileMenuToggle:', mobileMenuToggle);
-    console.log('📋 mobileMenu:', mobileMenu);
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
 
-    // Toggle del menú móvil
-    if (mobileMenuToggle && mobileMenu) {
-        mobileMenuToggle.addEventListener('click', function() {
-            mobileMenuToggle.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-            
-            // Prevenir scroll del body cuando el menú está abierto
-            if (mobileMenu.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = '';
-            }
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
         });
 
-        // Cerrar menú al hacer click en un enlace móvil
-        mobileNavLinks.forEach(link => {
+        // Cerrar menú al hacer click en un enlace
+        document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function() {
-                mobileMenuToggle.classList.remove('active');
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
-
-        // Cerrar menú al hacer click fuera de él
-        document.addEventListener('click', function(e) {
-            if (!mobileMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
-                mobileMenuToggle.classList.remove('active');
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-    }
-
-    // Funcionalidad del dropdown de traducción (desktop)
-    if (languageToggle && translateOptions) {
-        languageToggle.addEventListener('click', function(e) {
-            e.stopPropagation();
-            translateOptions.classList.toggle('show');
-        });
-
-        // Cerrar dropdown al hacer click fuera
-        document.addEventListener('click', function() {
-            translateOptions.classList.remove('show');
-        });
-
-        // Manejar selección de idioma (desktop)
-        document.querySelectorAll('.translate-option').forEach(option => {
-            option.addEventListener('click', function() {
-                const lang = this.getAttribute('data-lang');
-                handleLanguageChange(lang);
-                translateOptions.classList.remove('show');
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
             });
         });
     }
-
-    // Manejar selección de idioma (móvil)
-    document.querySelectorAll('.mobile-translate-option').forEach(option => {
-        option.addEventListener('click', function() {
-            const lang = this.getAttribute('data-lang');
-            handleLanguageChange(lang);
-            
-            // Actualizar estado activo
-            document.querySelectorAll('.mobile-translate-option').forEach(opt => {
-                opt.classList.remove('active');
-            });
-            this.classList.add('active');
-        });
-    });
-
-    // Cerrar menú móvil con tecla Escape
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('active')) {
-            mobileMenuToggle.classList.remove('active');
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    });
-}
-
-/**
- * Maneja el cambio de idioma
- */
-function handleLanguageChange(lang) {
-    // Aquí puedes implementar la lógica de cambio de idioma
-    console.log('Idioma seleccionado:', lang);
-    
-    // Ejemplo: guardar preferencia en localStorage
-    localStorage.setItem('selectedLanguage', lang);
-    
-    // Ejemplo: recargar página con nuevo idioma o aplicar traducciones
-    // window.location.reload();
-}
-
-/**
- * Marca la página activa en la navegación
- */
-function setActiveNavigation() {
-    const currentPath = window.location.pathname;
-    const currentPage = currentPath.split('/').pop() || 'index.html';
-    
-    // Remover clase active de todos los enlaces
-    document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
-        link.classList.remove('active');
-    });
-    
-    // Agregar clase active al enlace correspondiente
-    const pageMap = {
-        'index.html': ['index.html', ''],
-        'sobre-nosotros.html': ['sobre-nosotros.html'],
-        'servicios.html': ['servicios.html'],
-        'trabajamos-juntos.html': ['trabajamos-juntos.html'],
-        'galeria.html': ['galeria.html'],
-        'contacto.html': ['contacto.html']
-    };
-    
-    // Buscar qué página corresponde
-    let targetPage = 'index.html';
-    for (const [page, patterns] of Object.entries(pageMap)) {
-        if (patterns.includes(currentPage) || patterns.includes(currentPath)) {
-            targetPage = page;
-            break;
-        }
-    }
-    
-    // Marcar enlaces activos
-    document.querySelectorAll(`[href="${targetPage}"], [href*="${targetPage}"]`).forEach(link => {
-        if (link.classList.contains('nav-link') || link.classList.contains('mobile-nav-link')) {
-            link.classList.add('active');
-        }
-    });
 }
 
 /**
